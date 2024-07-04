@@ -36,6 +36,9 @@
     <!--====== Style css ======-->
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <!--====== Flags Brazil and Usa ======-->
+    <link rel="stylesheet" href="assets/css/flags.css">
+
 </head>
 
 <body>
@@ -69,18 +72,22 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="#">
-                                <img style="max-width: 25%" src="assets/images/logo.png" alt="Logo">
-                            </a>
+                            <div class="col-6 col-lg-4">
+                                <a class="navbar-brand" href="#">
+                                    <img class="logo-img" src="assets/images/logo.png" alt="Logo">
+                                </a>
+                            </div>
+                            <div class="col-6 col-lg-8 text-right d-flex justify-content-end align-items-center">
+                                <div class="d-lg-none">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="toggler-icon"></span>
+                                        <span class="toggler-icon"></span>
+                                        <span class="toggler-icon"></span>
+                                    </button>
+                                </div>
 
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="toggler-icon"></span>
-                                <span class="toggler-icon"></span>
-                                <span class="toggler-icon"></span>
-                            </button>
-
-                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
-                                <ul class="navbar-nav ml-auto">
+                            <div class="collapse navbar-collapse sub-menu-bar"  id="navbarEight">
+                                <ul class="navbar-nav ml-auto contentPtBr">
                                     <li class="nav-item active">
                                         <a class="page-scroll" href="#home">HOME</a>
                                     </li>
@@ -103,14 +110,40 @@
                                         <a class="page-scroll" href="#footer">CONTATO</a>
                                     </li>
                                 </ul>
+
+                                <ul class="navbar-nav ml-auto contentEnUs" style="display: none;">
+                                    <li class="nav-item active">
+                                        <a class="page-scroll" href="#home">HOME</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#about">SOLUTIONS</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#service">SERVICES</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#portfolio">PORTFOLIO</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#pricing">TEAM</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#testimonial">REPORTS</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#footer">CONTACT</a>
+                                    </li>
+                                </ul>
                             </div>
 
                             <div class="navbar-btn d-none mt-15 d-lg-inline-block">
                                 <a class="menu-bar" href="#side-menu-right"><i class="lni-menu"></i></a>
                             </div>
                             
-                            <img onclick="openPT()" style="width: 2%" class="ml-30" src="./assets/images/language/brazil.png">
-                            <img onclick="openEN()" style="width: 2%" class="ml-15" src="./assets/images/language/usa.png">
+                            <div class="flags ml-30 d-flex align-items-center">
+                                <img id="brazilImg" onclick="toggleLanguage('pt-br')" class="flag-img" src="./assets/images/language/brazil.png">
+                                <img id="usaImg" onclick="toggleLanguage('en-us')" class="flag-img ml-15" src="./assets/images/language/usa.png">
+                            </div>
                         </nav> <!-- navbar -->
                     </div>
                 </div> <!-- row -->
@@ -163,7 +196,7 @@
                 <a href="#"><img src="assets/images/logo.png" alt="Logo"></a>
             </div> <!-- logo -->
             <div class="sidebar-menu">
-                <ul>
+                <ul class="contentPtBr">
                     <li><a href="#about">SOLUÇÕES</a></li>
                     <li><a href="#service">SERVIÇOS</a></li>
                     <li><a href="#portfolio">PORTFÓLIO</a></li>
@@ -171,6 +204,15 @@
                     <li><a href="#testimonial">RELATOS</a></li>
                     <li><a href="#footer">CONTATO</a></li>
                 </ul>
+                <ul class="contentEnUs" style="display: none">
+                    <li><a href="#about">SOLUTIONS</a></li>
+                    <li><a href="#service">SERVICES</a></li>
+                    <li><a href="#portfolio">PORTFOLIO</a></li>
+                    <li><a href="#pricing">TEAM</a></li>
+                    <li><a href="#testimonial">REPORTS</a></li>
+                    <li><a href="#footer">CONTACT</a></li>
+                </ul>
+
             </div> <!-- menu -->
             <div class="sidebar-social d-flex align-items-center justify-content-center">
                 <span>CONTATE-NOS</span>
@@ -197,11 +239,19 @@
                     <div class="about-image text-center wow fadeInUp" data-wow-duration="1.5s" data-wow-offset="100">
                         <img src="assets/images/prototipo/1.png" alt="services">
                     </div>
-                    <div class="section-title text-center mt-30 pb-40">
+                    <div class="section-title text-center mt-30 pb-40 contentPtBr">
                         <h4 class="title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">Aquatic</h4>
                         <p class="text wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">Dispositivo de baixo custo para o monitoramento remoto de cultivos de aquicultura.</p>
                         <div class="action-btn rounded-buttons mt-60">
                             <a type="submit" value="Send" class=" main-btn rounded-three" href="/assets/app_smartrural.apk" target="_blank">Baixar Aplicativo</a>
+                        </div>
+                    </div>
+                     <!-- section title -->
+                    <div class="section-title text-center mt-30 pb-40 contentEnUs" style="display: none;">
+                        <h4 class="title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">Aquatic</h4>
+                        <p class="text wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">Low-cost device for remote monitoring of aquaculture crops.</p>
+                        <div class="action-btn rounded-buttons mt-60">
+                            <a type="submit" value="Send" class=" main-btn rounded-three" href="/assets/app_smartrural.apk" target="_blank">Download App</a>
                         </div>
                     </div> <!-- section title -->
                 </div>
@@ -213,9 +263,13 @@
                         <div class="about-icon">
                             <img src="assets/images/icons/ia.png" alt="inteligência artificial">
                         </div>
-                        <div class="about-content media-body">
+                        <div class="about-content media-body contentPtBr">
                             <h4 class="about-title">Inteligência Artificial</h4>
                             <p class="text">Obtenha dos níveis de oxigênio dissolvido através de inteligência artificial, dispensando o uso do sensor físico.</p>
+                        </div>
+                        <div class="about-content media-body contentEnUs" style="display: none;"">
+                            <h4 class="about-title">Artificial intelligence</h4>
+                            <p class="text">Obtain dissolved oxygen levels through artificial intelligence, eliminating the need for a physical sensor.</p>
                         </div>
                     </div> <!-- single about -->
                 </div>
@@ -224,9 +278,13 @@
                         <div class="about-icon">
                             <img src="assets/images/icons/monitoramento.png" alt="monitoramento em tempo real">
                         </div>
-                        <div class="about-content media-body">
+                        <div class="about-content media-body contentPtBr">
                             <h4 class="about-title">Monitoramento em Tempo Real</h4>
                             <p class="text">Tenha na palma da mão relatórios em tempo real sobre seu cultivo, em qualquer dispositivo, a qualquer momento e em qualquer lugar.</p>
+                        </div>
+                        <div class="about-content media-body contentEnUs" style="display: none;"">
+                            <h4 class="about-title">Real-Time Monitoring</h4>
+                            <p class="text">Have real-time reports about your cultivation in the palm of your hand, on any device, at any time and anywhere.</p>
                         </div>
                     </div> <!-- single about -->
                 </div>
@@ -235,9 +293,13 @@
                         <div class="about-icon">
                             <img src="assets/images/icons/cloud.png" alt="dados armazenados em nuvem">
                         </div>
-                        <div class="about-content media-body">
+                        <div class="about-content media-body contentPtBr">
                             <h4 class="about-title">Armazenamento em Nuvem</h4>
                             <p class="text">Utiliza da Computação em nuvem e de Big Data para o armazenamento automático de dados e geração de relatórios inteligente.</p>
+                        </div>
+                        <div class="about-content media-body contentEnUs" style="display: none;">
+                            <h4 class="about-title">Cloud Storage</h4>
+                            <p class="text">It uses cloud computing and Big Data for automatic data storage and intelligent reporting.</p>
                         </div>
                     </div> <!-- single about -->
                 </div>
@@ -246,9 +308,13 @@
                         <div class="about-icon">
                             <img src="assets/images/icons/snap.png" alt="fácil instalação">
                         </div>
-                        <div class="about-content media-body">
+                        <div class="about-content media-body contentPtBr">
                             <h4 class="about-title">Fácil Instalação</h4>
                             <p class="text">Após a configuração do Wi-Fi e inserção de chip de celular ligue o dispositivo e posicione-o no tanque de cultivo desejado.</p>
+                        </div>
+                        <div class="about-content media-body contentEnUs" style="display: none;">
+                            <h4 class="about-title">Easy Installation</h4>
+                            <p class="text">After configuring Wi-Fi and inserting a cell phone chip, turn on the device and position it in the desired cultivation tank.</p>
                         </div>
                     </div> <!-- single about -->
                 </div>
@@ -265,11 +331,19 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-6 col-lg-8">
                       
-                        <div class="section-title text-center mt-30 pb-40">
-                            <h4 class="title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">Sensor Virtual de Temperatura</h4>
+                        <div class="section-title text-center mt-30 pb-40 contentPtBr">
+                            <h4 class="title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">Ferramentas adicionais</h4>
                             <p class="text wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">Estime a temperatura da água através do sensoriamento virtual.</p>
                             <div class="action-btn rounded-buttons mt-60">
-                                <a type="submit" value="Send" class=" main-btn rounded-three" href="https://sensorvirtual.smartrural.com.br/" target="_blank">Começar Monitoramento</a>
+                                <a type="submit" value="Send" class=" main-btn rounded-three" href="https://sensorvirtual.smartrural.com.br/" target="_blank">Gestão de Clientes</a>
+                            </div>
+                            
+                        </div> <!-- section title -->
+                        <div class="section-title text-center mt-30 pb-40 contentEnUs" style="display: none;">
+                            <h4 class="title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">Additional Tools</h4>
+                            <p class="text wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">Estimate water temperature through virtual sensing.</p>
+                            <div class="action-btn rounded-buttons mt-60">
+                                <a type="submit" value="Send" class=" main-btn rounded-three" href="https://sensorvirtual.smartrural.com.br/" target="_blank">Client Management</a>
                             </div>
                             
                         </div> <!-- section title -->
@@ -286,17 +360,27 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="section-title text-center pb-20">
+                    <div class="section-title text-center pb-20 contentPtBr">
                         <h3 class="title">Nosso Portfólio</h3>
                         <p class="text">Registros das visitas técnicas e das execuções dos projetos da SmartRural</p>
+                    </div> <!-- row -->
+                    <div class="section-title text-center pb- contentEnUs" style="display: none;">
+                        <h3 class="title">Our Portfolio</h3>
+                        <p class="text">Records of technical visits and execution of SmartRural projects</p>
                     </div> <!-- row -->
                 </div>
             </div> <!-- row -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="portfolio-menu pt-30 text-center">
-                        <ul>
+                        <ul class="contentPtBr">
                             <li data-filter="*" class="active">TODOS</li>
+                            <li data-filter=".sao-jose" >SÃO JOSÉ DO EGITO</li>
+                            <li data-filter=".feira-nova">FEIRA NOVA</li>                            
+                            <li data-filter=".serra-talhada">SERRA TALHADA</li>
+                        </ul>
+                        <ul class="contentEnUs" style="display: none;">
+                            <li data-filter="*" class="active">ALL</li>
                             <li data-filter=".sao-jose" >SÃO JOSÉ DO EGITO</li>
                             <li data-filter=".feira-nova">FEIRA NOVA</li>                            
                             <li data-filter=".serra-talhada">SERRA TALHADA</li>
@@ -707,9 +791,13 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="section-title text-center pb-20">
+                    <div class="section-title text-center pb-20 contentPtBr">
                         <h3 class="title">Equipe</h3>
                         <p class="text">Nossa equipe é altamente especializada e capacitada</p>
+                    </div> <!-- section title -->
+                    <div class="section-title text-center pb-20 contentEnUs" style="display: none;">
+                        <h3 class="title">Team</h3>
+                        <p class="text">Our team is highly specialized and qualified</p>
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
@@ -721,7 +809,8 @@
                         </div>
                         <div class="pricing-header text-center">
                             <h4 class="sub-title"><a href="https://www.linkedin.com/in/fabioalvesfrei/"><i class="lni-linkedin-original"></i></a> Fábio Alves</h4>
-                            <p class="month">Desenvolvedor de Software</p>
+                            <p class="month contentPtBr">Desenvolvedor de Software</p>
+                            <p class="month contentEnUs" style="display: none;">Software Developer</p>
                         </div>
                     </div> <!-- pricing style one -->
                 </div>
@@ -733,7 +822,8 @@
                         </div>
                         <div class="pricing-header text-center">
                             <h4 class="sub-title"><a href="https://www.linkedin.com/in/obionor/"><i class="lni-linkedin-original"></i></a> Obionor Nóbrega</h4>
-                            <p class="month">Coordenador de<br> Projetos</p>
+                            <p class="month contentPtBr">Coordenador de<br> Projetos</p>
+                            <p class="month contentEnUs" style="display: none;">Project<br> Manager</p>
                         </div>
                     </div> <!-- pricing style one -->
                 </div>
@@ -745,7 +835,8 @@
                         </div>
                         <div class="pricing-header text-center">
                             <h4 class="sub-title"><a href="https://www.linkedin.com/in/victor-matheus-fonseca"><i class="lni-linkedin-original"></i></a> Victor Fonseca</h4>
-                            <p class="month">Desenvolvedor de Hardware</p>
+                            <p class="month contentPtBr">Desenvolvedor de Hardware</p>
+                            <p class="month contentEnUs" style="display: none;">Hardware Developer</p>
                         </div>
                     </div> <!-- pricing style one -->
                 </div>
@@ -764,9 +855,13 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="section-title text-center pb-20">
+                    <div class="section-title text-center pb-20 contentPtBr">
                         <h3 class="title">Relatos</h3>
                         <p class="text">Palavras dos nossos clientes e parceiros quanto a nossas soluções</p>
+                    </div> <!-- section title -->
+                    <div class="section-title text-center pb-20 contentEnUs" style="display: none;">
+                        <h3 class="title">Stories</h3>
+                        <p class="text">Words from our customers and partners about our solutions</p>
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
@@ -779,10 +874,15 @@
                                 <div class="testimonial-image">
                                     <img src="assets/images/relatos/nenem.png" alt="Author">
                                 </div>
-                                <div class="testimonial-content">
+                                <div class="testimonial-content contentPtBr">
                                     <p class="text">Muito bom ver a tecnologia chegar a minha fazenda</p>
                                     <h6 class="author-name">Sr. Neném</h6>
                                     <span class="sub-title">Aquicultor Familiar em Serra Talhada</span>
+                                </div>
+                                <div class="testimonial-content contentEnUs" style="display: none;">
+                                    <p class="text">It's great to see technology coming to my farm</p>
+                                    <h6 class="author-name">Sr. Neném</h6>
+                                    <span class="sub-title">Family Aquaculture in Serra Talhada</span>
                                 </div>
                             </div> <!-- single testimonial -->
                         </div>
@@ -791,10 +891,15 @@
                                 <div class="testimonial-image">
                                     <img src="assets/images/relatos/gilmar.png" alt="Author">
                                 </div>
-                                <div class="testimonial-content">
+                                <div class="testimonial-content contentPtBr">
                                     <p class="text">Achei muito prático e simples de ser utilizado</p>
                                     <h6 class="author-name">Gilmar Aguiar</h6>
                                     <span class="sub-title">Fundador da Acquavalle</span>
+                                </div>
+                                <div class="testimonial-content contentEnUs" style="display: none;">
+                                    <p class="text">I found it very practical and simple to use.</p>
+                                    <h6 class="author-name">Gilmar Aguiar</h6>
+                                    <span class="sub-title">Founder of Acquavalle</span>
                                 </div>
                             </div> <!-- single testimonial -->
                         </div>
@@ -803,10 +908,15 @@
                                 <div class="testimonial-image">
                                     <img src="assets/images/relatos/amom.png" alt="Author">
                                 </div>
-                                <div class="testimonial-content">
+                                <div class="testimonial-content contentPtBr">
                                     <p class="text">Esta tecnologia traz maior facilidade no monitoramento de viveiros de aquicultura</p>
                                     <h6 class="author-name">Amom Nascimento</h6>
                                     <span class="sub-title">Engenheiro de Pesca de Serra Talhada</span>
+                                </div>
+                                <div class="testimonial-content contentEnUs" style="display: none;">
+                                    <p class="text">This technology makes it easier to monitor aquaculture ponds</p>
+                                    <h6 class="author-name">Amom Nascimento</h6>
+                                    <span class="sub-title">Serra Talhada Fisheries Engineer</span>
                                 </div>
                             </div> <!-- single testimonial -->
                         </div>
@@ -815,10 +925,15 @@
                                 <div class="testimonial-image">
                                     <img src="assets/images/relatos/emerson.png" alt="Author">
                                 </div>
-                                <div class="testimonial-content">
+                                <div class="testimonial-content contentPtBr">
                                     <p class="text">Ver tecnologias deste tipo alcançando fazendas como a minha é de alto valor</p>
                                     <h6 class="author-name">Emerson Oliveira</h6>
                                     <span class="sub-title">Fundador da Aquicultura Oliveira</span>
+                                </div>
+                                <div class="testimonial-content contentEnUs" style="display: none;">
+                                    <p class="text">Seeing technologies of this type reaching farms like mine is of great value</p>
+                                    <h6 class="author-name">Emerson Oliveira</h6>
+                                    <span class="sub-title">Founder of Aquicultura Oliveira</span>
                                 </div>
                             </div> <!-- single testimonial -->
                         </div>
@@ -887,14 +1002,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="call-action-content mt-45">
+                    <div class="call-action-content mt-45 contentPtBr">
                         <h3 class="action-title">Contate-nos</h3>
                         <p class="text mb-3">Nos envie uma mensagem</p>
                     </div>
+                    <div class="call-action-content mt-45 contentEnUs" style="display: none;">
+                        <h3 class="action-title">Contact us</h3>
+                        <p class="text mb-3">Send us a message</p>
+                    </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="action-btn rounded-buttons mt-60">
+                    <div class="action-btn rounded-buttons mt-60 contentPtBr">
                         <a type="submit" value="Send" class=" main-btn rounded-three" href="mailto:contato@smartrural.com.br">Enviar Email</a>
+                    </div>
+                    <div class="action-btn rounded-buttons mt-60 contentEnUs" style="display: none;">
+                        <a type="submit" value="Send" class=" main-btn rounded-three" href="mailto:contato@smartrural.com.br">Send Email</a>
                     </div>
                 </div>
             </div>
@@ -987,15 +1109,9 @@
     <!--====== Main js ======-->
     <script src="assets/js/main.js"></script>
 
-    <script>
-        function openEN() {
-            window.location = "index-en.html"
-        }
-
-        function openPT() {
-            window.location = "index.html"
-        }
-    </script>
+    <!--====== ChangeLenguage ======-->
+    <script src="assets/js/lenguage.js"></script>
+    
 </body>
 
 </html>
