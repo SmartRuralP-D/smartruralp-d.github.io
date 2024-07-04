@@ -1,0 +1,38 @@
+.flag-img {
+    width: 4vw; /* Usar uma unidade relativa à largura da viewport */
+    cursor: pointer;
+    min-width: 20px; /* Garantir um tamanho mínimo para telas muito pequenas */
+    max-width: 25%;
+}
+
+.logo-img{
+    width: 5vw
+}
+
+@media (max-width: 768px) {
+    .flag-img {
+        width: 5vw; /* Aumentar o tamanho das bandeiras em telas menores */
+    }
+    .logo-img {
+        width: 10vw; /* Usar uma unidade relativa à largura da viewport */
+        cursor: pointer;
+        min-width: 20px; /* Garantir um tamanho mínimo para telas muito pequenas */
+        max-width: 25%;
+        padding-top: 20px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .flag-img {
+        width: 8vw; /* Ajustar novamente para telas ainda menores */
+    }
+    .logo-img {
+        width: 10vw; /* Usar uma unidade relativa à largura da viewport */
+        cursor: pointer;
+        min-width: 20px; /* Garantir um tamanho mínimo para telas muito pequenas */
+        max-width: 25%;
+        padding-top: 20px;
+        margin-bottom: 30px;
+    }   
+}
