@@ -1,0 +1,69 @@
+{
+    "name": "SmartRural Landing Page",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "..",
+        "args": {
+            "BASE_IMAGE": "ghcr.io/smartruralp-d/base-devcontainer:v1.7.1"
+        }
+    },
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "initializeCommand": [
+        "docker",
+        "compose",
+        "-p",
+        "smartrural-host-import-${devcontainerId}",
+        "--project-directory",
+        "${localWorkspaceFolder}/.devcontainer",
+        "-f",
+        "${localWorkspaceFolder}/.devcontainer/host-import.compose.yml",
+        "run",
+        "--rm",
+        "--no-deps",
+        "host-import"
+    ],
+    "containerEnv": {
+        "NODE_OPTIONS": "--dns-result-order=ipv4first",
+        "SMART_RURAL_LANDING_DEVCONTAINER": "1"
+    },
+    "mounts": [
+        "source=smartruralp-d-github-io-node-modules,target=/workspace/node_modules,type=volume",
+        "source=smartruralp-d-github-io-npm-cache,target=/home/vscode/.npm,type=volume"
+    ],
+    "forwardPorts": [5173, 4173],
+    "portsAttributes": {
+        "5173": {
+            "label": "Vite Dev Server",
+            "onAutoForward": "notify"
+        },
+        "4173": {
+            "label": "Vite Preview",
+            "onAutoForward": "silent"
+        }
+    },
+    "postCreateCommand": "bash .devcontainer/scripts/post-create.sh",
+    "postStartCommand": "bash .devcontainer/scripts/post-start.sh",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "bradlc.vscode-tailwindcss",
+                "csstools.postcss",
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "mikestead.dotenv",
+                "ms-vscode.vscode-typescript-next",
+                "yoavbls.pretty-ts-errors"
+            ],
+            "settings": {
+                "editor.codeActionsOnSave": {
+                    "source.fixAll.eslint": "explicit"
+                },
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "editor.formatOnSave": true,
+                "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+                "js/ts.tsdk.promptToUseWorkspaceVersion": true
+            }
+        }
+    }
+}

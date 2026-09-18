@@ -1,0 +1,72 @@
+# Vendored verbatim by consumers. Docker Compose, not a host shell, resolves
+# .env and platform-specific bind paths before this Linux helper starts.
+services:
+    host-import:
+        image: ${SMART_RURAL_HOST_IMPORT_IMAGE:-ghcr.io/smartruralp-d/base-devcontainer:v1.7.1}
+        user: root
+        network_mode: none
+        read_only: true
+        security_opt:
+            - no-new-privileges:true
+            # Docker's default AppArmor profile blocks the D-Bus Hello needed
+            # by the short-lived Linux Secret Service probe. The helper still
+            # has no network, is read-only, and receives only one bus socket.
+            - apparmor=unconfined
+        tmpfs:
+            - /tmp
+        entrypoint:
+            - /usr/local/share/smartrural/devcontainer/scripts/stage-host-import.sh
+        environment:
+            SMART_RURAL_HOST_CODEX_DIR: ${SMART_RURAL_HOST_CODEX_DIR:-}
+            SMART_RURAL_HOST_GH_DIR: ${SMART_RURAL_HOST_GH_DIR:-}
+            SMART_RURAL_HOST_GH_TOKEN: ${GH_TOKEN:-${GITHUB_TOKEN:-}}
+            SMART_RURAL_HOST_DBUS_SOCKET: ${SMART_RURAL_HOST_DBUS_SOCKET:-}
+            DBUS_SESSION_BUS_ADDRESS: unix:path=/host/dbus/bus
+            SMART_RURAL_HOST_AGY_DIR: ${SMART_RURAL_HOST_AGY_DIR:-}
+            SMART_RURAL_HOST_GIT_CONFIG: ${SMART_RURAL_HOST_GIT_CONFIG:-}
+            SMART_RURAL_HOST_SSH_DIR: ${SMART_RURAL_HOST_SSH_DIR:-}
+        volumes:
+            - type: bind
+              source: ${SMART_RURAL_HOST_HOME:-${HOME:-${USERPROFILE:-}}}
+              target: /host/home
+              read_only: true
+              bind:
+                  create_host_path: false
+            - type: bind
+              source: ${SMART_RURAL_HOST_CODEX_DIR:-${SMART_RURAL_HOST_HOME:-${HOME:-${USERPROFILE:-}}}}
+              target: /host/overrides/codex
+              read_only: true
+              bind: {create_host_path: false}
+            - type: bind
+              source: ${SMART_RURAL_HOST_GH_DIR:-${SMART_RURAL_HOST_HOME:-${HOME:-${USERPROFILE:-}}}}
+              target: /host/overrides/gh
+              read_only: true
+              bind: {create_host_path: false}
+            - type: bind
+              source: ${SMART_RURAL_HOST_AGY_DIR:-${SMART_RURAL_HOST_HOME:-${HOME:-${USERPROFILE:-}}}}
+              target: /host/overrides/agy
+              read_only: true
+              bind: {create_host_path: false}
+            - type: bind
+              source: ${SMART_RURAL_HOST_GIT_CONFIG:-${SMART_RURAL_HOST_HOME:-${HOME:-${USERPROFILE:-}}}}
+              target: /host/overrides/git-config
+              read_only: true
+              bind: {create_host_path: false}
+            - type: bind
+              source: ${SMART_RURAL_HOST_SSH_DIR:-${SMART_RURAL_HOST_HOME:-${HOME:-${USERPROFILE:-}}}}
+              target: /host/overrides/ssh
+              read_only: true
+              bind: {create_host_path: false}
+            # Keep this a single optional socket.  /dev/null is a portable
+            # non-bus sentinel when the host does not opt into Linux
+            # Secret Service forwarding; the helper will reject it as such.
+            - type: bind
+              source: ${SMART_RURAL_HOST_DBUS_SOCKET:-/dev/null}
+              target: /host/dbus/bus
+              read_only: true
+              bind: {create_host_path: false}
+            - type: volume
+              source: staging
+              target: /mnt/smartrural-import
+volumes:
+    staging:
