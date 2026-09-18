@@ -17,9 +17,10 @@ generated route tree (`src/routeTree.gen.ts`)
     │   ├─ QueryClientProvider
     │   └─ nested route outlet
     └─ home route (`src/routes/index.tsx`)
-        ├─ section navigation and responsive menu
-        ├─ static SmartRural content and interactions
-        └─ public/generated media assets
+        ├─ `HomePage` composition
+        ├─ shared site components (`src/components/site`)
+        ├─ landing sections (`src/components/landing`)
+        └─ typed static content/media (`src/content/landing.ts`)
 ```
 
 `src/start.ts` registers the TanStack Start request middleware. It preserves HTTP status errors, renders the repository error page for unexpected failures, and applies CSRF protection to server functions. `src/server.ts` loads the TanStack server entry lazily, normalizes h3's swallowed catastrophic SSR response, and returns the HTML error page when server handling fails. `src/lib/error-capture.ts` and `src/lib/lovable-error-reporting.ts` provide the error capture and development reporting boundaries used by the application.
@@ -29,13 +30,16 @@ generated route tree (`src/routeTree.gen.ts`)
 | Boundary | Responsibility | Source |
 | --- | --- | --- |
 | `src/routes` | File-based route modules, document metadata, page composition, and route-level error UI. | [Route guide](../src/routes/README.md) |
+| `src/components/landing` | SmartRural landing-page sections and section-local interactions. | Home-page section components |
+| `src/components/site` | Shared landing shell pieces such as the header, footer, brand, labels, and text links. | Site components |
+| `src/content` | Typed local content, navigation, media paths, and repeated landing-page data. | `landing.ts` |
 | `src/components/ui` | Reusable Radix-based UI primitives and presentation helpers. | [UI components](../src/components/ui) |
 | `src/hooks` | Small reusable browser hooks, currently including responsive viewport behavior. | [Hooks](../src/hooks) |
 | `src/lib` | Error handling, Lovable reporting, error-page rendering, and class-name utilities. | [Library helpers](../src/lib) |
 | `src/assets` | Source-managed images and asset metadata consumed by the application. | [Source assets](../src/assets) |
 | `public` and root export | Browser-served static files and generated GitHub Pages output. | [Export script](../scripts/export-pages.mjs) |
 
-The home route is intentionally content-oriented rather than API-driven. Its operational sections, portfolio images, testimonials, partner logos, and contact anchor are declared in `src/routes/index.tsx`. Local UI state controls the mobile menu, header scroll treatment, and testimonial carousel; this repository does not define authentication, backend requests, or persistent application state.
+The home route is intentionally content-oriented rather than API-driven. `src/routes/index.tsx` owns route metadata and delegates page composition to `HomePage`. The landing sections own their markup and local behavior, while repeated content and media paths live in `src/content/landing.ts`. Local UI state controls the mobile menu, header scroll treatment, and testimonial carousel; this repository does not define authentication, backend requests, or persistent application state.
 
 ## Build and publication flow
 
