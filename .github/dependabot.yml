@@ -1,0 +1,50 @@
+version: 2
+
+updates:
+    - package-ecosystem: 'npm'
+      directory: '/'
+      target-branch: 'dev'
+      schedule:
+          interval: 'monthly'
+      open-pull-requests-limit: 5
+      labels:
+          - 'deps'
+      commit-message:
+          prefix: 'chore'
+          include: 'scope'
+      groups:
+          eslint:
+              applies-to: version-updates
+              patterns:
+                  - 'eslint'
+                  - 'eslint-*'
+                  - '@eslint/*'
+                  - '@typescript-eslint/*'
+          types:
+              applies-to: version-updates
+              patterns:
+                  - '@types/*'
+          tooling:
+              applies-to: version-updates
+              patterns:
+                  - 'typescript'
+                  - 'vite'
+                  - 'prettier'
+          minor-and-patch:
+              applies-to: version-updates
+              update-types:
+                  - 'minor'
+                  - 'patch'
+
+    - package-ecosystem: 'github-actions'
+      directory: '/'
+      target-branch: 'dev'
+      schedule:
+          interval: 'monthly'
+      open-pull-requests-limit: 5
+      labels:
+          - 'deps'
+          - 'devops'
+      commit-message:
+          prefix: 'chore'
+          include: 'scope'
