@@ -1,36 +1,35 @@
-import { SiteFooter } from "@/components/site/site-footer";
-import { SiteHeader } from "@/components/site/site-header";
-
-import { BenefitsSection } from "@/components/landing/benefits-section";
-import { ContactSection } from "@/components/landing/contact-section";
-import { HeroSection } from "@/components/landing/hero-section";
-import { PartnersSection } from "@/components/landing/partners-section";
-import { PlatformSection } from "@/components/landing/platform-section";
-import { PortfolioSection } from "@/components/landing/portfolio-section";
-import { SolutionsSection } from "@/components/landing/solutions-section";
-import { TestimonialsSection } from "@/components/landing/testimonials-section";
+import { BenefitsSection } from '@/components/landing/benefits-section'
+import { ContactSection } from '@/components/landing/contact-section'
+import { HeroSection } from '@/components/landing/hero-section'
+import { PartnersSection } from '@/components/landing/partners-section'
+import { PlatformSection } from '@/components/landing/platform-section'
+import { PortfolioSection } from '@/components/landing/portfolio-section'
+import { SolutionsSection } from '@/components/landing/solutions-section'
+import { TestimonialsSection } from '@/components/landing/testimonials-section'
+import { SiteFooter } from '@/components/site/site-footer'
+import { SiteHeader } from '@/components/site/site-header'
 
 export function HomePage() {
-  return (
-    <div className="site-shell">
-      <a className="skip-link" href="#conteudo">
-        Ir para o conteúdo
-      </a>
+    return (
+        <div className="site-shell">
+            <a className="skip-link" href="#conteudo">
+                Ir para o conteúdo
+            </a>
 
-      <SiteHeader />
+            <SiteHeader />
 
-      <main id="conteudo">
-        <HeroSection />
-        <SolutionsSection />
-        <PlatformSection />
-        <BenefitsSection />
-        <PortfolioSection />
-        <TestimonialsSection />
-        <PartnersSection />
-        <ContactSection />
-      </main>
+            <main id="conteudo">
+                <HeroSection />
+                <SolutionsSection />
+                <PlatformSection />
+                <BenefitsSection />
+                <PortfolioSection />
+                <TestimonialsSection />
+                <PartnersSection />
+                <ContactSection />
+            </main>
 
-      <SiteFooter />
-    </div>
-  );
+            <SiteFooter />
+        </div>
+    )
 }

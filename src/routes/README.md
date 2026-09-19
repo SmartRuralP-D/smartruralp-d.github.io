@@ -4,11 +4,11 @@ This directory is the TanStack Start file-based routing boundary for the landing
 
 ## Current routes
 
-| File | URL | Responsibility |
-| --- | --- | --- |
-| `__root.tsx` | Application shell | Defines document metadata, global stylesheet links, error and not-found UI, `QueryClientProvider`, and the nested `<Outlet />`. |
-| `index.tsx` | `/` | Defines home-page metadata and mounts the composed SmartRural landing page. |
-| `privacy-policy.tsx` | `/privacy-policy` | Defines privacy-policy metadata and mounts the redesigned policy page. |
+| File                 | URL               | Responsibility                                                                                                                  |
+| -------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `__root.tsx`         | Application shell | Defines document metadata, global stylesheet links, error and not-found UI, `QueryClientProvider`, and the nested `<Outlet />`. |
+| `index.tsx`          | `/`               | Defines home-page metadata and mounts the composed SmartRural landing page.                                                     |
+| `privacy-policy.tsx` | `/privacy-policy` | Defines privacy-policy metadata and mounts the redesigned policy page.                                                          |
 
 The route tree contains the home route and the privacy-policy route. Add a route module when a new URL is part of the application contract; do not create a parallel `src/pages/` or Next.js `app/` tree.
 

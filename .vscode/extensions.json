@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode-remote.remote-containers",
+        "usernamehw.errorlens",
+        "christian-kohler.path-intellisense",
+        "formulahendry.auto-rename-tag",
+        "csstools.postcss",
+        "ms-vscode.vscode-typescript-next",
+        "mikestead.dotenv",
+        "yoavbls.pretty-ts-errors",
+        "vunguyentuan.vscode-css-variables"
+    ]
+}
