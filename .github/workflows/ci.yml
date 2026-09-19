@@ -1,0 +1,56 @@
+name: CI Pipeline
+
+on:
+    pull_request:
+        branches: [main, dev]
+        types: [opened, synchronize, reopened, ready_for_review]
+
+    workflow_dispatch:
+
+concurrency:
+    group: ci-${{ github.event.pull_request.number || github.ref }}
+    cancel-in-progress: true
+
+permissions:
+    contents: read
+    pull-requests: read
+
+jobs:
+    select-runner:
+        name: Select runner
+        uses: SmartRuralP-D/workflows/.github/workflows/runner-selector.yml@v1.10.0
+        with:
+            availability-policy: prefer-self-hosted
+            app-client-id: ${{ vars.RUNNER_SELECTOR_APP_CLIENT_ID }}
+            required-labels: '["self-hosted", "Linux", "X64"]'
+            show-runner-diagnostics: false
+        secrets:
+            app-private-key: ${{ secrets.RUNNER_SELECTOR_APP_PRIVATE_KEY }}
+
+    validation:
+        name: Landing page validation
+        if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+        needs: select-runner
+        runs-on: ${{ fromJSON(needs.select-runner.outputs.runs-on) }}
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+
+            - name: Set up Node.js
+              uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+              with:
+                  node-version-file: .nvmrc
+                  cache: npm
+                  cache-dependency-path: package-lock.json
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Lint
+              run: npm run lint
+
+            - name: Typecheck
+              run: npx tsc --noEmit
+
+            - name: Build application
+              run: npm run build
