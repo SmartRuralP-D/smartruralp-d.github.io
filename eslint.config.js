@@ -1,40 +1,120 @@
-import js from "@eslint/js";
-import eslintPluginPrettier from "eslint-plugin-prettier/recommended";
-import globals from "globals";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
-import tseslint from "typescript-eslint";
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-export default tseslint.config(
-  { ignores: ["dist", ".output", ".vinxi"] },
-  {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ["**/*.{ts,tsx}"],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
+import { fixupConfigRules, fixupPluginRules } from '@eslint/compat'
+import { FlatCompat } from '@eslint/eslintrc'
+import js from '@eslint/js'
+import tsParser from '@typescript-eslint/parser'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
+import prettier from 'eslint-plugin-prettier'
+import react from 'eslint-plugin-react'
+import reactHooks from 'eslint-plugin-react-hooks'
+import simpleImportSort from 'eslint-plugin-simple-import-sort'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const compat = new FlatCompat({
+    baseDirectory: __dirname,
+    recommendedConfig: js.configs.recommended,
+    allConfig: js.configs.all
+})
+
+const lintFiles = ['src/**/*.{js,jsx,ts,tsx}', 'scripts/**/*.{js,mjs,ts,tsx}', 'vite.config.ts']
+
+export default [
+    ...fixupConfigRules(compat.extends('prettier')),
+
+    {
+        ignores: ['node_modules/**', 'dist/**', '.output/**', '.vinxi/**', 'src/routeTree.gen.ts']
     },
-    plugins: {
-      "react-hooks": reactHooks,
-      "react-refresh": reactRefresh,
-    },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-      "no-restricted-imports": [
-        "error",
-        {
-          paths: [
-            {
-              name: "server-only",
-              message:
-                "TanStack Start does not use the Next.js `server-only` package. Rename the module to `*.server.ts` or mark it with `@tanstack/react-start/server-only`.",
-            },
-          ],
+    {
+        files: lintFiles,
+
+        plugins: {
+            prettier,
+            react,
+            'react-hooks': fixupPluginRules(reactHooks),
+            'jsx-a11y': jsxA11y,
+            'simple-import-sort': simpleImportSort
         },
-      ],
-      "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
-      "@typescript-eslint/no-unused-vars": "off",
+
+        languageOptions: {
+            ecmaVersion: 'latest',
+            sourceType: 'module',
+            parserOptions: {
+                ecmaFeatures: {
+                    jsx: true
+                }
+            }
+        },
+
+        settings: {
+            react: {
+                version: 'detect'
+            }
+        },
+
+        rules: {
+            'react/jsx-filename-extension': 'off',
+            'no-param-reassign': 'off',
+            'react/prop-types': 'off',
+            'react/require-default-props': 'off',
+            'react/no-array-index-key': 'off',
+            'react/react-in-jsx-scope': 'off',
+            'react/jsx-props-no-spreading': 'off',
+            'no-console': 'off',
+            'no-shadow': 'off',
+            'jsx-a11y/label-has-associated-control': 'off',
+            'jsx-a11y/no-autofocus': 'off',
+            'react/jsx-uses-react': 'off',
+            'react/jsx-uses-vars': 'error',
+            'react-hooks/rules-of-hooks': 'error',
+            'react-hooks/exhaustive-deps': 'warn',
+
+            'simple-import-sort/imports': [
+                'error',
+                {
+                    groups: [['^react$', '^@?\\w'], ['^node:'], ['^@/'], ['^\\.']]
+                }
+            ],
+            'simple-import-sort/exports': 'error',
+
+            'no-restricted-imports': [
+                'error',
+                {
+                    patterns: [
+                        {
+                            regex: '^\\.{1,2}/',
+                            message: 'Relative imports are not allowed. Use the @/* alias or node: imports instead.'
+                        }
+                    ]
+                }
+            ],
+
+            'no-unused-vars': [
+                'warn',
+                {
+                    vars: 'all',
+                    args: 'none',
+                    varsIgnorePattern: '^_',
+                    argsIgnorePattern: '^_'
+                }
+            ],
+
+            'prettier/prettier': 'warn'
+        }
     },
-  },
-  eslintPluginPrettier,
-);
+    {
+        files: ['src/**/*.{ts,tsx,d.ts}', 'scripts/**/*.{ts,tsx,d.ts}', 'vite.config.ts'],
+
+        languageOptions: {
+            parser: tsParser,
+            parserOptions: {
+                sourceType: 'module',
+                ecmaFeatures: {
+                    jsx: true
+                }
+            }
+        }
+    }
+]

@@ -1,3 +1,26 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# build output
+/dist
+/dist-ssr
+/.output
+/.vinxi
+/.tanstack/**
+/.nitro
+/out
+/build
+
+# testing
+/coverage
+
 # Logs
 logs
 *.log
@@ -7,22 +30,25 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-.output
-.vinxi
-.tanstack/**
-.nitro
+# local environment/configuration
 *.local
+.env*
+!.env.example
+!.env.*.example
 
 # Wrangler / Cloudflare
 .wrangler/
 .dev.vars
 
+# generated/runtime artifacts
+*.tsbuildinfo
+public/runtime-config.local.js
+public/dev-config.local.js
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea
 .DS_Store
 *.suo
