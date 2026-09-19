@@ -4,6 +4,14 @@ import { fileURLToPath } from "node:url";
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
-for (const entry of ["assets", "favicon.png", "robots.txt", "_headers", "index.html"]) {
+for (const entry of [
+  "assets",
+  "favicon.png",
+  "robots.txt",
+  "_headers",
+  "index.html",
+  "privacy-policy.html",
+  "privacy-policy",
+]) {
   await rm(resolve(repositoryRoot, entry), { force: true, recursive: true });
 }
