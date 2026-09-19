@@ -7,15 +7,17 @@ This directory is the TanStack Start file-based routing boundary for the landing
 | File | URL | Responsibility |
 | --- | --- | --- |
 | `__root.tsx` | Application shell | Defines document metadata, global stylesheet links, error and not-found UI, `QueryClientProvider`, and the nested `<Outlet />`. |
-| `index.tsx` | `/` | Renders the SmartRural landing page, navigation, product sections, portfolio, testimonials, partner logos, contact section, and footer. |
+| `index.tsx` | `/` | Defines home-page metadata and mounts the composed SmartRural landing page. |
 
 The route tree currently contains only the home route. Add a route module when a new URL is part of the application contract; do not create a parallel `src/pages/` or Next.js `app/` tree.
 
 ## File conventions
 
-Use TanStack Router's `createFileRoute` for leaf routes and keep route metadata close to the route that owns it. Use `createRootRouteWithContext` only for the root shell, preserve the `QueryClient` context contract, and keep nested content renderable through `<Outlet />`. The route modules may import shared UI and utilities through the `@/*` alias defined in [tsconfig.json](../../tsconfig.json).
+Use TanStack Router's `createFileRoute` for leaf routes and keep route metadata close to the route that owns it. Use `createRootRouteWithContext` only for the root shell, preserve the `QueryClient` context contract, and keep nested content renderable through `<Outlet />`. Authored source imports must use the `@/*` alias defined in [tsconfig.json](../../tsconfig.json); relative imports in the generated route tree are owned by TanStack Router and must not be edited by hand.
 
 Use URL fragments for navigation within the single landing page when the destination is a section such as `#solucoes`, `#plataforma`, `#portfolio`, `#sobre`, or `#contato`. Keep static media references aligned with the generated Pages export under `/assets/smartrural/`; source asset metadata belongs under `src/assets/`, while browser-served files belong under `public/` or the generated root export according to the build scripts.
+
+Landing-page sections belong under [`src/components/landing`](../components/landing), shared site shell pieces belong under [`src/components/site`](../components/site), and editable static content belongs in [`src/content/landing.ts`](../content/landing.ts). Keep route modules thin: route metadata and page composition should remain separate from section markup and interaction state.
 
 ## Generated files and validation
 
