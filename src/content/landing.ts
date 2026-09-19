@@ -75,6 +75,7 @@ export const footerColumns = [
       { label: "Sobre", href: "#sobre" },
       { label: "Portfólio", href: "#portfolio" },
       { label: "Contato", href: "#contato" },
+      { label: "Política de privacidade", href: "/privacy-policy" },
     ],
   },
 ] as const;
