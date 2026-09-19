@@ -1,0 +1,5 @@
+# Dev Container local files
+.env*
+!.env*.example
+tmp/
+cache/

@@ -20,7 +20,30 @@ if (!response.ok) {
 await mkdir(publicDirectory, { recursive: true });
 await writeFile(resolve(publicDirectory, "index.html"), await response.text());
 
-for (const entry of ["assets", "favicon.png", "robots.txt", "_headers", "index.html"]) {
+const privacyResponse = await server.fetch(
+  new Request("https://www.smartrural.com.br/privacy-policy"),
+  {},
+  { waitUntil() {} },
+);
+
+if (!privacyResponse.ok) {
+  throw new Error(`Privacy policy export failed with HTTP ${privacyResponse.status}.`);
+}
+
+const privacyPolicyHtml = await privacyResponse.text();
+await writeFile(resolve(publicDirectory, "privacy-policy.html"), privacyPolicyHtml);
+await mkdir(resolve(publicDirectory, "privacy-policy"), { recursive: true });
+await writeFile(resolve(publicDirectory, "privacy-policy/index.html"), privacyPolicyHtml);
+
+for (const entry of [
+  "assets",
+  "favicon.png",
+  "robots.txt",
+  "_headers",
+  "index.html",
+  "privacy-policy.html",
+  "privacy-policy",
+]) {
   await rm(resolve(repositoryRoot, entry), { force: true, recursive: true });
 }
 
