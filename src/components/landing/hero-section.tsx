@@ -6,7 +6,7 @@ import { media } from '@/content/landing'
 export function HeroSection() {
     return (
         <section id="inicio" className="bg-white pt-[164px]">
-            <div className="mx-auto w-[min(calc(100%-64px),1240px)]">
+            <div className="page-container">
                 <div className="grid items-end gap-9 pb-[62px] [grid-template-columns:minmax(0,9fr)_minmax(140px,2fr)] max-[900px]:grid-cols-1">
                     <div>
                         <SectionLabel>TECNOLOGIA APLICADA AO CAMPO</SectionLabel>

@@ -5,12 +5,12 @@ import { media } from '@/content/landing'
 
 export function PortfolioSection() {
     return (
-        <section id="portfolio" className="bg-[var(--surface)] py-[clamp(92px,11vw,160px)] max-[640px]:py-[86px]">
-            <div className="mx-auto w-[min(calc(100%_-_64px),1240px)] max-[640px]:w-[min(calc(100%_-_40px),1240px)]">
+        <section id="portfolio" className="bg-surface section-padding">
+            <div className="page-container">
                 <div className="grid items-end gap-[34px] min-[901px]:grid-cols-[minmax(0,7fr)_minmax(260px,4fr)] max-[900px]:grid-cols-1">
                     <div>
                         <SectionLabel>04 / PORTFÓLIO</SectionLabel>
-                        <h2 className="mt-5 max-w-[800px] text-[clamp(2.75rem,5vw,5.4rem)] leading-[.99] max-[640px]:mt-4 max-[640px]:text-[clamp(2.65rem,13vw,4.3rem)]">
+                        <h2 className="section-heading">
                             SmartRural <em>em campo.</em>
                         </h2>
                     </div>

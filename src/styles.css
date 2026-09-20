@@ -3,6 +3,7 @@
 @import 'tw-animate-css';
 
 :root {
+    /* Primitive values are kept stable so existing surfaces retain their visual language. */
     --blue: #2180f6;
     --blue-dark: #1768c8;
     --blue-light: #eaf3ff;
@@ -15,20 +16,55 @@
     --white: #ffffff;
     --dark: #101316;
     --dark-soft: #1b2025;
-    --font-sans: 'Manrope', 'Inter', Arial, sans-serif;
+    --font-family-sans: 'Manrope', 'Inter', Arial, sans-serif;
 }
 
 @theme inline {
-    --font-sans: var(--font-sans);
-    --color-blue: var(--blue);
-    --color-blue-dark: var(--blue-dark);
-    --color-surface: var(--surface);
-    --color-warm: var(--warm);
+    /* Semantic color vocabulary */
+    --color-brand: var(--blue);
+    --color-brand-strong: var(--blue-dark);
+    --color-brand-soft: var(--blue-light);
     --color-ink: var(--ink);
     --color-text: var(--text);
     --color-muted: var(--muted);
+    --color-border: var(--border);
+    --color-surface: var(--surface);
+    --color-warm: var(--warm);
+    --color-canvas: var(--white);
+    --color-inverse: var(--dark);
+    --color-inverse-soft: var(--dark-soft);
+    --color-primary: var(--blue);
+    --color-primary-foreground: var(--white);
+    --color-ring: var(--blue);
+
+    /* Backwards-compatible names used by existing components. */
+    --color-blue: var(--blue);
+    --color-blue-dark: var(--blue-dark);
     --color-dark: var(--dark);
     --color-dark-soft: var(--dark-soft);
+
+    /* Typography, layout, shape, elevation, motion and responsive tokens. */
+    --font-sans: var(--font-family-sans);
+    --font-display: var(--font-family-sans);
+    --font-weight-body: 500;
+    --font-weight-emphasis: 800;
+    --tracking-display: -0.055em;
+    --container-page: 1240px;
+    --radius-control: 6px;
+    --radius-card: 0px;
+    --radius-pill: 9999px;
+    --shadow-header: 0 8px 30px rgba(21, 23, 25, 0.05);
+    --shadow-card: 0 28px 70px rgba(21, 23, 25, 0.08);
+    --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --transition-standard: 200ms var(--ease-standard);
+    --transition-fast: 160ms var(--ease-standard);
+    --breakpoint-phone: 640px;
+    --breakpoint-content: 900px;
+}
+
+/* Existing utility names remain aliases during the migration to semantic tokens. */
+:root {
+    --font-sans: var(--font-family-sans);
 }
 
 * {
@@ -84,6 +120,26 @@ img {
 :focus-visible {
     outline: 3px solid color-mix(in srgb, var(--blue) 65%, white);
     outline-offset: 4px;
+}
+
+.page-container {
+    width: min(calc(100% - 64px), var(--container-page));
+    margin-inline: auto;
+}
+
+.section-padding {
+    padding-block: clamp(86px, 11vw, 160px);
+}
+
+.section-heading {
+    margin-top: 1.25rem;
+    max-width: 800px;
+    font-size: clamp(2.65rem, 5vw, 5.4rem);
+    line-height: .99;
+}
+
+@media (max-width: 640px) {
+    .page-container { width: min(calc(100% - 40px), var(--container-page)); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -9,12 +9,12 @@ export function SolutionsSection() {
     const aviculture = solutions.aviculture
 
     return (
-        <section id="solucoes" className="bg-[var(--surface)] py-[clamp(86px,11vw,160px)]">
-            <div className="mx-auto w-[min(calc(100%_-_64px),1240px)] max-[640px]:w-[min(calc(100%_-_40px),1240px)]">
+        <section id="solucoes" className="bg-surface section-padding">
+            <div className="page-container">
                 <div className="grid gap-[34px] min-[901px]:grid-cols-[minmax(0,7fr)_minmax(260px,4fr)] min-[901px]:items-end">
                     <div>
                         <SectionLabel>01 / ÁREAS DE ATUAÇÃO</SectionLabel>
-                        <h2 className="mt-5 max-w-[800px] text-[clamp(2.65rem,5vw,5.4rem)] leading-[.99]">
+                        <h2 className="section-heading">
                             Conheça nossas <em>soluções</em>
                         </h2>
                     </div>

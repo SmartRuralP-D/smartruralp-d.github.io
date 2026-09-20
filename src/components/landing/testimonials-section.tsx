@@ -9,11 +9,11 @@ export function TestimonialsSection() {
     const activeTestimonial = testimonials[testimonial] ?? testimonials[0]!
 
     return (
-        <section id="relatos" className="bg-[var(--dark)] py-[clamp(92px,11vw,160px)] text-white">
-            <div className="mx-auto w-[min(calc(100%-64px),1240px)]">
-                <div className="[&_p]:text-[#9bc7ff] [&_h2]:mt-[16px] [&_h2]:text-[clamp(2.65rem,13vw,4.3rem)]">
+        <section id="relatos" className="bg-inverse section-padding text-white">
+            <div className="page-container">
+                <div>
                     <SectionLabel>05 / RELATOS</SectionLabel>
-                    <h2 className="text-white [&_em]:text-[#9bc7ff]">
+                    <h2 className="section-heading text-[clamp(2.65rem,13vw,4.3rem)] text-white [&_em]:text-[#9bc7ff]">
                         Feita para quem está <em>no campo.</em>
                     </h2>
                 </div>

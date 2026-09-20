@@ -5,12 +5,12 @@ import { media, platformAccess } from '@/content/landing'
 
 export function PlatformSection() {
     return (
-        <section id="plataforma" className="bg-[var(--dark)] py-[clamp(86px,11vw,160px)] text-white">
-            <div className="mx-auto w-[min(calc(100%_-_64px),1240px)] max-[640px]:w-[min(calc(100%_-_40px),1240px)]">
+        <section id="plataforma" className="bg-inverse section-padding text-white">
+            <div className="page-container">
                 <div className="grid gap-[34px] min-[901px]:grid-cols-[minmax(0,7fr)_minmax(260px,4fr)] min-[901px]:items-end">
                     <div>
                         <SectionLabel>02 / PLATAFORMA SMARTRURAL</SectionLabel>
-                        <h2 className="mt-5 max-w-[800px] text-[clamp(2.65rem,5vw,5.4rem)] leading-[.99] text-white">
+                        <h2 className="section-heading text-white">
                             Uma única visão da <em className="text-[#8fbcff]">sua operação.</em>
                         </h2>
                     </div>

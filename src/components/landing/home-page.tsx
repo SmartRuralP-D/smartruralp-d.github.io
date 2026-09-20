@@ -11,9 +11,9 @@ import { SiteHeader } from '@/components/site/site-header'
 
 export function HomePage() {
     return (
-        <div className="overflow-clip bg-white">
+        <div className="overflow-clip bg-canvas">
             <a
-                className="fixed left-3 top-3 z-[100] -translate-y-[150%] bg-[var(--ink)] px-[14px] py-[10px] text-white transition-transform duration-200 focus:translate-y-0"
+                className="fixed left-3 top-3 z-[100] -translate-y-[150%] bg-ink px-[14px] py-[10px] text-white transition-transform duration-200 focus:translate-y-0"
                 href="#conteudo"
             >
                 Ir para o conteúdo

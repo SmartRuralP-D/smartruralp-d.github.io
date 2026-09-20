@@ -99,7 +99,7 @@ export function PrivacyPolicyPage() {
                                 </p>
                             </section>
 
-                            <p className="mt-[52px]! border-t border-[var(--border)] pt-[22px] text-[12px] font-bold tracking-[0.04em] text-[var(--muted)]">
+                            <p className="!mt-[52px] border-t border-[var(--border)] pt-[22px] text-[12px] font-bold tracking-[0.04em] text-[var(--muted)]">
                                 Last Updated: 2023-06-29
                             </p>
                         </div>

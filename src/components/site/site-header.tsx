@@ -3,6 +3,7 @@ import { ArrowUpRight, Menu, X } from 'lucide-react'
 
 import { Brand } from '@/components/site/brand'
 import { navigation } from '@/content/landing'
+import { cn } from '@/lib/utils'
 
 export function SiteHeader() {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -19,7 +20,10 @@ export function SiteHeader() {
 
     return (
         <header
-            className={`fixed inset-x-0 top-0 z-50 border-b transition ${scrolled ? 'border-[rgba(221,226,230,.9)] bg-[rgba(255,255,255,.88)] shadow-[0_8px_30px_rgba(21,23,25,.05)] backdrop-blur-[16px]' : 'border-transparent bg-[rgba(255,255,255,.72)]'}`}
+            className={cn(
+                'fixed inset-x-0 top-0 z-50 border-b transition',
+                scrolled ? 'border-border/90 bg-white/88 shadow-header backdrop-blur-[16px]' : 'border-transparent bg-white/72'
+            )}
         >
             <div className="mx-auto flex min-h-[84px] w-[min(calc(100%-64px),1240px)] items-center justify-between gap-8">
                 <Brand />

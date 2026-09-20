@@ -5,14 +5,20 @@ import { ArrowRight, ArrowUpRight, CalendarDays, Radio, Smartphone } from 'lucid
 import { SectionLabel } from '@/components/site/section-label'
 import { operationBenefits } from '@/content/landing'
 
+const flowSteps: Array<[React.ElementType, string, string]> = [
+    [Radio, 'No campo', 'Sensores acompanham informações importantes.'],
+    [CalendarDays, 'Na SmartRural', 'Essas informações são organizadas.'],
+    [Smartphone, 'No celular ou computador', 'Você acompanha sua operação.']
+]
+
 export function BenefitsSection() {
     return (
-        <section id="operacao" className="bg-white py-[clamp(86px,11vw,160px)]">
-            <div className="mx-auto w-[min(calc(100%_-_64px),1240px)] max-[640px]:w-[min(calc(100%_-_40px),1240px)]">
+        <section id="operacao" className="bg-canvas section-padding">
+            <div className="page-container">
                 <div className="grid gap-[34px] min-[901px]:grid-cols-[minmax(0,7fr)_minmax(260px,4fr)] min-[901px]:items-start">
                     <div>
                         <SectionLabel>03 / NO DIA A DIA</SectionLabel>
-                        <h2 className="mt-5 max-w-[800px] text-[clamp(2.65rem,5vw,5.4rem)] leading-[.99]">
+                        <h2 className="section-heading">
                             Informação que ajuda a <em>acompanhar.</em>
                         </h2>
                     </div>
@@ -42,11 +48,7 @@ export function BenefitsSection() {
                     className="mt-[54px] grid gap-[17px] bg-[var(--surface)] p-[22px] min-[641px]:mt-[75px] min-[641px]:grid-cols-[1fr_30px_1fr_30px_1fr] min-[641px]:gap-[26px] min-[641px]:p-8"
                     aria-label="Como a informação chega até você"
                 >
-                    {[
-                        [Radio, 'No campo', 'Sensores acompanham informações importantes.'],
-                        [CalendarDays, 'Na SmartRural', 'Essas informações são organizadas.'],
-                        [Smartphone, 'No celular ou computador', 'Você acompanha sua operação.']
-                    ].map(([Icon, label, text], i) => (
+                    {flowSteps.map(([Icon, label, text], i) => (
                         <Fragment key={label as string}>
                             <div className="grid grid-cols-[40px_1fr] items-center gap-x-3">
                                 <span className="row-span-2 grid h-[38px] w-[38px] place-items-center rounded-full border border-[#bdd5f5] text-[var(--blue)]">

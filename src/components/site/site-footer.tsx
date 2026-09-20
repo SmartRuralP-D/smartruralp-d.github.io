@@ -1,9 +1,10 @@
 import { Brand } from '@/components/site/brand'
 import { footerColumns } from '@/content/landing'
+import { cn } from '@/lib/utils'
 
 export function SiteFooter() {
     return (
-        <footer id="sobre" className="bg-[var(--dark)] text-[#dbe3e8]">
+        <footer id="sobre" className={cn('bg-inverse text-[#dbe3e8]')}>
             <div className="mx-auto w-[min(calc(100%-64px),1240px)]">
                 <div className="grid gap-[35px] py-20 pb-[74px] [grid-template-columns:2.2fr_repeat(4,1fr)] max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
                     <div>
