@@ -41,8 +41,8 @@ export function SolutionsSection() {
 
                     <article className="solution-secondary">
                         <div className="solution-secondary-image">
-                            <img src={aviculture.image} alt={aviculture.imageAlt} width={1536} height={1024} loading="lazy" />
-                            <span className="placeholder-tag">{aviculture.imageNote}</span>
+                            <img src={aviculture.image} alt={aviculture.imageAlt} width={261} height={193} loading="lazy" />
+                            <span className="image-note">{aviculture.imageNote}</span>
                         </div>
                         <div className="solution-secondary-copy">
                             <span className="solution-number">{aviculture.number}</span>

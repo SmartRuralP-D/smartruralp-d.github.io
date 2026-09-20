@@ -613,8 +613,7 @@ h2 em {
     transform: scale(1.035);
 }
 
-.image-note,
-.placeholder-tag {
+.image-note {
     position: absolute;
     z-index: 2;
     bottom: 17px;
@@ -634,12 +633,6 @@ h2 em {
     width: 13px;
     height: 13px;
     color: #9ac7ff;
-}
-
-.placeholder-tag {
-    color: #e7edf1;
-    font-size: 10px;
-    font-weight: 600;
 }
 
 .solution-feature-copy {

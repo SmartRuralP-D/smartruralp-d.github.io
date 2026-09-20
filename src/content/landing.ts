@@ -1,8 +1,6 @@
 import type { LucideIcon } from 'lucide-react'
 import { Bell, FileText, Gauge, History, SlidersHorizontal } from 'lucide-react'
 
-import poultryPlaceholder from '@/assets/poultry-placeholder.jpg'
-
 export const asset = (file: string) => `/assets/smartrural/${file}`
 
 export const media = {
@@ -19,7 +17,7 @@ export const media = {
     webDashboard: asset('web-dashboard.png'),
     webChart: asset('web-chart.png'),
     mobileDashboard: asset('mobile-dashboard.jpeg'),
-    poultryPlaceholder
+    aviculture: asset('aviculture.jpeg')
 } as const
 
 export const navigation = [
@@ -43,9 +41,9 @@ export const solutions = {
     aviculture: {
         number: '02',
         title: 'Avicultura',
-        image: media.poultryPlaceholder,
-        imageAlt: 'Placeholder visual de um aviário com aves e equipamentos',
-        imageNote: 'Placeholder visual · avicultura',
+        image: media.aviculture,
+        imageAlt: 'Aviário com aves e equipamentos de produção',
+        imageNote: 'Operação avícola',
         copy: 'Uma base preparada para acompanhar ambiente, ventilação, temperatura, umidade e equipamentos de aviários.',
         linkLabel: 'Conversar sobre a operação',
         linkHref: '#contato'
