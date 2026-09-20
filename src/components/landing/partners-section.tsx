@@ -1,5 +1,5 @@
 import { SectionLabel } from '@/components/site/section-label'
-import { asset, partners } from '@/content/landing'
+import { partners } from '@/content/landing'
 
 export function PartnersSection() {
     return (
@@ -17,7 +17,7 @@ export function PartnersSection() {
                 <div className="partner-list">
                     {partners.map((partner) => (
                         <div className="partner-logo" key={partner}>
-                            <img src={asset(partner)} alt="Logo de parceiro institucional da SmartRural" width={512} height={350} loading="lazy" />
+                            <img src={partner} alt="Logo de parceiro institucional da SmartRural" width={512} height={350} loading="lazy" />
                         </div>
                     ))}
                 </div>

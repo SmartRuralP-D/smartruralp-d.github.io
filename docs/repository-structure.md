@@ -14,7 +14,7 @@ src/
   router.tsx    router factory and QueryClient context
   start.ts      request and CSRF middleware
   server.ts     SSR/server-entry wrapper
-public/         browser-served source assets and metadata
+public/         browser-served static files and metadata
 scripts/        Pages-root cleanup and static export tooling
 .devcontainer/  Base Dev Container overlay, host import, and validation
 docs/           cross-cutting technical documentation
@@ -32,7 +32,7 @@ The repository also contains generated or tool-owned files such as `src/routeTre
 
 Add URLs and route-level composition under `src/routes`; preserve the root `<Outlet />` and update route metadata with the route that owns it. Put reusable visual primitives under `src/components/ui`, shared browser behavior under `src/hooks`, and cross-cutting error or class-name utilities under `src/lib`. Keep landing-page copy, section structure, and media mappings in `src/routes/index.tsx` unless a new shared boundary is justified by implementation.
 
-Keep source-managed images and asset metadata in `src/assets`. Put files that must be available directly from the browser in `public`; the Pages export copies the resulting public output into the generated root. Put repository automation and export behavior in `scripts`; put container lifecycle and validation in `.devcontainer`; put cross-cutting explanations in `docs`.
+Keep application media and its asset metadata in `src/assets`; authored components import those files so Vite fingerprints and emits them into the build output. Put files that must be available directly from the browser, such as robots metadata, in `public`; the Pages export copies the resulting public output into the generated root. Put repository automation and export behavior in `scripts`; put container lifecycle and validation in `.devcontainer`; put cross-cutting explanations in `docs`.
 
 ## Imports and generated artifacts
 
