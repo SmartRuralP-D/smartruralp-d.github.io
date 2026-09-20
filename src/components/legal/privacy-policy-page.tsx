@@ -4,36 +4,41 @@ import { Brand } from '@/components/site/brand'
 
 export function PrivacyPolicyPage() {
     return (
-        <div className="privacy-page">
-            <header className="privacy-header">
-                <div className="container privacy-header-inner">
+        <div className="min-h-screen bg-[radial-gradient(circle_at_86%_8%,rgba(33,128,246,0.12),transparent_28rem),var(--surface)] text-[var(--ink)]">
+            <header className="border-b border-[rgba(221,226,230,0.8)] bg-white/80 backdrop-blur-[16px]">
+                <div className="mx-auto flex w-[min(calc(100%-64px),1240px)] min-h-[84px] items-center justify-between gap-6">
                     <Brand href="/" />
-                    <a className="privacy-back-link" href="/">
+                    <a
+                        className="inline-flex items-center gap-[9px] text-[var(--blue-dark)] text-[12px] font-extrabold transition-[gap] duration-200 hover:gap-[13px] [&_svg]:size-[15px]"
+                        href="/"
+                    >
                         <ArrowLeft aria-hidden="true" />
                         Back to SmartRural
                     </a>
                 </div>
             </header>
 
-            <main className="privacy-main">
-                <div className="container">
-                    <div className="privacy-hero">
-                        <div className="privacy-kicker">
+            <main className="py-[clamp(64px,10vw,132px)] pb-[110px]">
+                <div className="mx-auto w-[min(calc(100%-64px),1240px)]">
+                    <div className="flex items-end justify-between gap-[30px] pb-[30px] max-[900px]:block">
+                        <div className="inline-flex items-center gap-[9px] text-[11px] font-extrabold uppercase tracking-[0.12em] text-[var(--blue-dark)] [&_svg]:size-[18px]">
                             <ShieldCheck aria-hidden="true" />
                             SmartRural · Legal
                         </div>
-                        <p className="privacy-hero-note">A clear view of how information is handled.</p>
+                        <p className="m-0 max-w-[250px] text-right text-[13px] leading-[1.6] text-[var(--muted)] max-[900px]:mt-[15px] max-[900px]:text-left">
+                            A clear view of how information is handled.
+                        </p>
                     </div>
 
-                    <article className="privacy-card">
-                        <div className="privacy-card-heading">
-                            <span className="privacy-card-index" aria-hidden="true" />
+                    <article className="grid grid-cols-[minmax(190px,0.6fr)_minmax(0,1.4fr)] gap-[clamp(32px,7vw,110px)] border border-[rgba(221,226,230,0.9)] bg-white p-[clamp(30px,6vw,78px)] shadow-[0_28px_70px_rgba(21,23,25,0.08)] max-[900px]:block max-[900px]:px-[22px] max-[900px]:pb-[34px] max-[900px]:pt-7">
+                        <div className="sticky top-8 flex h-fit items-start gap-5 max-[900px]:static max-[900px]:mb-[48px]">
+                            <span className="text-[12px] font-extrabold tracking-[0.08em] text-[var(--blue)]" aria-hidden="true" />
                             <div>
                                 <h1>Privacy Policy</h1>
                             </div>
                         </div>
 
-                        <div className="privacy-content">
+                        <div className="max-w-[680px] font-sans text-[16px] leading-[1.75] text-[var(--text)] [&>p:first-child]:mt-0 [&>p:first-child]:text-[clamp(1.15rem,2vw,1.45rem)] [&_section]:mt-[46px] [&_section]:border-t [&_section]:border-[var(--border)] [&_section]:pt-[29px] [&_h2]:mb-[13px] [&_h2]:text-[1.05rem] [&_h2]:leading-[1.35] [&_p]:mb-[15px] [&_ul]:grid [&_ul]:gap-[9px] [&_ul]:pl-[21px] [&_a]:font-bold [&_a]:text-[var(--blue-dark)] [&_a]:underline">
                             <p>This Privacy Policy describes how we collect, use, and handle your personal information when you use our OAuth2 service.</p>
 
                             <section>
@@ -94,14 +99,16 @@ export function PrivacyPolicyPage() {
                                 </p>
                             </section>
 
-                            <p className="privacy-last-updated">Last Updated: 2023-06-29</p>
+                            <p className="!mt-[52px] border-t border-[var(--border)] pt-[22px] text-[12px] font-bold tracking-[0.04em] text-[var(--muted)]">
+                                Last Updated: 2023-06-29
+                            </p>
                         </div>
                     </article>
                 </div>
             </main>
 
-            <footer className="privacy-footer">
-                <div className="container">
+            <footer className="bg-[var(--dark)] py-6 text-[11px] text-[#87949d]">
+                <div className="mx-auto flex w-[min(calc(100%-64px),1240px)] justify-between gap-5">
                     <span>SmartRural</span>
                     <a href="mailto:suporte@smartrural.com.br">suporte@smartrural.com.br</a>
                 </div>

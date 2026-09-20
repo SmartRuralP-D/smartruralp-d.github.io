@@ -5,49 +5,103 @@ import { media } from '@/content/landing'
 
 export function PortfolioSection() {
     return (
-        <section id="portfolio" className="portfolio-section section-block">
-            <div className="container">
-                <div className="portfolio-heading">
+        <section id="portfolio" className="bg-surface section-padding">
+            <div className="page-container">
+                <div className="grid items-end gap-[34px] min-[901px]:grid-cols-[minmax(0,7fr)_minmax(260px,4fr)] max-[900px]:grid-cols-1">
                     <div>
                         <SectionLabel>04 / PORTFÓLIO</SectionLabel>
-                        <h2>
+                        <h2 className="section-heading">
                             SmartRural <em>em campo.</em>
                         </h2>
                     </div>
-                    <p>A tecnologia ganha sentido quando está instalada, observada e utilizada no ambiente produtivo.</p>
+                    <p className="mb-1 ml-auto max-w-[390px] text-[15px] leading-[1.7] text-[var(--text)] max-[900px]:ml-0 max-[640px]:text-[14px]">
+                        A tecnologia ganha sentido quando está instalada, observada e utilizada no ambiente produtivo.
+                    </p>
                 </div>
 
-                <div className="portfolio-editorial">
-                    <figure className="portfolio-main-image">
-                        <img src={media.pondPeople} alt="Pessoa observando um viveiro com sensor flutuante" width={1280} height={720} loading="lazy" />
-                        <figcaption>
-                            <MapPin aria-hidden="true" /> Feira Nova, Pernambuco
+                <div className="mt-[clamp(58px,8vw,105px)] grid items-start gap-[clamp(30px,6vw,82px)] min-[901px]:grid-cols-[minmax(0,1.6fr)_minmax(260px,.72fr)] max-[900px]:grid-cols-1 max-[640px]:mt-[55px] max-[640px]:gap-[42px]">
+                    <figure className="relative">
+                        <img
+                            className="aspect-[1.18] w-full object-cover max-[640px]:aspect-[.94]"
+                            src={media.pondPeople}
+                            alt="Pessoa observando um viveiro com sensor flutuante"
+                            width={1280}
+                            height={720}
+                            loading="lazy"
+                        />
+                        <figcaption className="absolute bottom-[15px] right-[15px] flex items-center gap-[7px] bg-[rgba(16,19,22,.72)] px-2.5 py-2 text-[11px] font-bold text-white max-[640px]:bottom-[10px] max-[640px]:right-[10px]">
+                            <MapPin className="h-[14px] w-[14px] text-[#9ac7ff]" aria-hidden="true" /> Feira Nova, Pernambuco
                         </figcaption>
                     </figure>
-                    <div className="portfolio-side">
+                    <div className="grid gap-[45px] pt-[50px] max-[900px]:grid-cols-2 max-[900px]:gap-[45px] max-[900px]:pt-0 max-[640px]:grid-cols-[1fr_.85fr] max-[640px]:gap-5">
                         <figure>
-                            <img src={media.sensorInWater} alt="Sensor flutuante SmartRural instalado em um viveiro" width={1308} height={750} loading="lazy" />
-                            <figcaption>Equipamento instalado na água</figcaption>
+                            <img
+                                className="aspect-[1.1] w-full object-cover max-[640px]:aspect-[.95]"
+                                src={media.sensorInWater}
+                                alt="Sensor flutuante SmartRural instalado em um viveiro"
+                                width={1308}
+                                height={750}
+                                loading="lazy"
+                            />
+                            <figcaption className="mt-3 flex items-center gap-[7px] text-[11px] font-bold text-[var(--text)]">
+                                Equipamento instalado na água
+                            </figcaption>
                         </figure>
-                        <div className="portfolio-note">
-                            <img src={media.sensor} alt="Protótipo de sensor flutuante SmartRural" width={2760} height={2104} loading="lazy" />
-                            <span>Produto desenvolvido para estar perto da operação.</span>
+                        <div className="grid grid-cols-[90px_1fr] items-center gap-[18px] border-t border-[var(--ink)] pt-6 max-[900px]:grid-cols-1 max-[900px]:border-t-0 max-[900px]:pt-0 max-[640px]:block">
+                            <img
+                                className="h-[72px] w-[90px] object-contain mix-blend-multiply max-[900px]:h-[110px] max-[900px]:w-full max-[640px]:h-[90px]"
+                                src={media.sensor}
+                                alt="Protótipo de sensor flutuante SmartRural"
+                                width={2760}
+                                height={2104}
+                                loading="lazy"
+                            />
+                            <span className="text-[13px] font-bold leading-[1.5] text-[var(--text)] max-[640px]:mt-2.5 max-[640px]:block max-[640px]:text-xs">
+                                Produto desenvolvido para estar perto da operação.
+                            </span>
                         </div>
                     </div>
                 </div>
 
-                <div className="portfolio-rail">
+                <div className="mt-[72px] grid grid-cols-3 gap-6 max-[640px]:mt-[72px]">
                     <figure>
-                        <img src={media.pondDetail} alt="Aerador em um viveiro de aquicultura" width={1280} height={720} loading="lazy" />
-                        <figcaption>Condições reais da produção</figcaption>
+                        <img
+                            className="aspect-[1.32] w-full object-cover"
+                            src={media.pondDetail}
+                            alt="Aerador em um viveiro de aquicultura"
+                            width={1280}
+                            height={720}
+                            loading="lazy"
+                        />
+                        <figcaption className="mt-3 flex items-center gap-[7px] text-[11px] font-bold text-[var(--text)]">
+                            Condições reais da produção
+                        </figcaption>
                     </figure>
                     <figure>
-                        <img src={media.gathering} alt="Encontro de apresentação da SmartRural no campo" width={1280} height={720} loading="lazy" />
-                        <figcaption>Pesquisa aplicada e pessoas</figcaption>
+                        <img
+                            className="aspect-[1.32] w-full object-cover"
+                            src={media.gathering}
+                            alt="Encontro de apresentação da SmartRural no campo"
+                            width={1280}
+                            height={720}
+                            loading="lazy"
+                        />
+                        <figcaption className="mt-3 flex items-center gap-[7px] text-[11px] font-bold text-[var(--text)]">
+                            Pesquisa aplicada e pessoas
+                        </figcaption>
                     </figure>
                     <figure>
-                        <img src={media.workshop} alt="Apresentação sobre aquicultura em Feira Nova" width={1280} height={720} loading="lazy" />
-                        <figcaption>Conhecimento que chega à operação</figcaption>
+                        <img
+                            className="aspect-[1.32] w-full object-cover"
+                            src={media.workshop}
+                            alt="Apresentação sobre aquicultura em Feira Nova"
+                            width={1280}
+                            height={720}
+                            loading="lazy"
+                        />
+                        <figcaption className="mt-3 flex items-center gap-[7px] text-[11px] font-bold text-[var(--text)]">
+                            Conhecimento que chega à operação
+                        </figcaption>
                     </figure>
                 </div>
             </div>
