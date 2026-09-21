@@ -4,7 +4,7 @@ export function PartnersSection() {
     return (
         <section id="parceiros" className="bg-warm section-padding">
             <div className="page-container">
-                <div>
+                <div className="flex flex-col gap-3">
                     <div>
                         <h2 className="section-heading text-[clamp(2.65rem,13vw,4.3rem)]">
                             Construída em <em>colaboração.</em>
