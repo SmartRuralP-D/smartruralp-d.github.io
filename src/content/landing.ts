@@ -8,18 +8,20 @@ export const asset = (file: string) => `/assets/smartrural/${file}`
 export const media = {
     mark: asset('logo-grande.png'),
     wordmark: asset('smartrural-nome.png'),
-    hero: asset('feira-nova-4.jpg'),
+    heroAquaculture: asset('feira-nova-4.jpg'),
+    heroAviculture: asset('aviculture-ufrpe.png'),
     pondWide: asset('feira-nova-1.jpg'),
     pondDetail: asset('feira-nova-2.jpg'),
     pondPeople: asset('feira-nova-3.jpg'),
     workshop: asset('feira-nova-5.jpg'),
     gathering: asset('feira-nova-6.jpg'),
-    sensor: asset('prototipo-1.png'),
+    aquacultureDevice: asset('aquaculture-device.png'),
+    aviqualityDevice: asset('aviquality-device.png'),
     sensorInWater: asset('fotos-1.jpg'),
     webDashboard: asset('web-dashboard.png'),
     webChart: asset('web-chart.png'),
     mobileDashboard: asset('mobile-dashboard.jpeg'),
-    aviculture: asset('aviculture.jpeg')
+    aviculture: asset('aviculture-1.jpeg')
 } as const
 
 export const navigation = [
@@ -29,7 +31,7 @@ export const navigation = [
     { label: 'Sobre', href: '#sobre' }
 ] as const
 
-const heroMonitoringMetrics = [
+const aquacultureHeroMonitoringMetrics = [
     {
         label: 'Temperatura da água',
         value: {
@@ -71,20 +73,83 @@ const heroMonitoringMetrics = [
     }
 ]
 
-export const heroMonitoringSlides = [
+const avicultureHeroMonitoringMetrics = [
     {
-        image: media.hero,
-        imageAlt: 'Viveiro de aquicultura com aeradores em funcionamento',
-        location: 'Feira Nova, PE',
-        unitLabel: 'Viveiro 04',
-        metrics: heroMonitoringMetrics
+        label: 'Temperatura do ambiente',
+        value: {
+            initial: 28,
+            min: 18,
+            max: 39,
+            step: 0.5,
+            intervalMs: 5000,
+            unit: '°C',
+            decimals: 1,
+            statusRules: [
+                { max: 19, status: { label: 'Crítico', tone: 'critical' as const } },
+                { max: 24.5, status: { label: 'Atenção', tone: 'warning' as const } },
+                { min: 25, max: 32, status: { label: 'Normal', tone: 'normal' as const } },
+                { min: 32.5, max: 37.5, status: { label: 'Atenção', tone: 'warning' as const } },
+                { min: 38, status: { label: 'Crítico', tone: 'critical' as const } }
+            ]
+        },
+        status: { label: 'Normal', tone: 'normal' as const }
     },
     {
-        image: media.hero,
+        label: 'Umidade do ambiente',
+        value: {
+            initial: 65,
+            min: 30,
+            max: 90,
+            step: 1,
+            intervalMs: 10000,
+            unit: '%',
+            statusRules: [
+                { max: 35, status: { label: 'Crítico', tone: 'critical' as const } },
+                { max: 50, status: { label: 'Atenção', tone: 'warning' as const } },
+                { min: 55, max: 75, status: { label: 'Normal', tone: 'normal' as const } },
+                { min: 80, status: { label: 'Atenção', tone: 'warning' as const } }
+            ]
+        },
+        status: { label: 'Normal', tone: 'normal' as const }
+    },
+    {
+        label: 'Luminosidade do ambiente',
+        value: {
+            initial: 350,
+            min: 0,
+            max: 1000,
+            step: 10,
+            intervalMs: 15000,
+            unit: 'lux',
+            statusRules: [
+                { max: 50, status: { label: 'Crítico', tone: 'critical' as const } },
+                { max: 200, status: { label: 'Atenção', tone: 'warning' as const } },
+                { min: 250, max: 600, status: { label: 'Normal', tone: 'normal' as const } },
+                { min: 650, status: { label: 'Atenção', tone: 'warning' as const } }
+            ]
+        },
+        status: { label: 'Normal', tone: 'normal' as const }
+    }
+]
+
+export const heroMonitoringSlides = [
+    {
+        image: media.heroAquaculture,
         imageAlt: 'Viveiro de aquicultura com aeradores em funcionamento',
+        deviceImage: media.aquacultureDevice,
+        deviceImageAlt: 'Dispositivo SmartRural para monitoramento de viveiros',
         location: 'Feira Nova, PE',
         unitLabel: 'Viveiro 04',
-        metrics: heroMonitoringMetrics
+        metrics: aquacultureHeroMonitoringMetrics
+    },
+    {
+        image: media.heroAviculture,
+        imageAlt: 'Viveiro de avicultura com galinheiras e equipamentos',
+        deviceImage: media.aviqualityDevice,
+        deviceImageAlt: 'Dispositivo SmartRural para monitoramento de viveiros',
+        location: 'UFRPE, PE',
+        unitLabel: 'Viveiro de poedeiras',
+        metrics: avicultureHeroMonitoringMetrics
     }
 ] satisfies readonly MonitoringSlide[]
 
