@@ -62,7 +62,7 @@ export function SiteHeader() {
                             {label}
                         </a>
                     ))}
-                    <a href="#contato" onClick={closeMenu}>
+                    <a href="#contato" onClick={closeMenu} className="flex items-center gap-2">
                         Fale com a SmartRural <ArrowUpRight aria-hidden="true" />
                     </a>
                 </nav>
