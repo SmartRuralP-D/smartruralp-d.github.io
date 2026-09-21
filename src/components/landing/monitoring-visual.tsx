@@ -143,7 +143,7 @@ function AnimatedMetricNumber({
 
     return (
         <strong
-            className="inline-flex text-[1.6875rem] leading-none tracking-[-.04em] tabular-nums"
+            className="inline-flex text-[1.6875rem] leading-none tracking-[-.04em] tabular-nums max-[600px]:text-[1.375rem]"
             aria-label={`${formattedNumber}${unitSeparator}${config.unit}`}
         >
             <span className="inline-flex">
@@ -210,14 +210,14 @@ function MonitoringMetricDisplay({
 
     return (
         <div className="grid gap-0.5">
-            <span className="text-[0.6875rem] font-bold leading-[1.35] text-white/75">{metric.label}</span>
+            <span className="md:text-[0.6875rem] font-bold leading-[1.35] text-white/75 text-[0.5625rem]">{metric.label}</span>
             {config ? (
                 <AnimatedMetricNumber value={simulation.value} config={config} direction={direction} reducedMotion={reducedMotion} />
             ) : (
-                <strong className="text-[1.6875rem] leading-none tracking-[-.04em]">{staticValue}</strong>
+                <strong className="md:text-[1.6875rem] leading-none tracking-[-.04em] text-[1.375rem]">{staticValue}</strong>
             )}
             {status ? (
-                <span className="inline-flex items-center gap-1.5 text-[0.6875rem] font-bold text-[#d5e4dc]">
+                <span className="inline-flex items-center gap-1.5 md:text-[0.6875rem] font-bold text-[#d5e4dc] text-[0.5625rem]">
                     <i className={`size-1.75 rounded-pill ${statusToneClasses[status.tone ?? 'normal']}`} aria-hidden="true" /> {status.label}
                 </span>
             ) : null}
@@ -251,13 +251,13 @@ function MonitoringVisualCard({
                 fetchPriority={priority ? 'high' : 'auto'}
                 loading={priority ? undefined : 'lazy'}
             />
-            <figcaption className="absolute bottom-6 left-7 z-10 flex flex-wrap gap-5.5 bg-[rgba(16,19,22,.7)] px-3 py-2.5 text-xs font-bold text-white backdrop-blur-[0.4375rem]">
+            <figcaption className="absolute bottom-6 left-7 z-10 flex flex-wrap gap-5.5 bg-[rgba(16,19,22,.7)] px-3 py-2.5 text-xs font-bold text-white backdrop-blur-[0.4375rem] max-[600px]:text-[0.6875rem]">
                 <span className="inline-flex items-center gap-1.5">
                     <MapPin className="size-3.5 text-[#9ac7ff]" aria-hidden="true" /> {slide.location}
                 </span>
             </figcaption>
-            <div className="absolute right-8 top-8 z-10 grid w-[min(16.875rem,34%)] gap-3 rounded-none border-l-[3px] border-brand bg-[rgba(16,19,22,.78)] p-[1.0625rem_1.125rem] text-white backdrop-blur-lg max-[600px]:right-4 max-[600px]:top-4 max-[600px]:w-[min(16.875rem,calc(100%-2rem))]">
-                <span className="inline-flex items-center gap-1.5 text-[0.6875rem] font-bold text-[#bdd9ff]">
+            <div className="absolute right-8 top-8 z-10 grid w-[min(16.875rem,34%)] gap-3 rounded-none border-l-[3px] border-brand bg-[rgba(16,19,22,.78)] p-[1.0625rem_1.125rem] text-white backdrop-blur-lg max-md:w-1/2 max-[600px]:right-4 max-[600px]:top-4">
+                <span className="inline-flex items-center gap-1.5 text-[0.6875rem] font-bold text-[#bdd9ff] max-[600px]:text-[0.5625rem]">
                     <UnitIcon className="size-3.5" aria-hidden="true" /> {slide.unitLabel}
                 </span>
                 <div className="grid gap-5">
