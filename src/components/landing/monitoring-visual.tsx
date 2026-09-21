@@ -62,15 +62,16 @@ function resolveMetricStatus(metric: MonitoringMetric, value: number) {
     )
 }
 
-function formatMetricValue(value: number, config: MonitoringMetricValue) {
+function formatMetricNumber(value: number, config: MonitoringMetricValue) {
     const decimals = config.decimals ?? 0
-    const formattedValue = new Intl.NumberFormat('pt-BR', {
+    return new Intl.NumberFormat('pt-BR', {
         minimumFractionDigits: decimals,
         maximumFractionDigits: decimals
     }).format(value)
-    const unitSeparator = config.unit.startsWith('°') || config.unit.startsWith('%') ? '' : ' '
+}
 
-    return `${formattedValue}${unitSeparator}${config.unit}`
+function getMetricUnitSeparator(unit: string) {
+    return unit.startsWith('°') || unit.startsWith('%') ? '' : ' '
 }
 
 function useMetricSimulation(config: MonitoringMetricValue | undefined, active: boolean, paused: boolean, reducedMotion: boolean) {
@@ -116,6 +117,69 @@ function useMetricSimulation(config: MonitoringMetricValue | undefined, active: 
     return { value, direction }
 }
 
+function AnimatedMetricNumber({
+    value,
+    config,
+    direction,
+    reducedMotion
+}: {
+    value: number
+    config: MonitoringMetricValue
+    direction: 1 | -1
+    reducedMotion: boolean
+}) {
+    const formattedNumber = formatMetricNumber(value, config)
+    const previousNumber = useRef(formattedNumber)
+    const unitSeparator = getMetricUnitSeparator(config.unit)
+
+    useEffect(() => {
+        previousNumber.current = formattedNumber
+    }, [formattedNumber])
+
+    return (
+        <strong
+            className="inline-flex text-[1.6875rem] leading-none tracking-[-.04em] tabular-nums"
+            aria-label={`${formattedNumber}${unitSeparator}${config.unit}`}
+        >
+            <span className="inline-flex">
+                {Array.from(formattedNumber).map((character, index) => {
+                    const characterChanged = previousNumber.current[index] !== character
+                    const characterKey = `${index}-${character}`
+
+                    if (!characterChanged || reducedMotion) {
+                        return (
+                            <span key={characterKey} className="inline-block h-[1em] overflow-hidden">
+                                <span className="inline-block">{character}</span>
+                            </span>
+                        )
+                    }
+
+                    return (
+                        <span key={`${index}-slot`} className="inline-block h-[1em] overflow-hidden">
+                            <AnimatePresence initial={false} mode="popLayout">
+                                <motion.span
+                                    key={characterKey}
+                                    initial={{ opacity: 0, y: direction > 0 ? '0.75em' : '-0.75em' }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: direction > 0 ? '-0.75em' : '0.75em' }}
+                                    transition={{ duration: 0.28, ease: 'easeOut' }}
+                                    className="inline-block"
+                                >
+                                    {character}
+                                </motion.span>
+                            </AnimatePresence>
+                        </span>
+                    )
+                })}
+            </span>
+            <span>
+                {unitSeparator}
+                {config.unit}
+            </span>
+        </strong>
+    )
+}
+
 function MonitoringMetricDisplay({
     metric,
     active,
@@ -131,7 +195,6 @@ function MonitoringMetricDisplay({
     const simulation = useMetricSimulation(config, active, paused, reducedMotion)
     const numericValue = config ? simulation.value : undefined
     const staticValue = typeof metric.value === 'string' ? metric.value : ''
-    const displayValue = config ? formatMetricValue(simulation.value, config) : staticValue
     const status = numericValue === undefined ? metric.status : resolveMetricStatus(metric, numericValue)
     const previousValue = useRef(numericValue)
     const direction = numericValue === undefined || previousValue.current === undefined ? 1 : simulation.direction
@@ -144,21 +207,9 @@ function MonitoringMetricDisplay({
         <div className="grid gap-0.5">
             <span className="text-[0.6875rem] font-bold leading-[1.35] text-white/75">{metric.label}</span>
             {config ? (
-                <AnimatePresence initial={false} mode="popLayout" custom={direction}>
-                    <motion.strong
-                        key={displayValue}
-                        custom={direction}
-                        initial={reducedMotion ? false : { opacity: 0, y: direction > 0 ? '0.75em' : '-0.75em' }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: direction > 0 ? '-0.75em' : '0.75em' }}
-                        transition={{ duration: reducedMotion ? 0 : 0.28, ease: 'easeOut' }}
-                        className="text-[1.6875rem] leading-none tracking-[-.04em]"
-                    >
-                        {displayValue}
-                    </motion.strong>
-                </AnimatePresence>
+                <AnimatedMetricNumber value={simulation.value} config={config} direction={direction} reducedMotion={reducedMotion} />
             ) : (
-                <strong className="text-[1.6875rem] leading-none tracking-[-.04em]">{displayValue}</strong>
+                <strong className="text-[1.6875rem] leading-none tracking-[-.04em]">{staticValue}</strong>
             )}
             {status ? (
                 <span className="inline-flex items-center gap-1.5 text-[0.6875rem] font-bold text-[#d5e4dc]">

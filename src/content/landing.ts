@@ -56,7 +56,7 @@ const heroMonitoringMetrics = [
             min: 6.4,
             max: 7.2,
             step: 0.1,
-            intervalMs: 5000,
+            intervalMs: 10000,
             unit: 'mg/L',
             decimals: 1,
             statusRules: [
