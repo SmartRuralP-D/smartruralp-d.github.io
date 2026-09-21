@@ -73,14 +73,20 @@ function getMetricUnitSeparator(unit: string) {
     return unit.startsWith('°') || unit.startsWith('%') ? '' : ' '
 }
 
+function roundMetricValue(value: number, config: MonitoringMetricValue) {
+    const precision = 10 ** (config.decimals ?? 0)
+
+    return Math.round(value * precision) / precision
+}
+
 function useMetricSimulation(config: MonitoringMetricValue | undefined, active: boolean, paused: boolean, reducedMotion: boolean) {
-    const [value, setValue] = useState(config?.initial ?? 0)
+    const [value, setValue] = useState(config ? roundMetricValue(config.initial, config) : 0)
     const [direction, setDirection] = useState<1 | -1>(1)
 
     useEffect(() => {
-        setValue(config?.initial ?? 0)
+        setValue(config ? roundMetricValue(config.initial, config) : 0)
         setDirection(1)
-    }, [config?.initial])
+    }, [config])
 
     useEffect(() => {
         if (!config || !active || paused || reducedMotion) {
@@ -100,7 +106,7 @@ function useMetricSimulation(config: MonitoringMetricValue | undefined, active: 
                     delta = step
                 }
 
-                const nextValue = Math.min(config.max, Math.max(config.min, currentValue + delta))
+                const nextValue = roundMetricValue(Math.min(config.max, Math.max(config.min, currentValue + delta)), config)
 
                 if (nextValue !== currentValue) {
                     setDirection(nextValue > currentValue ? 1 : -1)

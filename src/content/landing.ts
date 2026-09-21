@@ -47,7 +47,8 @@ const heroMonitoringMetrics = [
                 { min: 28.2, max: 28.5, status: { label: 'Atenção', tone: 'warning' as const } },
                 { min: 28.6, status: { label: 'Crítico', tone: 'critical' as const } }
             ]
-        }
+        },
+        status: { label: 'Normal', tone: 'normal' as const }
     },
     {
         label: 'Oxigênio dissolvido',
@@ -66,7 +67,8 @@ const heroMonitoringMetrics = [
                 { min: 7, max: 7.1, status: { label: 'Atenção', tone: 'warning' as const } },
                 { min: 7.2, status: { label: 'Crítico', tone: 'critical' as const } }
             ]
-        }
+        },
+        status: { label: 'Normal', tone: 'normal' as const }
     }
 ]
 
