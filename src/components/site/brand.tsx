@@ -5,8 +5,7 @@ export function Brand({ inverted = false, href = '#inicio' }: { inverted?: boole
     const imageClass = cn('object-contain', inverted && 'brightness-0 invert')
 
     return (
-        <a className="inline-flex shrink-0 items-center gap-2" href={href} aria-label="SmartRural — início">
-            <img className={cn(imageClass, 'h-5.5 w-9.5')} src={media.mark} alt="" width={281} height={127} />
+        <a className="inline-flex shrink-0 items-center" href={href} aria-label="SmartRural — início">
             <img className={cn(imageClass, 'h-auto w-35.5')} src={media.wordmark} alt="SmartRural" width={915} height={86} />
         </a>
     )
