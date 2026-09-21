@@ -1,4 +1,4 @@
-import { ArrowLeft, ShieldCheck } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 
 import { Brand } from '@/components/site/brand'
 
@@ -20,7 +20,7 @@ export function PrivacyPolicyPage() {
 
             <main className="py-[clamp(64px,10vw,132px)] pb-27.5">
                 <div className="page-container">
-                    <div className="flex items-end justify-between gap-7.5 pb-7.5 max-[900px]:block">
+                    {/* <div className="flex items-end justify-between gap-7.5 pb-7.5 max-[900px]:block">
                         <div className="inline-flex items-center gap-2 text-[0.6875rem] font-extrabold uppercase tracking-[0.12em] text-brand-strong [&_svg]:size-4.5">
                             <ShieldCheck aria-hidden="true" />
                             SmartRural · Legal
@@ -28,7 +28,7 @@ export function PrivacyPolicyPage() {
                         <p className="m-0 max-w-62.5 text-right text-[0.8125rem] leading-[1.6] text-muted max-[900px]:mt-4 max-[900px]:text-left">
                             A clear view of how information is handled.
                         </p>
-                    </div>
+                    </div> */}
 
                     <article className="grid grid-cols-[minmax(190px,0.6fr)_minmax(0,1.4fr)] gap-[clamp(32px,7vw,110px)] border border-[rgba(221,226,230,0.9)] bg-white p-[clamp(30px,6vw,78px)] shadow-card max-[900px]:block max-[900px]:px-5.5 max-[900px]:pb-8.5 max-[900px]:pt-7">
                         <div className="sticky top-8 flex h-fit items-start gap-5 max-[900px]:static max-[900px]:mb-12">
@@ -98,7 +98,7 @@ export function PrivacyPolicyPage() {
                                 </p>
                             </section>
 
-                            <p className="mt-12! border-t border-border pt-5 text-xs font-bold tracking-[0.04em] text-muted">Last Updated: 2023-06-29</p>
+                            <p className="mt-12! border-t border-border pt-5 text-xs font-bold tracking-[0.04em] text-muted">Last Updated: 2026-09-21</p>
                         </div>
                     </article>
                 </div>
