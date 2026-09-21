@@ -10,15 +10,10 @@ export function SolutionsSection() {
     return (
         <section id="solucoes" className="bg-surface section-padding">
             <div className="page-container">
-                <div className="grid gap-8.5 min-[901px]:grid-cols-[minmax(0,7fr)_minmax(260px,4fr)] min-[901px]:items-end">
-                    <div>
-                        <h2 className="section-heading">
-                            Conheça nossas <em>soluções</em>
-                        </h2>
-                    </div>
-                    <p className="max-w-97.5 text-[0.9375rem] leading-[1.7] text-text min-[901px]:mb-1 min-[901px]:ml-auto">
-                        A SmartRural acompanha diferentes realidades do campo. A tecnologia se adapta à operação, não o contrário.
-                    </p>
+                <div>
+                    <h2 className="section-heading">
+                        Conheça nossas <em>soluções</em>
+                    </h2>
                 </div>
 
                 <div className="mt-[clamp(54px,8vw,108px)] grid items-start gap-[clamp(34px,6vw,90px)] min-[901px]:grid-cols-[minmax(0,1.45fr)_minmax(270px,.8fr)]">
