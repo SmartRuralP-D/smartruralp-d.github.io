@@ -8,7 +8,8 @@ export const asset = (file: string) => `/assets/smartrural/${file}`
 export const media = {
     mark: asset('logo-grande.png'),
     wordmark: asset('smartrural-nome.png'),
-    hero: asset('feira-nova-4.jpg'),
+    heroAquaculture: asset('feira-nova-4.jpg'),
+    heroAviculture: asset('aviculture-ufrpe.png'),
     pondWide: asset('feira-nova-1.jpg'),
     pondDetail: asset('feira-nova-2.jpg'),
     pondPeople: asset('feira-nova-3.jpg'),
@@ -73,7 +74,7 @@ const heroMonitoringMetrics = [
 
 export const heroMonitoringSlides = [
     {
-        image: media.hero,
+        image: media.heroAquaculture,
         imageAlt: 'Viveiro de aquicultura com aeradores em funcionamento',
         deviceImage: media.sensor,
         deviceImageAlt: 'Dispositivo SmartRural para monitoramento de viveiros',
@@ -82,12 +83,12 @@ export const heroMonitoringSlides = [
         metrics: heroMonitoringMetrics
     },
     {
-        image: media.hero,
-        imageAlt: 'Viveiro de aquicultura com aeradores em funcionamento',
+        image: media.heroAviculture,
+        imageAlt: 'Viveiro de avicultura com galinheiras e equipamentos',
         deviceImage: media.sensor,
         deviceImageAlt: 'Dispositivo SmartRural para monitoramento de viveiros',
-        location: 'Feira Nova, PE',
-        unitLabel: 'Viveiro 04',
+        location: 'UFRPE, PE',
+        unitLabel: 'Viveiro de poedeiras',
         metrics: heroMonitoringMetrics
     }
 ] satisfies readonly MonitoringSlide[]
