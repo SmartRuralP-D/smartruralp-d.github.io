@@ -40,7 +40,7 @@ export function MonitoringVisual({ image, imageAlt, location, category, unitLabe
                     height={720}
                     fetchPriority="high"
                 />
-                <figcaption className="absolute bottom-6 left-7 z-10 flex flex-wrap gap-5.5 text-xs font-bold text-white">
+                <figcaption className="absolute bottom-6 left-7 z-10 flex flex-wrap gap-5.5 bg-[rgba(16,19,22,.7)] px-3 py-2.5 text-xs font-bold text-white backdrop-blur-[0.4375rem]">
                     <span className="inline-flex items-center gap-1.5">
                         <MapPin className="size-3.5 text-[#9ac7ff]" aria-hidden="true" /> {location}
                     </span>
