@@ -90,7 +90,9 @@ export function PrivacyPolicyPage() {
                                 </p>
                             </section>
 
-                            <p className="mt-12 border-t border-border pt-5 text-xs font-bold tracking-wide text-muted">Last Updated: 2026-09-21</p>
+                            <div className="mt-12 border-t border-border pt-5 text-xs font-bold tracking-wide text-muted">
+                                <p className="flex justify-self-end-safe">Last Updated: 2026-09-21</p>
+                            </div>
                         </div>
                     </article>
                 </div>
