@@ -18,7 +18,7 @@ function PlatformFrame({ children, className, ...props }: PlatformFrameProps) {
 
 function PlatformBrowserFrame() {
     return (
-        <PlatformFrame className="absolute right-0 top-0 w-[83%] overflow-hidden max-phone:right-[-8%] max-phone:w-[108%]">
+        <PlatformFrame className="absolute right-0 top-0 w-[83%] overflow-hidden max-phone:right-[-4%] max-phone:w-[108%]">
             <div className="inline-flex items-center gap-1.75 bg-inverse-soft px-3.5 py-2 text-[0.6875rem] font-extrabold text-[#d6e1ea]">
                 <Monitor className="h-3.5 w-3.5 text-[#9bc7ff]" aria-hidden="true" /> Plataforma web
             </div>
@@ -56,7 +56,7 @@ function PlatformMobileFrame() {
 
 function PlatformShowcase() {
     return (
-        <div className="relative mt-[clamp(54px,8vw,104px)] min-h-150 max-content:h-108 max-content:min-h-0 max-phone:h-114 content:min-h-167.5">
+        <div className="relative mt-[clamp(54px,8vw,104px)] min-h-150 max-content:h-108 max-content:min-h-0 max-phone:h-114">
             <PlatformBrowserFrame />
             <PlatformMobileFrame />
         </div>
