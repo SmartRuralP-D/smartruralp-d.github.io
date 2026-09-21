@@ -14,7 +14,7 @@ export function PartnersSection() {
                     </div>
                     <p>A SmartRural cresce junto de instituições, produtores e pessoas que conhecem os desafios do campo.</p>
                 </div>
-                <div className="mt-[75px] grid grid-cols-4 border-l border-t border-[var(--border)] max-[900px]:mt-[52px] max-[900px]:grid-cols-2">
+                <div className="mt-[75px] grid grid-cols-4 border-l border-t border-border max-[900px]:mt-[52px] max-[900px]:grid-cols-2">
                     {partners.map((partner) => (
                         <div
                             className="group grid min-h-[152px] place-items-center border-b border-r border-border p-[25px] max-[900px]:min-h-[110px] max-[900px]:p-[13px]"

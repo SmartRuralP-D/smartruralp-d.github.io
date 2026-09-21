@@ -21,7 +21,7 @@ export function PlatformSection() {
                 </div>
                 <div className="relative mt-[clamp(54px,8vw,104px)] min-h-[600px] min-[901px]:min-h-[670px]">
                     <div className="absolute right-0 top-0 w-[83%] overflow-hidden border border-[#4b5660] bg-[#f7f9fa] shadow-[0_26px_50px_rgba(0,0,0,.25)] max-[640px]:-right-[12%] max-[640px]:w-[112%]">
-                        <div className="inline-flex items-center gap-[7px] bg-[var(--dark-soft)] px-[14px] py-2 text-[11px] font-extrabold text-[#d6e1ea]">
+                        <div className="inline-flex items-center gap-[7px] bg-inverse-soft px-[14px] py-2 text-[11px] font-extrabold text-[#d6e1ea]">
                             <Monitor className="h-[14px] w-[14px] text-[#9bc7ff]" aria-hidden="true" /> Plataforma web
                         </div>
                         <img

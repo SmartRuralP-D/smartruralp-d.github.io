@@ -14,7 +14,7 @@ export function PortfolioSection() {
                             SmartRural <em>em campo.</em>
                         </h2>
                     </div>
-                    <p className="mb-1 ml-auto max-w-[390px] text-[15px] leading-[1.7] text-[var(--text)] max-[900px]:ml-0 max-[640px]:text-[14px]">
+                    <p className="mb-1 ml-auto max-w-[390px] text-[15px] leading-[1.7] text-text max-[900px]:ml-0 max-[640px]:text-[14px]">
                         A tecnologia ganha sentido quando está instalada, observada e utilizada no ambiente produtivo.
                     </p>
                 </div>
@@ -43,11 +43,9 @@ export function PortfolioSection() {
                                 height={750}
                                 loading="lazy"
                             />
-                            <figcaption className="mt-3 flex items-center gap-[7px] text-[11px] font-bold text-[var(--text)]">
-                                Equipamento instalado na água
-                            </figcaption>
+                            <figcaption className="mt-3 flex items-center gap-[7px] text-[11px] font-bold text-text">Equipamento instalado na água</figcaption>
                         </figure>
-                        <div className="grid grid-cols-[90px_1fr] items-center gap-[18px] border-t border-[var(--ink)] pt-6 max-[900px]:grid-cols-1 max-[900px]:border-t-0 max-[900px]:pt-0 max-[640px]:block">
+                        <div className="grid grid-cols-[90px_1fr] items-center gap-[18px] border-t border-ink pt-6 max-[900px]:grid-cols-1 max-[900px]:border-t-0 max-[900px]:pt-0 max-[640px]:block">
                             <img
                                 className="h-[72px] w-[90px] object-contain mix-blend-multiply max-[900px]:h-[110px] max-[900px]:w-full max-[640px]:h-[90px]"
                                 src={media.sensor}
@@ -56,7 +54,7 @@ export function PortfolioSection() {
                                 height={2104}
                                 loading="lazy"
                             />
-                            <span className="text-[13px] font-bold leading-[1.5] text-[var(--text)] max-[640px]:mt-2.5 max-[640px]:block max-[640px]:text-xs">
+                            <span className="text-[13px] font-bold leading-[1.5] text-text max-[640px]:mt-2.5 max-[640px]:block max-[640px]:text-xs">
                                 Produto desenvolvido para estar perto da operação.
                             </span>
                         </div>
@@ -73,9 +71,7 @@ export function PortfolioSection() {
                             height={720}
                             loading="lazy"
                         />
-                        <figcaption className="mt-3 flex items-center gap-[7px] text-[11px] font-bold text-[var(--text)]">
-                            Condições reais da produção
-                        </figcaption>
+                        <figcaption className="mt-3 flex items-center gap-[7px] text-[11px] font-bold text-text">Condições reais da produção</figcaption>
                     </figure>
                     <figure>
                         <img
@@ -86,9 +82,7 @@ export function PortfolioSection() {
                             height={720}
                             loading="lazy"
                         />
-                        <figcaption className="mt-3 flex items-center gap-[7px] text-[11px] font-bold text-[var(--text)]">
-                            Pesquisa aplicada e pessoas
-                        </figcaption>
+                        <figcaption className="mt-3 flex items-center gap-[7px] text-[11px] font-bold text-text">Pesquisa aplicada e pessoas</figcaption>
                     </figure>
                     <figure>
                         <img
@@ -99,9 +93,7 @@ export function PortfolioSection() {
                             height={720}
                             loading="lazy"
                         />
-                        <figcaption className="mt-3 flex items-center gap-[7px] text-[11px] font-bold text-[var(--text)]">
-                            Conhecimento que chega à operação
-                        </figcaption>
+                        <figcaption className="mt-3 flex items-center gap-[7px] text-[11px] font-bold text-text">Conhecimento que chega à operação</figcaption>
                     </figure>
                 </div>
             </div>
