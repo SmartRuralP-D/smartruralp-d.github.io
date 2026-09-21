@@ -27,12 +27,20 @@ export function TestimonialsSection() {
                             height={128}
                         />
                     </div>
-                    <div>
-                        <blockquote className="mb-6.75 max-w-200 text-[clamp(2.25rem,5vw,5.2rem)] font-medium leading-[1.02] tracking-[-0.06em] max-[900px]:mb-5.5 max-[900px]:text-[clamp(2.25rem,12vw,3.8rem)]">
-                            “{activeTestimonial.quote}”
-                        </blockquote>
-                        <p className="mb-0.75 text-sm font-extrabold">{activeTestimonial.name}</p>
-                        <span className="text-xs text-[#94a1ab]">{activeTestimonial.role}</span>
+                    <div className="grid">
+                        {testimonials.map((item, index) => (
+                            <div
+                                className={`col-start-1 row-start-1 ${index === testimonial ? '' : 'invisible'}`}
+                                key={item.name}
+                                aria-hidden={index !== testimonial}
+                            >
+                                <blockquote className="mb-6.75 max-w-200 text-[clamp(2.25rem,5vw,5.2rem)] font-medium leading-[1.02] tracking-[-0.06em] max-[900px]:mb-5.5 max-[900px]:text-[clamp(2.25rem,12vw,3.8rem)]">
+                                    “{item.quote}”
+                                </blockquote>
+                                <p className="mb-0.75 text-sm font-extrabold">{item.name}</p>
+                                <span className="text-xs text-[#94a1ab]">{item.role}</span>
+                            </div>
+                        ))}
                     </div>
                     <div className="flex items-center justify-end gap-2.5 pb-0.75 text-[0.6875rem] font-extrabold text-[#9aa7b0] max-[900px]:justify-start">
                         <button
