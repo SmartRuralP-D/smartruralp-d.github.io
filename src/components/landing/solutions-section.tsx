@@ -31,13 +31,15 @@ export function SolutionsSection() {
                                 <Droplets className="h-3.25 w-3.25 text-[#9ac7ff]" aria-hidden="true" /> {aquaculture.imageNote}
                             </span>
                         </div>
-                        <div className="grid gap-6.5 border-t border-ink pt-6 min-[901px]:grid-cols-[1fr_1fr_.7fr] min-[901px]:items-end max-[640px]:gap-3.25 max-[640px]:pt-4.5">
+                        <div className="grid gap-6.5 border-t border-ink pt-6 min-[901px]:grid-cols-[1fr_1fr] min-[901px]:items-end max-[640px]:gap-3.25 max-[640px]:pt-4.5">
                             <div>
                                 <span className="text-xs text-brand">{aquaculture.number}</span>
                                 <h3 className="mt-1.75 text-[clamp(1.8rem,3vw,2.6rem)] leading-none">{aquaculture.title}</h3>
                             </div>
-                            <p className="m-0 text-sm leading-[1.65] text-text">{aquaculture.copy}</p>
-                            <TextLink href={aquaculture.linkHref}>{aquaculture.linkLabel}</TextLink>
+                            <div className="grid">
+                                <p className="m-0 text-sm leading-[1.65] text-text">{aquaculture.copy}</p>
+                                <TextLink href={aquaculture.linkHref}>{aquaculture.linkLabel}</TextLink>
+                            </div>
                         </div>
                     </article>
 
