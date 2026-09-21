@@ -28,7 +28,7 @@ export function PrivacyPolicyPage() {
                             </p>
 
                             <section className="mt-12 border-t border-border pt-7">
-                                <h2 className="mb-3 text-base leading-5">Information We Collect</h2>
+                                <h2 className="mb-3 text-base font-semibold leading-5">Information We Collect</h2>
                                 <p className="mb-4">When you use our OAuth2 service, we may collect the following information:</p>
                                 <ul className="grid gap-2 pl-5">
                                     <li>Your name</li>
@@ -38,7 +38,7 @@ export function PrivacyPolicyPage() {
                             </section>
 
                             <section className="mt-12 border-t border-border pt-7">
-                                <h2 className="mb-3 text-base leading-5">How We Use Your Information</h2>
+                                <h2 className="mb-3 text-base font-semibold leading-5">How We Use Your Information</h2>
                                 <p className="mb-4">We use the information collected during the OAuth2 process to:</p>
                                 <ul className="grid gap-2 pl-5">
                                     <li>Verify your identity</li>
@@ -48,7 +48,7 @@ export function PrivacyPolicyPage() {
                             </section>
 
                             <section className="mt-12 border-t border-border pt-7">
-                                <h2 className="mb-3 text-base leading-5">Information Sharing and Disclosure</h2>
+                                <h2 className="mb-3 text-base font-semibold leading-5">Information Sharing and Disclosure</h2>
                                 <p className="mb-4">
                                     We do not share or disclose your personal information obtained through the OAuth2 process, except in the following cases:
                                 </p>
@@ -64,7 +64,7 @@ export function PrivacyPolicyPage() {
                             </section>
 
                             <section className="mt-12 border-t border-border pt-7">
-                                <h2 className="mb-3 text-base leading-5">Data Security</h2>
+                                <h2 className="mb-3 text-base font-semibold leading-5">Data Security</h2>
                                 <p className="mb-4">
                                     We take appropriate technical and organizational measures to protect your personal information and ensure its
                                     confidentiality and integrity.
@@ -72,7 +72,7 @@ export function PrivacyPolicyPage() {
                             </section>
 
                             <section className="mt-12 border-t border-border pt-7">
-                                <h2 className="mb-3 text-base leading-5">Changes to this Privacy Policy</h2>
+                                <h2 className="mb-3 text-base font-semibold leading-5">Changes to this Privacy Policy</h2>
                                 <p className="mb-4">
                                     We may update this Privacy Policy from time to time. Any changes will be posted on this page and the &quot;Last
                                     Updated&quot; date at the top will be revised accordingly.
@@ -80,7 +80,7 @@ export function PrivacyPolicyPage() {
                             </section>
 
                             <section className="mt-12 border-t border-border pt-7">
-                                <h2 className="mb-3 text-base leading-5">Contact Us</h2>
+                                <h2 className="mb-3 text-base font-semibold leading-5">Contact Us</h2>
                                 <p className="mb-4">
                                     If you have any questions about this Privacy Policy, please contact us at{' '}
                                     <a className="font-bold text-brand-strong underline" href="mailto:suporte@smartrural.com.br">
