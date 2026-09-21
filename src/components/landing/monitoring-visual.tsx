@@ -147,7 +147,7 @@ export function MonitoringVisualCarousel({ slides, autoplayInterval = 6000 }: { 
             onBlur={handleBlur}
         >
             <Carousel opts={{ loop: hasMultipleSlides }} setApi={handleApi} aria-label="Monitoramento por localização">
-                <CarouselContent className="-ml-0">
+                <CarouselContent className="ml-0">
                     {slides.map((slide, index) => (
                         <CarouselItem key={`${slide.location}-${slide.unitLabel}`} className="pl-0">
                             <MonitoringVisualCard slide={slide} priority={index === 0} />
