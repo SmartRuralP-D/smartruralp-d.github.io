@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import type { LucideIcon } from 'lucide-react'
 import { Droplets, MapPin } from 'lucide-react'
 
-import { Carousel, type CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import { Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 
 export type MonitoringStatus = {
     label: string
@@ -36,6 +36,8 @@ export type MonitoringMetric = {
 export type MonitoringSlide = {
     image: string
     imageAlt: string
+    deviceImage: string
+    deviceImageAlt: string
     location: string
     unitLabel: string
     metrics: readonly MonitoringMetric[]
@@ -143,7 +145,7 @@ function AnimatedMetricNumber({
 
     return (
         <strong
-            className="inline-flex text-[1.6875rem] leading-none tracking-[-.04em] tabular-nums"
+            className="inline-flex text-[1.6875rem] leading-none tracking-[-.04em] tabular-nums max-[600px]:text-[1.375rem]"
             aria-label={`${formattedNumber}${unitSeparator}${config.unit}`}
         >
             <span className="inline-flex">
@@ -210,14 +212,14 @@ function MonitoringMetricDisplay({
 
     return (
         <div className="grid gap-0.5">
-            <span className="text-[0.6875rem] font-bold leading-[1.35] text-white/75">{metric.label}</span>
+            <span className="md:text-[0.6875rem] font-bold leading-[1.35] text-white/75 text-[0.5625rem]">{metric.label}</span>
             {config ? (
                 <AnimatedMetricNumber value={simulation.value} config={config} direction={direction} reducedMotion={reducedMotion} />
             ) : (
-                <strong className="text-[1.6875rem] leading-none tracking-[-.04em]">{staticValue}</strong>
+                <strong className="md:text-[1.6875rem] leading-none tracking-[-.04em] text-[1.375rem]">{staticValue}</strong>
             )}
             {status ? (
-                <span className="inline-flex items-center gap-1.5 text-[0.6875rem] font-bold text-[#d5e4dc]">
+                <span className="inline-flex items-center gap-1.5 md:text-[0.6875rem] font-bold text-[#d5e4dc] text-[0.5625rem]">
                     <i className={`size-1.75 rounded-pill ${statusToneClasses[status.tone ?? 'normal']}`} aria-hidden="true" /> {status.label}
                 </span>
             ) : null}
@@ -251,13 +253,26 @@ function MonitoringVisualCard({
                 fetchPriority={priority ? 'high' : 'auto'}
                 loading={priority ? undefined : 'lazy'}
             />
-            <figcaption className="absolute bottom-6 left-7 z-10 flex flex-wrap gap-5.5 bg-[rgba(16,19,22,.7)] px-3 py-2.5 text-xs font-bold text-white backdrop-blur-[0.4375rem]">
+            <figcaption className="absolute bottom-6 left-7 z-10 flex flex-wrap gap-5.5 bg-[rgba(16,19,22,.7)] px-3 py-2.5 text-xs font-bold text-white backdrop-blur-[0.4375rem] max-[600px]:text-[0.6875rem]">
                 <span className="inline-flex items-center gap-1.5">
                     <MapPin className="size-3.5 text-[#9ac7ff]" aria-hidden="true" /> {slide.location}
                 </span>
             </figcaption>
-            <div className="absolute right-8 top-8 z-10 grid w-[min(16.875rem,34%)] gap-3 rounded-none border-l-[3px] border-brand bg-[rgba(16,19,22,.78)] p-[1.0625rem_1.125rem] text-white backdrop-blur-lg max-[600px]:right-4 max-[600px]:top-4 max-[600px]:w-[min(16.875rem,calc(100%-2rem))]">
-                <span className="inline-flex items-center gap-1.5 text-[0.6875rem] font-bold text-[#bdd9ff]">
+            <div className="absolute left-7 top-8 z-10 w-[min(15rem,31%)] overflow-hidden border-l-[3px] border-brand bg-[rgba(16,19,22,.78)] p-3 text-white backdrop-blur-lg max-[600px]:left-4 max-[600px]:top-4 max-[600px]:w-[min(9rem,38%)] max-[600px]:p-2">
+                <img
+                    className="h-32 w-full object-contain max-[600px]:h-20"
+                    src={slide.deviceImage}
+                    alt={slide.deviceImageAlt}
+                    width={2760}
+                    height={2104}
+                    loading="lazy"
+                />
+                <p className="mb-0 mt-1.5 text-[0.6875rem] font-extrabold tracking-[-.02em] text-white max-[600px]:mt-1 max-[600px]:text-[0.5625rem]">
+                    Dispositivo SmartRural
+                </p>
+            </div>
+            <div className="absolute right-8 top-8 z-10 grid w-[min(16.875rem,34%)] gap-3 rounded-none border-l-[3px] border-brand bg-[rgba(16,19,22,.78)] p-[1.0625rem_1.125rem] text-white backdrop-blur-lg max-md:w-1/2 max-[600px]:right-4 max-[600px]:top-4">
+                <span className="inline-flex items-center gap-1.5 text-[0.6875rem] font-bold text-[#bdd9ff] max-[600px]:text-[0.5625rem]">
                     <UnitIcon className="size-3.5" aria-hidden="true" /> {slide.unitLabel}
                 </span>
                 <div className="grid gap-5">
@@ -354,6 +369,20 @@ export function MonitoringVisualCarousel({ slides, autoplayInterval = 6000 }: { 
                         </CarouselItem>
                     ))}
                 </CarouselContent>
+                {hasMultipleSlides ? (
+                    <>
+                        <CarouselPrevious
+                            variant="ghost"
+                            aria-label="Imagem anterior"
+                            className="left-3 size-8 -translate-y-1/2 rounded-pill bg-black/15 text-white/70 opacity-70 backdrop-blur-[2px] hover:bg-black/30 hover:text-white hover:opacity-100 focus-visible:ring-white/80 max-[600px]:left-2"
+                        />
+                        <CarouselNext
+                            variant="ghost"
+                            aria-label="Próxima imagem"
+                            className="right-3 size-8 -translate-y-1/2 rounded-pill bg-black/15 text-white/70 opacity-70 backdrop-blur-[2px] hover:bg-black/30 hover:text-white hover:opacity-100 focus-visible:ring-white/80 max-[600px]:right-2"
+                        />
+                    </>
+                ) : null}
             </Carousel>
             {hasMultipleSlides ? (
                 <div className="mt-4 flex items-center justify-center gap-2" aria-label="Selecionar localização">

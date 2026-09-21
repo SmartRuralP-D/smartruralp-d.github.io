@@ -48,7 +48,7 @@ export function PortfolioSection() {
                         <div className="grid grid-cols-[90px_1fr] items-center gap-4.5 border-t border-ink pt-6 max-[900px]:grid-cols-1 max-[900px]:border-t-0 max-[900px]:pt-0 max-[640px]:block">
                             <img
                                 className="h-18 w-22.5 object-contain mix-blend-multiply max-[900px]:h-27.5 max-[900px]:w-full max-[640px]:h-22.5"
-                                src={media.sensor}
+                                src={media.aquacultureDevice}
                                 alt="Protótipo de sensor flutuante SmartRural"
                                 width={2760}
                                 height={2104}
