@@ -19,7 +19,7 @@ export function PrivacyPolicyPage() {
                 <div className="page-container">
                     <article className="border border-border bg-white p-7 shadow-card lg:grid lg:grid-cols-7 lg:gap-16 lg:p-20">
                         <div className="mb-12 flex h-fit items-start gap-0 lg:col-span-2 lg:sticky lg:top-8 lg:mb-0">
-                            <h1>Privacy Policy</h1>
+                            <h1 className="text-2xl font-bold leading-7 lg:text-3xl">Privacy Policy</h1>
                         </div>
 
                         <div className="max-w-2xl font-sans text-base leading-7 text-text lg:col-span-5">
