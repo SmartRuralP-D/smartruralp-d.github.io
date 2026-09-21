@@ -34,18 +34,18 @@ const heroMonitoringMetrics = [
         label: 'Temperatura da água',
         value: {
             initial: 28,
-            min: 27.4,
-            max: 28.6,
-            step: 0.1,
+            min: 18,
+            max: 39,
+            step: 0.5,
             intervalMs: 5000,
             unit: '°C',
             decimals: 1,
             statusRules: [
-                { max: 27.5, status: { label: 'Crítico', tone: 'critical' as const } },
-                { max: 27.8, status: { label: 'Atenção', tone: 'warning' as const } },
-                { min: 27.9, max: 28.1, status: { label: 'Normal', tone: 'normal' as const } },
-                { min: 28.2, max: 28.5, status: { label: 'Atenção', tone: 'warning' as const } },
-                { min: 28.6, status: { label: 'Crítico', tone: 'critical' as const } }
+                { max: 19, status: { label: 'Crítico', tone: 'critical' as const } },
+                { max: 24.5, status: { label: 'Atenção', tone: 'warning' as const } },
+                { min: 25, max: 32, status: { label: 'Normal', tone: 'normal' as const } },
+                { min: 32.5, max: 37.5, status: { label: 'Atenção', tone: 'warning' as const } },
+                { min: 38, status: { label: 'Crítico', tone: 'critical' as const } }
             ]
         },
         status: { label: 'Normal', tone: 'normal' as const }
@@ -54,18 +54,17 @@ const heroMonitoringMetrics = [
         label: 'Oxigênio dissolvido',
         value: {
             initial: 6.8,
-            min: 6.4,
-            max: 7.2,
-            step: 0.1,
+            min: 1,
+            max: 10,
+            step: 0.5,
             intervalMs: 10000,
             unit: 'mg/L',
             decimals: 1,
             statusRules: [
-                { max: 6.4, status: { label: 'Crítico', tone: 'critical' as const } },
-                { max: 6.6, status: { label: 'Atenção', tone: 'warning' as const } },
-                { min: 6.7, max: 6.9, status: { label: 'Normal', tone: 'normal' as const } },
-                { min: 7, max: 7.1, status: { label: 'Atenção', tone: 'warning' as const } },
-                { min: 7.2, status: { label: 'Crítico', tone: 'critical' as const } }
+                { max: 2.5, status: { label: 'Crítico', tone: 'critical' as const } },
+                { max: 5.5, status: { label: 'Atenção', tone: 'warning' as const } },
+                { min: 6, max: 8, status: { label: 'Normal', tone: 'normal' as const } },
+                { min: 8.5, status: { label: 'Atenção', tone: 'warning' as const } }
             ]
         },
         status: { label: 'Normal', tone: 'normal' as const }
