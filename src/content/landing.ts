@@ -1,6 +1,8 @@
 import type { LucideIcon } from 'lucide-react'
 import { Bell, FileText, Gauge, History, SlidersHorizontal } from 'lucide-react'
 
+import type { MonitoringSlide } from '@/components/landing/monitoring-visual'
+
 export const asset = (file: string) => `/assets/smartrural/${file}`
 
 export const media = {
@@ -26,6 +28,31 @@ export const navigation = [
     { label: 'Portfólio', href: '#portfolio' },
     { label: 'Sobre', href: '#sobre' }
 ] as const
+
+export const heroMonitoringSlides = [
+    {
+        image: media.hero,
+        imageAlt: 'Viveiro de aquicultura com aeradores em funcionamento',
+        location: 'Feira Nova, PE',
+        category: 'Aquicultura',
+        unitLabel: 'Viveiro 04',
+        metrics: [
+            { label: 'Temperatura da água', value: '28°C', status: { label: 'Normal' } },
+            { label: 'Oxigênio dissolvido', value: '6,8 mg/L', status: { label: 'Normal' } }
+        ]
+    },
+    {
+        image: media.hero,
+        imageAlt: 'Viveiro de aquicultura com aeradores em funcionamento',
+        location: 'Feira Nova, PE',
+        category: 'Aquicultura',
+        unitLabel: 'Viveiro 04',
+        metrics: [
+            { label: 'Temperatura da água', value: '28°C', status: { label: 'Normal' } },
+            { label: 'Oxigênio dissolvido', value: '6,8 mg/L', status: { label: 'Normal' } }
+        ]
+    }
+] satisfies readonly MonitoringSlide[]
 
 export const solutions = {
     aquaculture: {

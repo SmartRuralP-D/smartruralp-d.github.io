@@ -1,7 +1,7 @@
 import { ArrowDownRight, ArrowRight, ArrowUpRight } from 'lucide-react'
 
-import { MonitoringVisual } from '@/components/landing/monitoring-visual'
-import { media } from '@/content/landing'
+import { MonitoringVisualCarousel } from '@/components/landing/monitoring-visual'
+import { heroMonitoringSlides } from '@/content/landing'
 
 export function HeroSection() {
     return (
@@ -42,16 +42,7 @@ export function HeroSection() {
                         </a>
                     </div>
                 </div>
-                <MonitoringVisual
-                    image={media.hero}
-                    imageAlt="Viveiro de aquicultura com aeradores em funcionamento"
-                    location="Feira Nova, PE"
-                    unitLabel="Viveiro 04"
-                    metrics={[
-                        { label: 'Temperatura da água', value: '28°C', status: { label: 'Normal' } },
-                        { label: 'Oxigênio dissolvido', value: '6,8 mg/L', status: { label: 'Normal' } }
-                    ]}
-                />
+                <MonitoringVisualCarousel slides={heroMonitoringSlides} />
             </div>
         </section>
     )
