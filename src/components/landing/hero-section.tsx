@@ -33,7 +33,6 @@ export function HeroSection() {
                         </div>
                     </div>
                     <div className="grid content-end justify-items-start gap-5 pb-1 max-[900px]:hidden">
-                        <span className="text-xs font-extrabold tracking-[.08em] text-brand">01</span>
                         <p className="mb-0 max-w-37.5 text-[0.8125rem] leading-normal text-muted">Do campo para perto de quem acompanha a operação.</p>
                         <a
                             className="grid size-11.25 place-items-center rounded-pill border border-border text-brand transition hover:bg-brand hover:text-white"
