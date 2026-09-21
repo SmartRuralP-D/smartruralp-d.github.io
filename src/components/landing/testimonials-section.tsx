@@ -20,7 +20,7 @@ export function TestimonialsSection() {
                 <div className="mt-22.5 grid grid-cols-[150px_minmax(0,1fr)_110px] items-end gap-[clamp(28px,6vw,88px)] border-b border-[#353d44] pb-11.25 max-[900px]:grid-cols-1 max-[900px]:items-start max-[900px]:gap-6.5 max-[900px]:mt-14.5 max-[900px]:pb-7.5">
                     <div className="max-[900px]:flex max-[900px]:items-center max-[900px]:gap-3.5">
                         <img
-                            className="size-32 rounded-pill object-cover grayscale max-[900px]:size-20"
+                            className="size-32 rounded-pill object-cover max-[900px]:size-20"
                             src={activeTestimonial.image}
                             alt={`Foto de ${activeTestimonial.name}`}
                             width={128}
