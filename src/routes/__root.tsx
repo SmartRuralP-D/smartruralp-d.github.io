@@ -1,6 +1,6 @@
 import { type ReactNode, useEffect } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { createRootRouteWithContext, HeadContent, Link, Outlet, Scripts, useRouter } from '@tanstack/react-router'
+import { createRootRouteWithContext, type ErrorComponentProps, HeadContent, Link, Outlet, Scripts, useRouter } from '@tanstack/react-router'
 
 import { reportLovableError } from '@/lib/lovable-error-reporting'
 import appCss from '@/styles.css?url'
@@ -25,7 +25,7 @@ function NotFoundComponent() {
     )
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
     console.error(error)
     const router = useRouter()
     useEffect(() => {
