@@ -11,8 +11,11 @@ import { SiteHeader } from '@/components/site/site-header'
 
 export function HomePage() {
     return (
-        <div className="site-shell">
-            <a className="skip-link" href="#conteudo">
+        <div className="overflow-clip bg-canvas">
+            <a
+                className="fixed left-3 top-3 z-100 translate-y-[-150%] bg-ink px-3.5 py-2.5 text-white transition-transform duration-200 focus:translate-y-0"
+                href="#conteudo"
+            >
                 Ir para o conteúdo
             </a>
 

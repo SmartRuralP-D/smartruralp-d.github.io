@@ -56,3 +56,4 @@ public/dev-config.local.js
 *.njsproj
 *.sln
 *.sw?
+.empryo

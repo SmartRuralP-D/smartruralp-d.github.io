@@ -38,7 +38,7 @@ generated route tree (`src/routeTree.gen.ts`)
 | `src/components/ui` | Reusable Radix-based UI primitives and presentation helpers. | [UI components](../src/components/ui) |
 | `src/hooks` | Small reusable browser hooks, currently including responsive viewport behavior. | [Hooks](../src/hooks) |
 | `src/lib` | Error handling, Lovable reporting, error-page rendering, and class-name utilities. | [Library helpers](../src/lib) |
-| `src/assets` | Source-managed images and asset metadata consumed by the application. | [Source assets](../src/assets) |
+| `src/assets` | Reserved source-asset directory; landing-page media is served from `public/assets`. | [Source assets](../src/assets) |
 | `public` and root export | Browser-served static files and generated GitHub Pages output. | [Export script](../scripts/export-pages.mjs) |
 
 The home route is intentionally content-oriented rather than API-driven. `src/routes/index.tsx` owns route metadata and delegates page composition to `HomePage`. The privacy-policy route owns its document metadata and delegates its policy layout to `PrivacyPolicyPage`; its policy wording remains in the page component so it can be reviewed as one document. The landing sections own their markup and local behavior, while repeated content and media paths live in `src/content/landing.ts`. Local UI state controls the mobile menu, header scroll treatment, and testimonial carousel; this repository does not define authentication, backend requests, or persistent application state.

@@ -1,7 +1,7 @@
 import type { LucideIcon } from 'lucide-react'
 import { Bell, FileText, Gauge, History, SlidersHorizontal } from 'lucide-react'
 
-import poultryPlaceholder from '@/assets/poultry-placeholder.jpg'
+import type { MonitoringSlide } from '@/components/landing/monitoring-visual'
 
 export const asset = (file: string) => `/assets/smartrural/${file}`
 
@@ -19,7 +19,7 @@ export const media = {
     webDashboard: asset('web-dashboard.png'),
     webChart: asset('web-chart.png'),
     mobileDashboard: asset('mobile-dashboard.jpeg'),
-    poultryPlaceholder
+    aviculture: asset('aviculture.jpeg')
 } as const
 
 export const navigation = [
@@ -28,6 +28,65 @@ export const navigation = [
     { label: 'Portfólio', href: '#portfolio' },
     { label: 'Sobre', href: '#sobre' }
 ] as const
+
+const heroMonitoringMetrics = [
+    {
+        label: 'Temperatura da água',
+        value: {
+            initial: 28,
+            min: 18,
+            max: 39,
+            step: 0.5,
+            intervalMs: 5000,
+            unit: '°C',
+            decimals: 1,
+            statusRules: [
+                { max: 19, status: { label: 'Crítico', tone: 'critical' as const } },
+                { max: 24.5, status: { label: 'Atenção', tone: 'warning' as const } },
+                { min: 25, max: 32, status: { label: 'Normal', tone: 'normal' as const } },
+                { min: 32.5, max: 37.5, status: { label: 'Atenção', tone: 'warning' as const } },
+                { min: 38, status: { label: 'Crítico', tone: 'critical' as const } }
+            ]
+        },
+        status: { label: 'Normal', tone: 'normal' as const }
+    },
+    {
+        label: 'Oxigênio dissolvido',
+        value: {
+            initial: 6.8,
+            min: 1,
+            max: 10,
+            step: 0.5,
+            intervalMs: 10000,
+            unit: 'mg/L',
+            decimals: 1,
+            statusRules: [
+                { max: 2.5, status: { label: 'Crítico', tone: 'critical' as const } },
+                { max: 5.5, status: { label: 'Atenção', tone: 'warning' as const } },
+                { min: 6, max: 8, status: { label: 'Normal', tone: 'normal' as const } },
+                { min: 8.5, status: { label: 'Atenção', tone: 'warning' as const } }
+            ]
+        },
+        status: { label: 'Normal', tone: 'normal' as const }
+    }
+]
+
+export const heroMonitoringSlides = [
+    {
+        image: media.hero,
+        imageAlt: 'Viveiro de aquicultura com aeradores em funcionamento',
+        location: 'Feira Nova, PE',
+        unitLabel: 'Viveiro 04',
+        metrics: heroMonitoringMetrics
+    },
+    {
+        image: media.hero,
+        imageAlt: 'Viveiro de aquicultura com aeradores em funcionamento',
+        location: 'Feira Nova, PE',
+        unitLabel: 'Viveiro 04',
+        metrics: heroMonitoringMetrics
+    }
+] satisfies readonly MonitoringSlide[]
 
 export const solutions = {
     aquaculture: {
@@ -43,9 +102,9 @@ export const solutions = {
     aviculture: {
         number: '02',
         title: 'Avicultura',
-        image: media.poultryPlaceholder,
-        imageAlt: 'Placeholder visual de um aviário com aves e equipamentos',
-        imageNote: 'Placeholder visual · avicultura',
+        image: media.aviculture,
+        imageAlt: 'Aviário com aves e equipamentos de produção',
+        imageNote: 'Operação avícola',
         copy: 'Uma base preparada para acompanhar ambiente, ventilação, temperatura, umidade e equipamentos de aviários.',
         linkLabel: 'Conversar sobre a operação',
         linkHref: '#contato'

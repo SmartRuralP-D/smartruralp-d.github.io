@@ -1,71 +1,49 @@
-import { ArrowDownRight, ArrowRight, ArrowUpRight, Droplets, MapPin } from 'lucide-react'
+import { ArrowDownRight, ArrowRight, ArrowUpRight } from 'lucide-react'
 
-import { SectionLabel } from '@/components/site/section-label'
-import { media } from '@/content/landing'
+import { MonitoringVisualCarousel } from '@/components/landing/monitoring-visual'
+import { heroMonitoringSlides } from '@/content/landing'
+
+const AUTO_PLAY_INTERVAL = 30000 // 30 seconds
 
 export function HeroSection() {
     return (
-        <section id="inicio" className="hero-section">
-            <div className="container">
-                <div className="hero-intro">
-                    <div className="hero-copy">
-                        <SectionLabel>TECNOLOGIA APLICADA AO CAMPO</SectionLabel>
-                        <h1>
-                            Sua solução para monitoramento em <em>tempo real</em>
+        <section id="inicio" className="bg-canvas pt-24 lg:pt-36 mb-5">
+            <div className="page-container">
+                <div className="grid items-end gap-9 pb-15.5 grid-cols-[minmax(0,9fr)_minmax(8.75rem,2fr)] max-[900px]:grid-cols-1">
+                    <div>
+                        <h1 className="mb-7 mt-6 max-w-230 text-[clamp(3.25rem,7.5vw,7.2rem)] font-semibold leading-[.96] tracking-display">
+                            Sua solução para monitoramento em <em className="text-brand not-italic">tempo real</em>
                         </h1>
-                        <p>
-                            A SmartRural ajuda você a acompanhar informações importantes da sua operação de aquicultura e avicultura pelo celular ou computador.
+                        <p className="mb-0 max-w-150 text-[clamp(1rem,1.5vw,1.22rem)] leading-[1.65] text-text">
+                            A SmartRural ajuda você a acompanhar informações importantes da sua operação pelo celular ou computador.
                         </p>
-                        <div className="hero-actions">
-                            <a className="button button-primary" href="#solucoes">
-                                Conheça nossas soluções <ArrowUpRight aria-hidden="true" />
+                        <div className="mt-9 flex flex-wrap items-center gap-5">
+                            <a
+                                className="inline-flex min-h-12.5 items-center justify-center rounded-control bg-brand px-4.5 text-[0.8125rem] font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-brand-strong"
+                                href="#solucoes"
+                            >
+                                Conheça nossas soluções <ArrowUpRight className="ml-2.5 size-4.25" aria-hidden="true" />
                             </a>
-                            <a className="button button-quiet" href="#contato">
-                                Fale com a SmartRural <ArrowRight aria-hidden="true" />
+                            <a
+                                className="inline-flex min-h-12.5 items-center justify-center px-0 text-[0.8125rem] font-extrabold text-ink transition hover:translate-x-0.5 hover:text-brand"
+                                href="#contato"
+                            >
+                                Fale com a SmartRural <ArrowRight className="ml-2.5 size-4.25" aria-hidden="true" />
                             </a>
                         </div>
                     </div>
-                    <div className="hero-aside">
-                        <span className="hero-aside-number">01</span>
-                        <p>Do campo para perto de quem acompanha a operação.</p>
-                        <a href="#solucoes" aria-label="Conheça as soluções">
-                            <ArrowDownRight aria-hidden="true" />
+                    <div className="grid content-end justify-items-start gap-5 pb-1 max-[900px]:hidden">
+                        <p className="mb-0 max-w-37.5 text-[0.8125rem] leading-normal text-muted">Do campo para perto de quem acompanha a operação.</p>
+                        <a
+                            className="grid size-11.25 place-items-center rounded-pill border border-border text-brand transition hover:bg-brand hover:text-white"
+                            href="#solucoes"
+                            aria-label="Conheça as soluções"
+                        >
+                            <ArrowDownRight className="size-4.5" aria-hidden="true" />
                         </a>
                     </div>
                 </div>
-
-                <figure className="hero-photo">
-                    <img src={media.hero} alt="Viveiro de aquicultura com aeradores em funcionamento" width={1280} height={720} fetchPriority="high" />
-                    <figcaption className="hero-caption">
-                        <span>
-                            <MapPin aria-hidden="true" /> Feira Nova, PE
-                        </span>
-                        <span>Aquicultura</span>
-                    </figcaption>
-                    <div className="hero-status" aria-label="Exemplo de informação acompanhada">
-                        <span className="status-kicker">
-                            <Droplets aria-hidden="true" /> Viveiro 04
-                        </span>
-                        <strong>
-                            Temperatura da água <b>28°C</b>
-                        </strong>
-                        <span className="status-normal">
-                            <i aria-hidden="true" /> Normal
-                        </span>
-                    </div>
-                </figure>
-
-                <div className="hero-bottomline">
-                    <span>Uma mesma base para diferentes contextos rurais</span>
-                    <div>
-                        <span>
-                            <i aria-hidden="true" /> Aquicultura
-                        </span>
-                        <span>
-                            <i aria-hidden="true" /> Avicultura
-                        </span>
-                    </div>
-                </div>
+                <MonitoringVisualCarousel slides={heroMonitoringSlides} autoplayInterval={AUTO_PLAY_INTERVAL} />
             </div>
         </section>
     )
