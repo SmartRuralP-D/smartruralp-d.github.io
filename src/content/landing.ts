@@ -196,7 +196,7 @@ export const footerColumns = [
     {
         title: 'Empresa',
         links: [
-            { label: 'Sobre', href: '#sobre' },
+            { label: 'Sobre', href: '#conteudo' },
             { label: 'Portfólio', href: '#portfolio' },
             { label: 'Contato', href: '#contato' },
             { label: 'Política de privacidade', href: '/privacy-policy' }
