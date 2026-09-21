@@ -54,16 +54,6 @@ export function HeroSection() {
                     ]}
                     status={{ label: 'Normal' }}
                 />
-                <div className="flex items-center justify-between gap-5 pt-4.5 text-xs text-muted">
-                    <div className="flex gap-6.25">
-                        <span className="inline-flex items-center gap-1.5 font-bold text-text">
-                            <i className="size-1.75 rounded-pill bg-[#4bbd7a]" aria-hidden="true" /> Aquicultura
-                        </span>
-                        <span className="inline-flex items-center gap-1.5 font-bold text-text">
-                            <i className="size-1.75 rounded-pill bg-[#4bbd7a]" aria-hidden="true" /> Avicultura
-                        </span>
-                    </div>
-                </div>
             </div>
         </section>
     )
