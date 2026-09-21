@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import type { LucideIcon } from 'lucide-react'
 import { Droplets, MapPin } from 'lucide-react'
 
-import { Carousel, type CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import { Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 
 export type MonitoringStatus = {
     label: string
@@ -369,6 +369,20 @@ export function MonitoringVisualCarousel({ slides, autoplayInterval = 6000 }: { 
                         </CarouselItem>
                     ))}
                 </CarouselContent>
+                {hasMultipleSlides ? (
+                    <>
+                        <CarouselPrevious
+                            variant="ghost"
+                            aria-label="Imagem anterior"
+                            className="left-3 size-8 -translate-y-1/2 rounded-pill bg-black/15 text-white/70 opacity-70 backdrop-blur-[2px] hover:bg-black/30 hover:text-white hover:opacity-100 focus-visible:ring-white/80 max-[600px]:left-2"
+                        />
+                        <CarouselNext
+                            variant="ghost"
+                            aria-label="Próxima imagem"
+                            className="right-3 size-8 -translate-y-1/2 rounded-pill bg-black/15 text-white/70 opacity-70 backdrop-blur-[2px] hover:bg-black/30 hover:text-white hover:opacity-100 focus-visible:ring-white/80 max-[600px]:right-2"
+                        />
+                    </>
+                ) : null}
             </Carousel>
             {hasMultipleSlides ? (
                 <div className="mt-4 flex items-center justify-center gap-2" aria-label="Selecionar localização">
