@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Fragment } from 'react'
 import { ArrowRight, ArrowUpRight, CalendarDays, Radio, Smartphone } from 'lucide-react'
 
-import { SectionLabel } from '@/components/site/section-label'
 import { operationBenefits } from '@/content/landing'
 
 const flowSteps: Array<[React.ElementType, string, string]> = [
@@ -17,7 +16,6 @@ export function BenefitsSection() {
             <div className="page-container">
                 <div className="grid gap-8.5 min-[901px]:grid-cols-[minmax(0,7fr)_minmax(260px,4fr)] min-[901px]:items-start">
                     <div>
-                        <SectionLabel>03 / NO DIA A DIA</SectionLabel>
                         <h2 className="section-heading">
                             Informação que ajuda a <em>acompanhar.</em>
                         </h2>

@@ -1,6 +1,5 @@
 import { Droplets } from 'lucide-react'
 
-import { SectionLabel } from '@/components/site/section-label'
 import { TextLink } from '@/components/site/text-link'
 import { solutions } from '@/content/landing'
 
@@ -13,7 +12,6 @@ export function SolutionsSection() {
             <div className="page-container">
                 <div className="grid gap-8.5 min-[901px]:grid-cols-[minmax(0,7fr)_minmax(260px,4fr)] min-[901px]:items-end">
                     <div>
-                        <SectionLabel>01 / ÁREAS DE ATUAÇÃO</SectionLabel>
                         <h2 className="section-heading">
                             Conheça nossas <em>soluções</em>
                         </h2>

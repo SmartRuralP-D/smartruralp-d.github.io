@@ -1,6 +1,5 @@
 import { Check, Monitor, Smartphone } from 'lucide-react'
 
-import { SectionLabel } from '@/components/site/section-label'
 import { media, platformAccess } from '@/content/landing'
 
 export function PlatformSection() {
@@ -9,7 +8,6 @@ export function PlatformSection() {
             <div className="page-container">
                 <div className="grid gap-8.5 min-[901px]:grid-cols-[minmax(0,7fr)_minmax(260px,4fr)] min-[901px]:items-end">
                     <div>
-                        <SectionLabel>02 / PLATAFORMA SMARTRURAL</SectionLabel>
                         <h2 className="section-heading text-white">
                             Uma única visão da <em className="text-[#8fbcff]">sua operação.</em>
                         </h2>

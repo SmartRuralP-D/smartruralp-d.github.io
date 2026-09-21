@@ -1,6 +1,5 @@
 import { MapPin } from 'lucide-react'
 
-import { SectionLabel } from '@/components/site/section-label'
 import { media } from '@/content/landing'
 
 export function PortfolioSection() {
@@ -9,7 +8,6 @@ export function PortfolioSection() {
             <div className="page-container">
                 <div className="grid items-end gap-8.5 min-[901px]:grid-cols-[minmax(0,7fr)_minmax(260px,4fr)] max-[900px]:grid-cols-1">
                     <div>
-                        <SectionLabel>04 / PORTFÓLIO</SectionLabel>
                         <h2 className="section-heading">
                             SmartRural <em>em campo.</em>
                         </h2>

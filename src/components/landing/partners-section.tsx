@@ -1,4 +1,3 @@
-import { SectionLabel } from '@/components/site/section-label'
 import { asset, partners } from '@/content/landing'
 
 export function PartnersSection() {
@@ -7,7 +6,6 @@ export function PartnersSection() {
             <div className="page-container">
                 <div>
                     <div>
-                        <SectionLabel>06 / PARCEIROS</SectionLabel>
                         <h2 className="section-heading text-[clamp(2.65rem,13vw,4.3rem)]">
                             Construída em <em>colaboração.</em>
                         </h2>

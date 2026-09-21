@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 
-import { SectionLabel } from '@/components/site/section-label'
 import { testimonials } from '@/content/landing'
 
 export function TestimonialsSection() {
@@ -14,7 +13,6 @@ export function TestimonialsSection() {
         <section id="relatos" className="bg-inverse section-padding text-white">
             <div className="page-container">
                 <div>
-                    <SectionLabel>05 / RELATOS</SectionLabel>
                     <h2 className="section-heading text-[clamp(2.65rem,13vw,4.3rem)] text-white [&_em]:text-[#9bc7ff]">
                         Feita para quem está <em>no campo.</em>
                     </h2>
