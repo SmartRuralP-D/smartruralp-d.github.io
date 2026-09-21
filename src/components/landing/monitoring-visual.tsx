@@ -36,6 +36,8 @@ export type MonitoringMetric = {
 export type MonitoringSlide = {
     image: string
     imageAlt: string
+    deviceImage: string
+    deviceImageAlt: string
     location: string
     unitLabel: string
     metrics: readonly MonitoringMetric[]
@@ -256,6 +258,19 @@ function MonitoringVisualCard({
                     <MapPin className="size-3.5 text-[#9ac7ff]" aria-hidden="true" /> {slide.location}
                 </span>
             </figcaption>
+            <div className="absolute left-7 top-8 z-10 w-[min(15rem,31%)] overflow-hidden border-l-[3px] border-brand bg-[rgba(16,19,22,.78)] p-3 text-white backdrop-blur-lg max-[600px]:left-4 max-[600px]:top-4 max-[600px]:w-[min(9rem,38%)] max-[600px]:p-2">
+                <img
+                    className="h-32 w-full object-contain max-[600px]:h-20"
+                    src={slide.deviceImage}
+                    alt={slide.deviceImageAlt}
+                    width={2760}
+                    height={2104}
+                    loading="lazy"
+                />
+                <p className="mb-0 mt-1.5 text-[0.6875rem] font-extrabold tracking-[-.02em] text-white max-[600px]:mt-1 max-[600px]:text-[0.5625rem]">
+                    Dispositivo SmartRural
+                </p>
+            </div>
             <div className="absolute right-8 top-8 z-10 grid w-[min(16.875rem,34%)] gap-3 rounded-none border-l-[3px] border-brand bg-[rgba(16,19,22,.78)] p-[1.0625rem_1.125rem] text-white backdrop-blur-lg max-md:w-1/2 max-[600px]:right-4 max-[600px]:top-4">
                 <span className="inline-flex items-center gap-1.5 text-[0.6875rem] font-bold text-[#bdd9ff] max-[600px]:text-[0.5625rem]">
                     <UnitIcon className="size-3.5" aria-hidden="true" /> {slide.unitLabel}

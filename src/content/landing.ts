@@ -75,6 +75,8 @@ export const heroMonitoringSlides = [
     {
         image: media.hero,
         imageAlt: 'Viveiro de aquicultura com aeradores em funcionamento',
+        deviceImage: media.sensor,
+        deviceImageAlt: 'Dispositivo SmartRural para monitoramento de viveiros',
         location: 'Feira Nova, PE',
         unitLabel: 'Viveiro 04',
         metrics: heroMonitoringMetrics
@@ -82,6 +84,8 @@ export const heroMonitoringSlides = [
     {
         image: media.hero,
         imageAlt: 'Viveiro de aquicultura com aeradores em funcionamento',
+        deviceImage: media.sensor,
+        deviceImageAlt: 'Dispositivo SmartRural para monitoramento de viveiros',
         location: 'Feira Nova, PE',
         unitLabel: 'Viveiro 04',
         metrics: heroMonitoringMetrics
