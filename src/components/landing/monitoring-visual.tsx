@@ -37,7 +37,6 @@ export type MonitoringSlide = {
     image: string
     imageAlt: string
     location: string
-    category: string
     unitLabel: string
     metrics: readonly MonitoringMetric[]
     unitIcon?: LucideIcon
@@ -250,7 +249,6 @@ function MonitoringVisualCard({
                 <span className="inline-flex items-center gap-1.5">
                     <MapPin className="size-3.5 text-[#9ac7ff]" aria-hidden="true" /> {slide.location}
                 </span>
-                <span>{slide.category}</span>
             </figcaption>
             <div className="absolute right-8 top-8 z-10 grid w-[min(16.875rem,34%)] gap-3 rounded-none border-l-[3px] border-brand bg-[rgba(16,19,22,.78)] p-[1.0625rem_1.125rem] text-white backdrop-blur-lg max-[600px]:right-4 max-[600px]:top-4 max-[600px]:w-[min(16.875rem,calc(100%-2rem))]">
                 <span className="inline-flex items-center gap-1.5 text-[0.6875rem] font-bold text-[#bdd9ff]">

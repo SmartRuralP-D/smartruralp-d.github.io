@@ -75,7 +75,6 @@ export const heroMonitoringSlides = [
         image: media.hero,
         imageAlt: 'Viveiro de aquicultura com aeradores em funcionamento',
         location: 'Feira Nova, PE',
-        category: 'Aquicultura',
         unitLabel: 'Viveiro 04',
         metrics: heroMonitoringMetrics
     },
@@ -83,7 +82,6 @@ export const heroMonitoringSlides = [
         image: media.hero,
         imageAlt: 'Viveiro de aquicultura com aeradores em funcionamento',
         location: 'Feira Nova, PE',
-        category: 'Aquicultura',
         unitLabel: 'Viveiro 04',
         metrics: heroMonitoringMetrics
     }
