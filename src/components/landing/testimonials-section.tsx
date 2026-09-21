@@ -19,8 +19,8 @@ export function TestimonialsSection() {
                         Feita para quem está <em>no campo.</em>
                     </h2>
                 </div>
-                <div className="mt-[5.625rem] grid grid-cols-[150px_minmax(0,1fr)_110px] items-end gap-[clamp(28px,6vw,88px)] border-b border-[#353d44] pb-[2.8125rem] max-[900px]:grid-cols-1 max-[900px]:items-start max-[900px]:gap-[1.625rem] max-[900px]:mt-[3.625rem] max-[900px]:pb-[1.875rem]">
-                    <div className="max-[900px]:flex max-[900px]:items-center max-[900px]:gap-[0.875rem]">
+                <div className="mt-22.5 grid grid-cols-[150px_minmax(0,1fr)_110px] items-end gap-[clamp(28px,6vw,88px)] border-b border-[#353d44] pb-11.25 max-[900px]:grid-cols-1 max-[900px]:items-start max-[900px]:gap-6.5 max-[900px]:mt-14.5 max-[900px]:pb-7.5">
+                    <div className="max-[900px]:flex max-[900px]:items-center max-[900px]:gap-3.5">
                         <img
                             className="size-32 rounded-pill object-cover grayscale max-[900px]:size-20"
                             src={activeTestimonial.image}
@@ -28,23 +28,23 @@ export function TestimonialsSection() {
                             width={128}
                             height={128}
                         />
-                        <span className="mt-[0.875rem] block text-[0.6875rem] font-bold text-[#94a1ab] max-[900px]:mt-0">Relato real</span>
+                        <span className="mt-3.5 block text-[0.6875rem] font-bold text-[#94a1ab] max-[900px]:mt-0">Relato real</span>
                     </div>
                     <div>
-                        <blockquote className="mb-[1.6875rem] max-w-[50rem] text-[clamp(2.25rem,5vw,5.2rem)] font-medium leading-[1.02] tracking-[-0.06em] max-[900px]:mb-[1.375rem] max-[900px]:text-[clamp(2.25rem,12vw,3.8rem)]">
+                        <blockquote className="mb-6.75 max-w-200 text-[clamp(2.25rem,5vw,5.2rem)] font-medium leading-[1.02] tracking-[-0.06em] max-[900px]:mb-5.5 max-[900px]:text-[clamp(2.25rem,12vw,3.8rem)]">
                             “{activeTestimonial.quote}”
                         </blockquote>
-                        <p className="mb-[0.1875rem] text-sm font-extrabold">{activeTestimonial.name}</p>
+                        <p className="mb-0.75 text-sm font-extrabold">{activeTestimonial.name}</p>
                         <span className="text-xs text-[#94a1ab]">{activeTestimonial.role}</span>
                     </div>
-                    <div className="flex items-center justify-end gap-[0.625rem] pb-[0.1875rem] text-[0.6875rem] font-extrabold text-[#9aa7b0] max-[900px]:justify-start">
+                    <div className="flex items-center justify-end gap-2.5 pb-0.75 text-[0.6875rem] font-extrabold text-[#9aa7b0] max-[900px]:justify-start">
                         <button
                             className={testimonialControlClass}
                             type="button"
                             onClick={() => setTestimonial((testimonial - 1 + testimonials.length) % testimonials.length)}
                             aria-label="Relato anterior"
                         >
-                            <ArrowRight className="size-[0.9375rem] rotate-180" aria-hidden="true" />
+                            <ArrowRight className="size-3.75 rotate-180" aria-hidden="true" />
                         </button>
                         <span>
                             {String(testimonial + 1).padStart(2, '0')} / {String(testimonials.length).padStart(2, '0')}
@@ -55,25 +55,25 @@ export function TestimonialsSection() {
                             onClick={() => setTestimonial((testimonial + 1) % testimonials.length)}
                             aria-label="Próximo relato"
                         >
-                            <ArrowRight className="size-[0.9375rem]" aria-hidden="true" />
+                            <ArrowRight className="size-3.75" aria-hidden="true" />
                         </button>
                     </div>
                 </div>
                 <div
-                    className="flex flex-wrap gap-7 pt-8 max-[900px]:grid max-[900px]:grid-cols-2 max-[900px]:gap-x-[0.9375rem] max-[900px]:gap-y-[1.125rem]"
+                    className="flex flex-wrap gap-7 pt-8 max-[900px]:grid max-[900px]:grid-cols-2 max-[900px]:gap-x-3.75 max-[900px]:gap-y-4.5"
                     aria-label="Selecionar relato"
                 >
                     {testimonials.map((item, index) => (
                         <button
                             type="button"
-                            className={`group inline-flex items-center gap-[0.625rem] bg-transparent p-0 text-xs font-bold text-[#84919a] transition-colors hover:text-white ${index === testimonial ? 'text-white' : ''}`}
+                            className={`group inline-flex items-center gap-2.5 bg-transparent p-0 text-xs font-bold text-[#84919a] transition-colors hover:text-white ${index === testimonial ? 'text-white' : ''}`}
                             key={item.name}
                             onClick={() => setTestimonial(index)}
                             aria-label={`Ver relato de ${item.name}`}
                             aria-pressed={index === testimonial}
                         >
                             <img
-                                className="size-[2.375rem] rounded-pill object-cover grayscale opacity-[0.55] transition-[filter,opacity] group-hover:grayscale-0 group-hover:opacity-100 group-aria-pressed:grayscale-0 group-aria-pressed:opacity-100"
+                                className="size-9.5 rounded-pill object-cover grayscale opacity-[0.55] transition-[filter,opacity] group-hover:grayscale-0 group-hover:opacity-100 group-aria-pressed:grayscale-0 group-aria-pressed:opacity-100"
                                 src={item.image}
                                 alt=""
                                 width={64}

@@ -22,10 +22,10 @@ export function SiteHeader() {
         <header
             className={cn(
                 'fixed inset-x-0 top-0 z-50 border-b transition',
-                scrolled ? 'border-border/90 bg-canvas/88 shadow-header backdrop-blur-[1rem]' : 'border-transparent bg-canvas/72'
+                scrolled ? 'border-border/90 bg-canvas/88 shadow-header backdrop-blur-lg' : 'border-transparent bg-canvas/72'
             )}
         >
-            <div className="mx-auto flex min-h-[5.25rem] w-[min(calc(100%-4rem),77.5rem)] items-center justify-between gap-8">
+            <div className="mx-auto flex min-h-21 w-[min(calc(100%-4rem),77.5rem)] items-center justify-between gap-8">
                 <Brand />
                 <nav className="ml-auto flex items-center gap-[clamp(22px,3vw,42px)] max-[900px]:hidden" aria-label="Navegação principal">
                     {navigation.map(({ label, href }) => (
@@ -38,23 +38,23 @@ export function SiteHeader() {
                     className="inline-flex items-center gap-2 text-[0.8125rem] font-bold text-text transition hover:text-brand max-[900px]:hidden"
                     href="#contato"
                 >
-                    Contato <ArrowUpRight className="size-[0.9375rem] text-brand" aria-hidden="true" />
+                    Contato <ArrowUpRight className="size-3.75 text-brand" aria-hidden="true" />
                 </a>
                 <button
-                    className="hidden size-[2.625rem] items-center justify-center rounded-control border border-border bg-transparent text-ink max-[900px]:inline-flex"
+                    className="hidden size-10.5 items-center justify-center rounded-control border border-border bg-transparent text-ink max-[900px]:inline-flex"
                     type="button"
                     onClick={() => setMenuOpen((open) => !open)}
                     aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
                     aria-expanded={menuOpen}
                     aria-controls="mobile-navigation"
                 >
-                    {menuOpen ? <X className="size-[1.1875rem]" aria-hidden="true" /> : <Menu className="size-[1.1875rem]" aria-hidden="true" />}
+                    {menuOpen ? <X className="size-4.75" aria-hidden="true" /> : <Menu className="size-4.75" aria-hidden="true" />}
                 </button>
             </div>
             {menuOpen && (
                 <nav
                     id="mobile-navigation"
-                    className="grid gap-5 border-t border-border bg-canvas px-8 py-[1.375rem] pb-7 text-[1.0625rem] font-bold min-[901px]:hidden"
+                    className="grid gap-5 border-t border-border bg-canvas px-8 py-5.5 pb-7 text-[1.0625rem] font-bold min-[901px]:hidden"
                     aria-label="Navegação móvel"
                 >
                     {navigation.map(({ label, href }) => (

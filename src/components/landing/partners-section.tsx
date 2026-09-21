@@ -14,14 +14,14 @@ export function PartnersSection() {
                     </div>
                     <p>A SmartRural cresce junto de instituições, produtores e pessoas que conhecem os desafios do campo.</p>
                 </div>
-                <div className="mt-[4.6875rem] grid grid-cols-4 border-l border-t border-border max-[900px]:mt-[3.25rem] max-[900px]:grid-cols-2">
+                <div className="mt-18.75 grid grid-cols-4 border-l border-t border-border max-[900px]:mt-13 max-[900px]:grid-cols-2">
                     {partners.map((partner) => (
                         <div
-                            className="group grid min-h-[9.5rem] place-items-center border-b border-r border-border p-[1.5625rem] max-[900px]:min-h-[6.875rem] max-[900px]:p-[0.8125rem]"
+                            className="group grid min-h-38 place-items-center border-b border-r border-border p-6.25 max-[900px]:min-h-27.5 max-[900px]:p-3.25"
                             key={partner}
                         >
                             <img
-                                className="h-[5.5rem] w-[min(100%,11.875rem)] object-contain grayscale opacity-[0.74] transition-[filter,opacity] group-hover:grayscale-0 group-hover:opacity-100 max-[900px]:h-[4.0625rem]"
+                                className="h-22 w-[min(100%,11.875rem)] object-contain grayscale opacity-[0.74] transition-[filter,opacity] group-hover:grayscale-0 group-hover:opacity-100 max-[900px]:h-16.25"
                                 src={asset(partner)}
                                 alt="Logo de parceiro institucional da SmartRural"
                                 width={512}

@@ -6,7 +6,7 @@ export function PrivacyPolicyPage() {
     return (
         <div className="min-h-screen bg-[radial-gradient(circle_at_86%_8%,rgba(33,128,246,0.12),transparent_28rem),var(--surface)] text-ink">
             <header className="border-b border-border bg-white/80 backdrop-blur-md">
-                <div className="page-container flex min-h-[5.25rem] items-center justify-between gap-6">
+                <div className="page-container flex min-h-21 items-center justify-between gap-6">
                     <Brand href="/" />
                     <a
                         className="inline-flex items-center gap-2 text-brand-strong text-xs font-extrabold transition-[gap] duration-200 hover:gap-3 [&_svg]:size-4"
@@ -18,26 +18,26 @@ export function PrivacyPolicyPage() {
                 </div>
             </header>
 
-            <main className="py-[clamp(64px,10vw,132px)] pb-[6.875rem]">
+            <main className="py-[clamp(64px,10vw,132px)] pb-27.5">
                 <div className="page-container">
-                    <div className="flex items-end justify-between gap-[1.875rem] pb-[1.875rem] max-[900px]:block">
-                        <div className="inline-flex items-center gap-2 text-[0.6875rem] font-extrabold uppercase tracking-[0.12em] text-brand-strong [&_svg]:size-[1.125rem]">
+                    <div className="flex items-end justify-between gap-7.5 pb-7.5 max-[900px]:block">
+                        <div className="inline-flex items-center gap-2 text-[0.6875rem] font-extrabold uppercase tracking-[0.12em] text-brand-strong [&_svg]:size-4.5">
                             <ShieldCheck aria-hidden="true" />
                             SmartRural · Legal
                         </div>
-                        <p className="m-0 max-w-[15.625rem] text-right text-[0.8125rem] leading-[1.6] text-muted max-[900px]:mt-4 max-[900px]:text-left">
+                        <p className="m-0 max-w-62.5 text-right text-[0.8125rem] leading-[1.6] text-muted max-[900px]:mt-4 max-[900px]:text-left">
                             A clear view of how information is handled.
                         </p>
                     </div>
 
-                    <article className="grid grid-cols-[minmax(190px,0.6fr)_minmax(0,1.4fr)] gap-[clamp(32px,7vw,110px)] border border-[rgba(221,226,230,0.9)] bg-white p-[clamp(30px,6vw,78px)] shadow-[0_1.75rem_4.375rem_rgba(21,23,25,0.08)] max-[900px]:block max-[900px]:px-[1.375rem] max-[900px]:pb-[2.125rem] max-[900px]:pt-7">
+                    <article className="grid grid-cols-[minmax(190px,0.6fr)_minmax(0,1.4fr)] gap-[clamp(32px,7vw,110px)] border border-[rgba(221,226,230,0.9)] bg-white p-[clamp(30px,6vw,78px)] shadow-card max-[900px]:block max-[900px]:px-5.5 max-[900px]:pb-8.5 max-[900px]:pt-7">
                         <div className="sticky top-8 flex h-fit items-start gap-5 max-[900px]:static max-[900px]:mb-12">
                             <div>
                                 <h1>Privacy Policy</h1>
                             </div>
                         </div>
 
-                        <div className="max-w-[42.5rem] font-sans text-base leading-[1.75] text-text [&>p:first-child]:mt-0 [&>p:first-child]:text-[clamp(1.15rem,2vw,1.45rem)] [&_section]:mt-[2.875rem] [&_section]:border-t [&_section]:border-[var(--border)] [&_section]:pt-[1.8125rem] [&_h2]:mb-[0.8125rem] [&_h2]:text-[1.05rem] [&_h2]:leading-[1.35] [&_p]:mb-[0.9375rem] [&_ul]:grid [&_ul]:gap-[0.5625rem] [&_ul]:pl-[1.3125rem] [&_a]:font-bold [&_a]:text-[var(--blue-dark)] [&_a]:underline">
+                        <div className="max-w-170 font-sans text-base leading-[1.75] text-text [&>p:first-child]:mt-0 [&>p:first-child]:text-[clamp(1.15rem,2vw,1.45rem)] [&_section]:mt-11.5 [&_section]:border-t [&_section]:border-border [&_section]:pt-7.25 [&_h2]:mb-3.25 [&_h2]:text-[1.05rem] [&_h2]:leading-[1.35] [&_p]:mb-3.75 [&_ul]:grid [&_ul]:gap-2.25 [&_ul]:pl-5.25 [&_a]:font-bold [&_a]:text-(--blue-dark) [&_a]:underline">
                             <p>This Privacy Policy describes how we collect, use, and handle your personal information when you use our OAuth2 service.</p>
 
                             <section>
@@ -98,7 +98,7 @@ export function PrivacyPolicyPage() {
                                 </p>
                             </section>
 
-                            <p className="!mt-12 border-t border-border pt-5 text-xs font-bold tracking-[0.04em] text-muted">Last Updated: 2023-06-29</p>
+                            <p className="mt-12! border-t border-border pt-5 text-xs font-bold tracking-[0.04em] text-muted">Last Updated: 2023-06-29</p>
                         </div>
                     </article>
                 </div>
