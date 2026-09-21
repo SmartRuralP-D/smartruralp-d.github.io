@@ -19,7 +19,6 @@ export function ContactSection() {
                     >
                         Fale conosco <ArrowUpRight className="size-4" aria-hidden="true" />
                     </a>
-                    <small className="mt-4.25 block text-[0.625rem] text-[#cae1ff]">Contato provisório · canal a confirmar</small>
                 </div>
             </div>
         </section>
