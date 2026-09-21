@@ -25,7 +25,7 @@ export function HeroSection() {
                                 Conheça nossas soluções <ArrowUpRight className="ml-2.5 size-4.25" aria-hidden="true" />
                             </a>
                             <a
-                                className="inline-flex min-h-12.5 items-center justify-center px-0 text-[0.8125rem] font-extrabold text-ink transition hover:-translate-y-0.5 hover:text-brand"
+                                className="inline-flex min-h-12.5 items-center justify-center px-0 text-[0.8125rem] font-extrabold text-ink transition hover:translate-x-0.5 hover:text-brand"
                                 href="#contato"
                             >
                                 Fale com a SmartRural <ArrowRight className="ml-2.5 size-4.25" aria-hidden="true" />
