@@ -71,7 +71,7 @@ export function PortfolioSection() {
                             height={720}
                             loading="lazy"
                         />
-                        <figcaption className="mt-3 flex items-center gap-1.75 text-[0.6875rem] font-bold text-text">Condições reais da produção</figcaption>
+                        <figcaption className="mt-3 flex items-center gap-1.75 text-[0.6875rem] font-bold text-text">Acompanhamento em tempo real</figcaption>
                     </figure>
                     <figure>
                         <img
