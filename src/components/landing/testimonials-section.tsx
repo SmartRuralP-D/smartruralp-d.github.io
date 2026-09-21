@@ -26,7 +26,6 @@ export function TestimonialsSection() {
                             width={128}
                             height={128}
                         />
-                        <span className="mt-3.5 block text-[0.6875rem] font-bold text-[#94a1ab] max-[900px]:mt-0">Relato real</span>
                     </div>
                     <div>
                         <blockquote className="mb-6.75 max-w-200 text-[clamp(2.25rem,5vw,5.2rem)] font-medium leading-[1.02] tracking-[-0.06em] max-[900px]:mb-5.5 max-[900px]:text-[clamp(2.25rem,12vw,3.8rem)]">
