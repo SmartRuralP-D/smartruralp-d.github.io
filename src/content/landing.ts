@@ -15,7 +15,8 @@ export const media = {
     pondPeople: asset('feira-nova-3.jpg'),
     workshop: asset('feira-nova-5.jpg'),
     gathering: asset('feira-nova-6.jpg'),
-    sensor: asset('prototipo-1.png'),
+    aquacultureDevice: asset('aquaculture-device.png'),
+    aviqualityDevice: asset('aviquality-device.png'),
     sensorInWater: asset('fotos-1.jpg'),
     webDashboard: asset('web-dashboard.png'),
     webChart: asset('web-chart.png'),
@@ -135,7 +136,7 @@ export const heroMonitoringSlides = [
     {
         image: media.heroAquaculture,
         imageAlt: 'Viveiro de aquicultura com aeradores em funcionamento',
-        deviceImage: media.sensor,
+        deviceImage: media.aquacultureDevice,
         deviceImageAlt: 'Dispositivo SmartRural para monitoramento de viveiros',
         location: 'Feira Nova, PE',
         unitLabel: 'Viveiro 04',
@@ -144,7 +145,7 @@ export const heroMonitoringSlides = [
     {
         image: media.heroAviculture,
         imageAlt: 'Viveiro de avicultura com galinheiras e equipamentos',
-        deviceImage: media.sensor,
+        deviceImage: media.aviqualityDevice,
         deviceImageAlt: 'Dispositivo SmartRural para monitoramento de viveiros',
         location: 'UFRPE, PE',
         unitLabel: 'Viveiro de poedeiras',
