@@ -23,9 +23,14 @@ export function SiteFooter() {
                     ))}
                     <div className="grid justify-items-start content-start gap-2.75">
                         <h2 className="m-0 mb-2.25 text-[0.6875rem] font-extrabold uppercase tracking-widest text-[#87949d]">Redes sociais</h2>
-                        <span className="text-[0.8125rem]">Instagram ↗</span>
-                        <span className="text-[0.8125rem]">LinkedIn ↗</span>
-                        <span className="text-[0.8125rem]">YouTube ↗</span>
+                        <a
+                            className="text-[0.8125rem] transition hover:text-[#9bc7ff]! hover:underline! hover:decoration-[#9bc7ff]"
+                            href="https://www.instagram.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Instagram ↗
+                        </a>
                     </div>
                 </div>
                 <div className="flex justify-between gap-5 border-t border-[#30383f] py-5 pb-6.25 text-[0.6875rem] text-[#87949d]">
