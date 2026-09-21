@@ -46,7 +46,6 @@ export function HeroSection() {
                     image={media.hero}
                     imageAlt="Viveiro de aquicultura com aeradores em funcionamento"
                     location="Feira Nova, PE"
-                    category="Aquicultura"
                     unitLabel="Viveiro 04"
                     metrics={[
                         { label: 'Temperatura da água', value: '28°C', status: { label: 'Normal' } },
