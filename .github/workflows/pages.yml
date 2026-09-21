@@ -1,0 +1,57 @@
+name: Deploy GitHub Pages
+
+on:
+    push:
+        branches: [main]
+
+    workflow_dispatch:
+
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+concurrency:
+    group: pages
+    cancel-in-progress: true
+
+jobs:
+    build:
+        name: Build Pages artifact
+        runs-on: "ubuntu-latest"
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+            - name: Set up Node.js
+              uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+              with:
+                  node-version-file: .nvmrc
+                  cache: npm
+                  cache-dependency-path: package-lock.json
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Build static Pages export
+              run: npm run build:pages
+
+            - name: Preserve custom domain
+              run: cp CNAME .output/public/CNAME
+
+            - name: Upload Pages artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                  path: .output/public
+
+    deploy:
+        name: Deploy Pages artifact
+        needs: [build]
+        runs-on: "ubuntu-latest"
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        steps:
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4

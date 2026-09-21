@@ -1,5 +1,7 @@
 import { ArrowUpRight } from 'lucide-react'
 
+const WHATSAPP_NUMBER = '5581986362260'
+
 export function ContactSection() {
     return (
         <section id="contato" className="bg-brand text-white">
@@ -15,7 +17,9 @@ export function ContactSection() {
                     <p className="mb-8 max-w-75 text-xl leading-[1.6] text-[#e3efff]">Conheça as soluções SmartRural para acompanhar sua produção.</p>
                     <a
                         className="inline-flex w-fit items-center gap-2 border-b border-white/70 pb-2.5 text-base font-extrabold"
-                        href="mailto:contato@smartrural.com.br"
+                        href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
                         Fale conosco <ArrowUpRight className="size-4" aria-hidden="true" />
                     </a>
