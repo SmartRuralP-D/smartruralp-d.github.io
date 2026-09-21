@@ -1,4 +1,5 @@
-import { type FocusEvent, useCallback, useEffect, useState } from 'react'
+import { type FocusEvent, useCallback, useEffect, useRef, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import type { LucideIcon } from 'lucide-react'
 import { Droplets, MapPin } from 'lucide-react'
 
@@ -9,9 +10,26 @@ export type MonitoringStatus = {
     tone?: 'normal' | 'warning' | 'critical'
 }
 
+export type MonitoringStatusRule = {
+    min?: number
+    max?: number
+    status: MonitoringStatus
+}
+
+export type MonitoringMetricValue = {
+    initial: number
+    min: number
+    max: number
+    step: number
+    intervalMs: number
+    unit: string
+    decimals?: number
+    statusRules?: readonly MonitoringStatusRule[]
+}
+
 export type MonitoringMetric = {
     label: string
-    value: string
+    value: string | MonitoringMetricValue
     status?: MonitoringStatus
 }
 
@@ -33,7 +51,137 @@ const statusToneClasses = {
     critical: 'bg-[#ef6b6b]'
 } as const
 
-function MonitoringVisualCard({ slide, priority = false }: { slide: MonitoringSlide; priority?: boolean }) {
+function resolveMetricStatus(metric: MonitoringMetric, value: number) {
+    if (typeof metric.value === 'string') {
+        return metric.status
+    }
+
+    return (
+        metric.value.statusRules?.find((rule) => (rule.min === undefined || value >= rule.min) && (rule.max === undefined || value <= rule.max))?.status ??
+        metric.status
+    )
+}
+
+function formatMetricValue(value: number, config: MonitoringMetricValue) {
+    const decimals = config.decimals ?? 0
+    const formattedValue = new Intl.NumberFormat('pt-BR', {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+    }).format(value)
+    const unitSeparator = config.unit.startsWith('°') || config.unit.startsWith('%') ? '' : ' '
+
+    return `${formattedValue}${unitSeparator}${config.unit}`
+}
+
+function useMetricSimulation(config: MonitoringMetricValue | undefined, active: boolean, paused: boolean, reducedMotion: boolean) {
+    const [value, setValue] = useState(config?.initial ?? 0)
+    const [direction, setDirection] = useState<1 | -1>(1)
+
+    useEffect(() => {
+        setValue(config?.initial ?? 0)
+        setDirection(1)
+    }, [config?.initial])
+
+    useEffect(() => {
+        if (!config || !active || paused || reducedMotion) {
+            return
+        }
+
+        const timer = window.setInterval(() => {
+            setValue((currentValue) => {
+                const step = Math.abs(config.step)
+                const canIncrease = currentValue < config.max
+                const canDecrease = currentValue > config.min
+                let delta = Math.random() < 0.5 ? -step : step
+
+                if (!canIncrease) {
+                    delta = -step
+                } else if (!canDecrease) {
+                    delta = step
+                }
+
+                const nextValue = Math.min(config.max, Math.max(config.min, currentValue + delta))
+
+                if (nextValue !== currentValue) {
+                    setDirection(nextValue > currentValue ? 1 : -1)
+                }
+
+                return nextValue
+            })
+        }, config.intervalMs)
+
+        return () => window.clearInterval(timer)
+    }, [active, config, paused, reducedMotion])
+
+    return { value, direction }
+}
+
+function MonitoringMetricDisplay({
+    metric,
+    active,
+    paused,
+    reducedMotion
+}: {
+    metric: MonitoringMetric
+    active: boolean
+    paused: boolean
+    reducedMotion: boolean
+}) {
+    const config = typeof metric.value === 'string' ? undefined : metric.value
+    const simulation = useMetricSimulation(config, active, paused, reducedMotion)
+    const numericValue = config ? simulation.value : undefined
+    const staticValue = typeof metric.value === 'string' ? metric.value : ''
+    const displayValue = config ? formatMetricValue(simulation.value, config) : staticValue
+    const status = numericValue === undefined ? metric.status : resolveMetricStatus(metric, numericValue)
+    const previousValue = useRef(numericValue)
+    const direction = numericValue === undefined || previousValue.current === undefined ? 1 : simulation.direction
+
+    useEffect(() => {
+        previousValue.current = numericValue
+    }, [numericValue])
+
+    return (
+        <div className="grid gap-0.5">
+            <span className="text-[0.6875rem] font-bold leading-[1.35] text-white/75">{metric.label}</span>
+            {config ? (
+                <AnimatePresence initial={false} mode="popLayout" custom={direction}>
+                    <motion.strong
+                        key={displayValue}
+                        custom={direction}
+                        initial={reducedMotion ? false : { opacity: 0, y: direction > 0 ? '0.75em' : '-0.75em' }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: direction > 0 ? '-0.75em' : '0.75em' }}
+                        transition={{ duration: reducedMotion ? 0 : 0.28, ease: 'easeOut' }}
+                        className="text-[1.6875rem] leading-none tracking-[-.04em]"
+                    >
+                        {displayValue}
+                    </motion.strong>
+                </AnimatePresence>
+            ) : (
+                <strong className="text-[1.6875rem] leading-none tracking-[-.04em]">{displayValue}</strong>
+            )}
+            {status ? (
+                <span className="inline-flex items-center gap-1.5 text-[0.6875rem] font-bold text-[#d5e4dc]">
+                    <i className={`size-1.75 rounded-pill ${statusToneClasses[status.tone ?? 'normal']}`} aria-hidden="true" /> {status.label}
+                </span>
+            ) : null}
+        </div>
+    )
+}
+
+function MonitoringVisualCard({
+    slide,
+    priority = false,
+    active,
+    paused,
+    reducedMotion
+}: {
+    slide: MonitoringSlide
+    priority?: boolean
+    active: boolean
+    paused: boolean
+    reducedMotion: boolean
+}) {
     const UnitIcon = slide.unitIcon ?? Droplets
 
     return (
@@ -59,16 +207,7 @@ function MonitoringVisualCard({ slide, priority = false }: { slide: MonitoringSl
                 </span>
                 <div className="grid gap-5">
                     {slide.metrics.map((metric) => (
-                        <div key={metric.label} className="grid gap-0.5">
-                            <span className="text-[0.6875rem] font-bold leading-[1.35] text-white/75">{metric.label}</span>
-                            <strong className="text-[1.6875rem] leading-none tracking-[-.04em]">{metric.value}</strong>
-                            {metric.status ? (
-                                <span className="inline-flex items-center gap-1.5 text-[0.6875rem] font-bold text-[#d5e4dc]">
-                                    <i className={`size-1.75 rounded-pill ${statusToneClasses[metric.status.tone ?? 'normal']}`} aria-hidden="true" />{' '}
-                                    {metric.status.label}
-                                </span>
-                            ) : null}
-                        </div>
+                        <MonitoringMetricDisplay key={metric.label} metric={metric} active={active} paused={paused} reducedMotion={reducedMotion} />
                     ))}
                 </div>
             </div>
@@ -77,7 +216,7 @@ function MonitoringVisualCard({ slide, priority = false }: { slide: MonitoringSl
 }
 
 export function MonitoringVisual(props: MonitoringVisualProps) {
-    return <MonitoringVisualCard slide={props} priority />
+    return <MonitoringVisualCard slide={props} priority active paused={false} reducedMotion={false} />
 }
 
 export function MonitoringVisualCarousel({ slides, autoplayInterval = 6000 }: { slides: readonly MonitoringSlide[]; autoplayInterval?: number }) {
@@ -150,7 +289,13 @@ export function MonitoringVisualCarousel({ slides, autoplayInterval = 6000 }: { 
                 <CarouselContent className="ml-0">
                     {slides.map((slide, index) => (
                         <CarouselItem key={`${slide.location}-${slide.unitLabel}`} className="pl-0">
-                            <MonitoringVisualCard slide={slide} priority={index === 0} />
+                            <MonitoringVisualCard
+                                slide={slide}
+                                priority={index === 0}
+                                active={activeIndex === index}
+                                paused={isPaused}
+                                reducedMotion={prefersReducedMotion}
+                            />
                         </CarouselItem>
                     ))}
                 </CarouselContent>
