@@ -13,7 +13,7 @@ export function HeroSection() {
                             Sua solução para monitoramento em <em className="text-brand not-italic">tempo real</em>
                         </h1>
                         <p className="mb-0 max-w-150 text-[clamp(1rem,1.5vw,1.22rem)] leading-[1.65] text-text">
-                            A SmartRural ajuda você a acompanhar informações importantes da sua operação de aquicultura e avicultura pelo celular ou computador.
+                            A SmartRural ajuda você a acompanhar informações importantes da sua operação pelo celular ou computador.
                         </p>
                         <div className="mt-9 flex flex-wrap items-center gap-5">
                             <a
