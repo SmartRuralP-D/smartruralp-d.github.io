@@ -7,11 +7,11 @@ export function PortfolioSection() {
                 <div className="grid items-end gap-8.5 min-[901px]:grid-cols-[minmax(0,7fr)_minmax(260px,4fr)] max-[900px]:grid-cols-1">
                     <div>
                         <h2 className="section-heading">
-                            SmartRural <em>em campo.</em>
+                            SmartRural <em>em ação.</em>
                         </h2>
                     </div>
                     <p className="mb-1 ml-auto max-w-97.5 text-[0.9375rem] leading-[1.7] text-text max-[900px]:ml-0 max-[640px]:text-sm">
-                        A tecnologia ganha sentido quando está instalada, observada e utilizada no ambiente produtivo.
+                        Tecnologia, pesquisa e conhecimento aplicados para transformar a rotina no campo.
                     </p>
                 </div>
 
