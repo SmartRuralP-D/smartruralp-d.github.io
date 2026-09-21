@@ -1,9 +1,15 @@
 import type { LucideIcon } from 'lucide-react'
 import { Droplets, MapPin } from 'lucide-react'
 
+export type MonitoringStatus = {
+    label: string
+    tone?: 'normal' | 'warning' | 'critical'
+}
+
 export type MonitoringMetric = {
     label: string
     value: string
+    status?: MonitoringStatus
 }
 
 export type MonitoringVisualProps = {
@@ -14,10 +20,6 @@ export type MonitoringVisualProps = {
     unitLabel: string
     metrics: readonly MonitoringMetric[]
     unitIcon?: LucideIcon
-    status?: {
-        label: string
-        tone?: 'normal' | 'warning' | 'critical'
-    }
 }
 
 const statusToneClasses = {
@@ -26,9 +28,7 @@ const statusToneClasses = {
     critical: 'bg-[#ef6b6b]'
 } as const
 
-export function MonitoringVisual({ image, imageAlt, location, category, unitLabel, metrics, unitIcon: UnitIcon = Droplets, status }: MonitoringVisualProps) {
-    const statusTone = status?.tone ?? 'normal'
-
+export function MonitoringVisual({ image, imageAlt, location, category, unitLabel, metrics, unitIcon: UnitIcon = Droplets }: MonitoringVisualProps) {
     return (
         <div>
             <figure className="relative h-[clamp(400px,53vw,670px)] overflow-hidden bg-inverse">
@@ -55,14 +55,15 @@ export function MonitoringVisual({ image, imageAlt, location, category, unitLabe
                             <div key={metric.label} className="grid gap-0.5">
                                 <span className="text-[0.6875rem] font-bold leading-[1.35] text-white/75">{metric.label}</span>
                                 <strong className="text-[1.6875rem] leading-none tracking-[-.04em]">{metric.value}</strong>
+                                {metric.status ? (
+                                    <span className="inline-flex items-center gap-1.5 text-[0.6875rem] font-bold text-[#d5e4dc]">
+                                        <i className={`size-1.75 rounded-pill ${statusToneClasses[metric.status.tone ?? 'normal']}`} aria-hidden="true" />{' '}
+                                        {metric.status.label}
+                                    </span>
+                                ) : null}
                             </div>
                         ))}
                     </div>
-                    {status ? (
-                        <span className="inline-flex items-center gap-1.5 text-[0.6875rem] font-bold text-[#d5e4dc]">
-                            <i className={`size-1.75 rounded-pill ${statusToneClasses[statusTone]}`} aria-hidden="true" /> {status.label}
-                        </span>
-                    ) : null}
                 </div>
             </figure>
         </div>

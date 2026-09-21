@@ -49,10 +49,9 @@ export function HeroSection() {
                     category="Aquicultura"
                     unitLabel="Viveiro 04"
                     metrics={[
-                        { label: 'Temperatura da água', value: '28°C' },
-                        { label: 'Oxigênio dissolvido', value: '6,8 mg/L' }
+                        { label: 'Temperatura da água', value: '28°C', status: { label: 'Normal' } },
+                        { label: 'Oxigênio dissolvido', value: '6,8 mg/L', status: { label: 'Normal' } }
                     ]}
-                    status={{ label: 'Normal' }}
                 />
             </div>
         </section>
