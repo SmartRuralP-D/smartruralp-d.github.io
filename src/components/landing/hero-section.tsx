@@ -7,7 +7,7 @@ const AUTO_PLAY_INTERVAL = 30000 // 30 seconds
 
 export function HeroSection() {
     return (
-        <section id="inicio" className="bg-canvas pt-24 lg:pt-36">
+        <section id="inicio" className="bg-canvas pt-24 lg:pt-36 mb-5">
             <div className="page-container">
                 <div className="grid items-end gap-9 pb-15.5 grid-cols-[minmax(0,9fr)_minmax(8.75rem,2fr)] max-[900px]:grid-cols-1">
                     <div>
