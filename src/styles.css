@@ -50,6 +50,9 @@
     --font-weight-emphasis: 800;
     --tracking-display: -0.055em;
     --container-page: 1240px;
+    --spacing-gutter: 32px;
+    --spacing-gutter-mobile: 20px;
+    --spacing-section: clamp(86px, 11vw, 160px);
     --radius-control: 6px;
     --radius-card: 0px;
     --radius-pill: 9999px;
@@ -62,10 +65,6 @@
     --breakpoint-content: 900px;
 }
 
-/* Existing utility names remain aliases during the migration to semantic tokens. */
-:root {
-    --font-sans: var(--font-family-sans);
-}
 
 * {
     box-sizing: border-box;
@@ -123,12 +122,14 @@ img {
 }
 
 .page-container {
-    width: min(calc(100% - 64px), var(--container-page));
-    margin-inline: auto;
+    width: 100%;
+    max-width: var(--container-page);
+      margin-inline: auto;
+    padding-inline: var(--spacing-gutter);
 }
 
 .section-padding {
-    padding-block: clamp(86px, 11vw, 160px);
+    padding-block: var(--spacing-section);
 }
 
 .section-heading {
@@ -139,7 +140,7 @@ img {
 }
 
 @media (max-width: 640px) {
-    .page-container { width: min(calc(100% - 40px), var(--container-page)); }
+    .page-container { padding-inline: var(--spacing-gutter-mobile); }
 }
 
 @media (prefers-reduced-motion: reduce) {
