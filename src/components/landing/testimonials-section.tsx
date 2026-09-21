@@ -17,7 +17,7 @@ export function TestimonialsSection() {
                         Feita para quem está <em>no campo.</em>
                     </h2>
                 </div>
-                <div className="mt-22.5 grid grid-cols-[150px_minmax(0,1fr)_max-content] items-start gap-[clamp(28px,6vw,88px)] border-b border-[#353d44] pb-11.25 max-[900px]:grid-cols-1 max-[900px]:items-start max-[900px]:gap-6.5 max-[900px]:mt-14.5 max-[900px]:pb-7.5">
+                <div className="mt-22.5 grid grid-cols-[128px_minmax(0,1fr)_max-content] items-start gap-[clamp(20px,3vw,48px)] border-b border-[#353d44] pb-11.25 max-[900px]:grid-cols-1 max-[900px]:items-start max-[900px]:gap-6.5 max-[900px]:mt-14.5 max-[900px]:pb-7.5">
                     <div className="self-start max-[900px]:flex max-[900px]:items-center max-[900px]:gap-3.5">
                         <img
                             className="size-32 rounded-pill object-cover max-[900px]:size-20"
@@ -42,7 +42,7 @@ export function TestimonialsSection() {
                             </div>
                         ))}
                     </div>
-                    <div className="flex w-max items-center justify-end gap-2.5 pb-0.75 text-[0.6875rem] font-extrabold text-[#9aa7b0] max-[900px]:justify-start">
+                    <div className="flex w-max self-end items-center justify-end gap-2.5 pb-0.75 text-[0.6875rem] font-extrabold text-[#9aa7b0] max-[900px]:self-start max-[900px]:justify-start">
                         <button
                             className={`${testimonialControlClass} shrink-0`}
                             type="button"
