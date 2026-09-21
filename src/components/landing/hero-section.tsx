@@ -3,6 +3,8 @@ import { ArrowDownRight, ArrowRight, ArrowUpRight } from 'lucide-react'
 import { MonitoringVisualCarousel } from '@/components/landing/monitoring-visual'
 import { heroMonitoringSlides } from '@/content/landing'
 
+const AUTO_PLAY_INTERVAL = 30000 // 30 seconds
+
 export function HeroSection() {
     return (
         <section id="inicio" className="bg-canvas pt-24 lg:pt-36">
@@ -42,7 +44,7 @@ export function HeroSection() {
                         </a>
                     </div>
                 </div>
-                <MonitoringVisualCarousel slides={heroMonitoringSlides} />
+                <MonitoringVisualCarousel slides={heroMonitoringSlides} autoplayInterval={AUTO_PLAY_INTERVAL} />
             </div>
         </section>
     )
