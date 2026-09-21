@@ -19,7 +19,7 @@ export const media = {
     webDashboard: asset('web-dashboard.png'),
     webChart: asset('web-chart.png'),
     mobileDashboard: asset('mobile-dashboard.jpeg'),
-    aviculture: asset('aviculture.jpeg')
+    aviculture: asset('aviculture-1.jpeg')
 } as const
 
 export const navigation = [
