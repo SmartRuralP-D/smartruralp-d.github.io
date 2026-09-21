@@ -1,4 +1,4 @@
-import { ArrowDownRight, ArrowRight, ArrowUpRight } from 'lucide-react'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
 
 import { MonitoringVisualCarousel } from '@/components/landing/monitoring-visual'
 import { heroMonitoringSlides } from '@/content/landing'
@@ -12,7 +12,7 @@ export function HeroSection() {
                 <div className="grid items-end gap-9 pb-15.5 grid-cols-[minmax(0,9fr)_minmax(8.75rem,2fr)] max-[900px]:grid-cols-1">
                     <div>
                         <h1 className="mb-7 mt-6 max-w-230 text-[clamp(3.25rem,7.5vw,7.2rem)] font-semibold leading-[.96] tracking-display">
-                            Sua solução para monitoramento em <em className="text-brand not-italic">tempo real</em>
+                            Sua solução para <em className="text-brand not-italic">monitoramento inteligente</em> em tempo real
                         </h1>
                         <p className="mb-0 max-w-150 text-[clamp(1rem,1.5vw,1.22rem)] leading-[1.65] text-text">
                             A SmartRural ajuda você a acompanhar informações importantes da sua operação pelo celular ou computador.
@@ -31,16 +31,6 @@ export function HeroSection() {
                                 Fale com a SmartRural <ArrowRight className="ml-2.5 size-4.25" aria-hidden="true" />
                             </a>
                         </div>
-                    </div>
-                    <div className="grid content-end justify-items-start gap-5 pb-1 max-[900px]:hidden">
-                        <p className="mb-0 max-w-37.5 text-[0.8125rem] leading-normal text-muted">Do campo para perto de quem acompanha a operação.</p>
-                        <a
-                            className="grid size-11.25 place-items-center rounded-pill border border-border text-brand transition hover:bg-brand hover:text-white"
-                            href="#solucoes"
-                            aria-label="Conheça as soluções"
-                        >
-                            <ArrowDownRight className="size-4.5" aria-hidden="true" />
-                        </a>
                     </div>
                 </div>
                 <MonitoringVisualCarousel slides={heroMonitoringSlides} autoplayInterval={AUTO_PLAY_INTERVAL} />
