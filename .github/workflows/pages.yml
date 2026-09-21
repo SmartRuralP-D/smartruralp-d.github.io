@@ -16,21 +16,9 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    select-runner:
-        name: Select runner
-        uses: SmartRuralP-D/workflows/.github/workflows/runner-selector.yml@v1.10.0
-        with:
-            availability-policy: prefer-self-hosted
-            app-client-id: ${{ vars.RUNNER_SELECTOR_APP_CLIENT_ID }}
-            required-labels: '["self-hosted", "Linux", "X64"]'
-            show-runner-diagnostics: false
-        secrets:
-            app-private-key: ${{ secrets.RUNNER_SELECTOR_APP_PRIVATE_KEY }}
-
     build:
         name: Build Pages artifact
-        needs: select-runner
-        runs-on: ${{ fromJSON(needs.select-runner.outputs.runs-on) }}
+        runs-on: "ubuntu-latest"
         steps:
             - name: Checkout repository
               uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -58,8 +46,8 @@ jobs:
 
     deploy:
         name: Deploy Pages artifact
-        needs: [select-runner, build]
-        runs-on: ${{ fromJSON(needs.select-runner.outputs.runs-on) }}
+        needs: [build]
+        runs-on: "ubuntu-latest"
         environment:
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}
