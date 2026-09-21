@@ -11,14 +11,14 @@ export function SolutionsSection() {
     return (
         <section id="solucoes" className="bg-surface section-padding">
             <div className="page-container">
-                <div className="grid gap-[34px] min-[901px]:grid-cols-[minmax(0,7fr)_minmax(260px,4fr)] min-[901px]:items-end">
+                <div className="grid gap-[2.125rem] min-[901px]:grid-cols-[minmax(0,7fr)_minmax(260px,4fr)] min-[901px]:items-end">
                     <div>
                         <SectionLabel>01 / ÁREAS DE ATUAÇÃO</SectionLabel>
                         <h2 className="section-heading">
                             Conheça nossas <em>soluções</em>
                         </h2>
                     </div>
-                    <p className="max-w-[390px] text-[15px] leading-[1.7] text-text min-[901px]:mb-1 min-[901px]:ml-auto">
+                    <p className="max-w-[24.375rem] text-[0.9375rem] leading-[1.7] text-text min-[901px]:mb-1 min-[901px]:ml-auto">
                         A SmartRural acompanha diferentes realidades do campo. A tecnologia se adapta à operação, não o contrário.
                     </p>
                 </div>
@@ -34,21 +34,21 @@ export function SolutionsSection() {
                                 height={720}
                                 loading="lazy"
                             />
-                            <span className="absolute bottom-[17px] left-[18px] z-[2] inline-flex items-center gap-[7px] bg-[rgba(16,19,22,.7)] px-[10px] py-2 text-[11px] font-bold text-white backdrop-blur-[7px]">
-                                <Droplets className="h-[13px] w-[13px] text-[#9ac7ff]" aria-hidden="true" /> {aquaculture.imageNote}
+                            <span className="absolute bottom-[1.0625rem] left-[1.125rem] z-[2] inline-flex items-center gap-[0.4375rem] bg-[rgba(16,19,22,.7)] px-[0.625rem] py-2 text-[0.6875rem] font-bold text-white backdrop-blur-[0.4375rem]">
+                                <Droplets className="h-[0.8125rem] w-[0.8125rem] text-[#9ac7ff]" aria-hidden="true" /> {aquaculture.imageNote}
                             </span>
                         </div>
-                        <div className="grid gap-[26px] border-t border-ink pt-6 min-[901px]:grid-cols-[1fr_1fr_.7fr] min-[901px]:items-end max-[640px]:gap-[13px] max-[640px]:pt-[18px]">
+                        <div className="grid gap-[1.625rem] border-t border-ink pt-6 min-[901px]:grid-cols-[1fr_1fr_.7fr] min-[901px]:items-end max-[640px]:gap-[0.8125rem] max-[640px]:pt-[1.125rem]">
                             <div>
-                                <span className="text-[12px] text-brand">{aquaculture.number}</span>
-                                <h3 className="mt-[7px] text-[clamp(1.8rem,3vw,2.6rem)] leading-none">{aquaculture.title}</h3>
+                                <span className="text-xs text-brand">{aquaculture.number}</span>
+                                <h3 className="mt-[0.4375rem] text-[clamp(1.8rem,3vw,2.6rem)] leading-none">{aquaculture.title}</h3>
                             </div>
-                            <p className="m-0 text-[14px] leading-[1.65] text-text">{aquaculture.copy}</p>
+                            <p className="m-0 text-sm leading-[1.65] text-text">{aquaculture.copy}</p>
                             <TextLink href={aquaculture.linkHref}>{aquaculture.linkLabel}</TextLink>
                         </div>
                     </article>
 
-                    <article className="group pt-[clamp(0px,5vw,80px)] max-[900px]:grid max-[900px]:grid-cols-[minmax(0,1fr)_minmax(240px,.8fr)] max-[900px]:items-end max-[900px]:gap-[25px] max-[640px]:block">
+                    <article className="group pt-[clamp(0px,5vw,80px)] max-[900px]:grid max-[900px]:grid-cols-[minmax(0,1fr)_minmax(240px,.8fr)] max-[900px]:items-end max-[900px]:gap-[1.5625rem] max-[640px]:block">
                         <div className="relative aspect-[.94] overflow-hidden bg-inverse max-[640px]:aspect-[1.05]">
                             <img
                                 className="h-full w-full object-cover transition-transform duration-650 ease-[cubic-bezier(.2,.75,.25,1)] group-hover:scale-[1.035]"
@@ -58,14 +58,14 @@ export function SolutionsSection() {
                                 height={193}
                                 loading="lazy"
                             />
-                            <span className="absolute bottom-[17px] left-[18px] z-[2] bg-[rgba(16,19,22,.7)] px-[10px] py-2 text-[11px] font-bold text-white">
+                            <span className="absolute bottom-[1.0625rem] left-[1.125rem] z-[2] bg-[rgba(16,19,22,.7)] px-[0.625rem] py-2 text-[0.6875rem] font-bold text-white">
                                 {aviculture.imageNote}
                             </span>
                         </div>
-                        <div className="border-t border-ink pt-[22px] max-[900px]:border-t-0 max-[900px]:pt-0 max-[640px]:border-t max-[640px]:pt-[18px]">
-                            <span className="text-[12px] text-brand">{aviculture.number}</span>
-                            <h3 className="mt-[7px] text-[clamp(1.8rem,3vw,2.6rem)] leading-none">{aviculture.title}</h3>
-                            <p className="m-0 text-[14px] leading-[1.65] text-text">{aviculture.copy}</p>
+                        <div className="border-t border-ink pt-[1.375rem] max-[900px]:border-t-0 max-[900px]:pt-0 max-[640px]:border-t max-[640px]:pt-[1.125rem]">
+                            <span className="text-xs text-brand">{aviculture.number}</span>
+                            <h3 className="mt-[0.4375rem] text-[clamp(1.8rem,3vw,2.6rem)] leading-none">{aviculture.title}</h3>
+                            <p className="m-0 text-sm leading-[1.65] text-text">{aviculture.copy}</p>
                             <TextLink href={aviculture.linkHref}>{aviculture.linkLabel}</TextLink>
                         </div>
                     </article>
