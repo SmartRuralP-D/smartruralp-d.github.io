@@ -11,6 +11,7 @@
         "ms-vscode.vscode-typescript-next",
         "mikestead.dotenv",
         "yoavbls.pretty-ts-errors",
-        "vunguyentuan.vscode-css-variables"
+        "vunguyentuan.vscode-css-variables",
+        "austenc.tailwind-docs"
     ]
 }
