@@ -1,20 +1,21 @@
-import { ArrowDownRight, ArrowRight, ArrowUpRight, Droplets, MapPin } from 'lucide-react'
+import { ArrowDownRight, ArrowRight, ArrowUpRight } from 'lucide-react'
 
-import { SectionLabel } from '@/components/site/section-label'
-import { media } from '@/content/landing'
+import { MonitoringVisualCarousel } from '@/components/landing/monitoring-visual'
+import { heroMonitoringSlides } from '@/content/landing'
+
+const AUTO_PLAY_INTERVAL = 30000 // 30 seconds
 
 export function HeroSection() {
     return (
-        <section id="inicio" className="bg-canvas pt-41">
+        <section id="inicio" className="bg-canvas pt-24 lg:pt-36 mb-5">
             <div className="page-container">
                 <div className="grid items-end gap-9 pb-15.5 grid-cols-[minmax(0,9fr)_minmax(8.75rem,2fr)] max-[900px]:grid-cols-1">
                     <div>
-                        <SectionLabel>TECNOLOGIA APLICADA AO CAMPO</SectionLabel>
                         <h1 className="mb-7 mt-6 max-w-230 text-[clamp(3.25rem,7.5vw,7.2rem)] font-semibold leading-[.96] tracking-display">
                             Sua solução para monitoramento em <em className="text-brand not-italic">tempo real</em>
                         </h1>
                         <p className="mb-0 max-w-150 text-[clamp(1rem,1.5vw,1.22rem)] leading-[1.65] text-text">
-                            A SmartRural ajuda você a acompanhar informações importantes da sua operação de aquicultura e avicultura pelo celular ou computador.
+                            A SmartRural ajuda você a acompanhar informações importantes da sua operação pelo celular ou computador.
                         </p>
                         <div className="mt-9 flex flex-wrap items-center gap-5">
                             <a
@@ -43,44 +44,7 @@ export function HeroSection() {
                         </a>
                     </div>
                 </div>
-                <figure className="relative h-[clamp(400px,53vw,670px)] overflow-hidden bg-inverse">
-                    <img
-                        className="size-full object-cover transition duration-700 hover:scale-[1.025]"
-                        src={media.hero}
-                        alt="Viveiro de aquicultura com aeradores em funcionamento"
-                        width={1280}
-                        height={720}
-                        fetchPriority="high"
-                    />
-                    <figcaption className="absolute bottom-6 left-7 z-10 flex flex-wrap gap-5.5 text-xs font-bold text-white">
-                        <span className="inline-flex items-center gap-1.5">
-                            <MapPin className="size-3.5 text-[#9ac7ff]" aria-hidden="true" /> Feira Nova, PE
-                        </span>
-                        <span>Aquicultura</span>
-                    </figcaption>
-                    <div className="absolute right-8 top-8 z-10 grid w-[min(16.875rem,34%)] gap-2 rounded-none border-l-[3px] border-brand bg-[rgba(16,19,22,.78)] p-[1.0625rem_1.125rem] text-white backdrop-blur-lg max-[600px]:right-4 max-[600px]:top-4">
-                        <span className="inline-flex items-center gap-1.5 text-[0.6875rem] font-bold text-[#bdd9ff]">
-                            <Droplets className="size-3.5" aria-hidden="true" /> Viveiro 04
-                        </span>
-                        <strong className="grid gap-0.5 text-sm leading-[1.35]">
-                            Temperatura da água <b className="text-[1.6875rem] tracking-[-.04em]">28°C</b>
-                        </strong>
-                        <span className="inline-flex items-center gap-1.5 text-[0.6875rem] font-bold text-[#d5e4dc]">
-                            <i className="size-1.75 rounded-pill bg-[#4bbd7a]" aria-hidden="true" /> Normal
-                        </span>
-                    </div>
-                </figure>
-                <div className="flex items-center justify-between gap-5 pt-4.5 text-xs text-muted">
-                    <span>Uma mesma base para diferentes contextos rurais</span>
-                    <div className="flex gap-6.25">
-                        <span className="inline-flex items-center gap-1.5 font-bold text-text">
-                            <i className="size-1.75 rounded-pill bg-[#4bbd7a]" aria-hidden="true" /> Aquicultura
-                        </span>
-                        <span className="inline-flex items-center gap-1.5 font-bold text-text">
-                            <i className="size-1.75 rounded-pill bg-[#4bbd7a]" aria-hidden="true" /> Avicultura
-                        </span>
-                    </div>
-                </div>
+                <MonitoringVisualCarousel slides={heroMonitoringSlides} autoplayInterval={AUTO_PLAY_INTERVAL} />
             </div>
         </section>
     )
