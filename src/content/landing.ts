@@ -16,6 +16,7 @@ export const media = {
     webDashboard: asset('web-dashboard.png'),
     webChart: asset('web-chart.png'),
     mobileDashboard: asset('mobile-dashboard.jpeg'),
+    whatsappAlert: asset('whatsapp-alert.png'),
     portfolio1: asset('depaq.jpg'),
     portfolio2: asset('feira-nova-6.jpg'),
     portfolio3: asset('feira-nova-5.jpg'),

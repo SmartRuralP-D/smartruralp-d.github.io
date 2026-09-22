@@ -1,4 +1,4 @@
-import { Check, Monitor, Smartphone } from 'lucide-react'
+import { Bell, Check, Monitor, Smartphone } from 'lucide-react'
 import type { ComponentProps, ReactNode } from 'react'
 
 import { media, platformAccess } from '@/content/landing'
@@ -54,11 +54,32 @@ function PlatformMobileFrame() {
     )
 }
 
+function PlatformWhatsappFrame() {
+    return (
+        <div className="absolute bottom-0 right-0 z-3 w-[min(13.75rem,19%)] max-content:right-0 max-content:w-[min(10.9375rem,22%)] max-phone:bottom-[1%] max-phone:right-0 max-phone:w-[31%]">
+            <PlatformFrame className="rounded-[1.0625rem] p-1.75">
+                <img
+                    className="w-full rounded-[0.6875rem]"
+                    src={media.whatsappAlert}
+                    alt="Alertas de monitoramento SmartRural recebidos pelo WhatsApp"
+                    width={1170}
+                    height={2292}
+                    loading="lazy"
+                />
+            </PlatformFrame>
+            <span className="mt-3.25 inline-flex items-center gap-1.75 text-[0.6875rem] font-extrabold text-[#aebac4] max-phone:mt-2 max-phone:text-[0.625rem]">
+                <Bell className="h-3.5 w-3.5 shrink-0 text-[#9bc7ff]" aria-hidden="true" /> Alertas via WhatsApp
+            </span>
+        </div>
+    )
+}
+
 function PlatformShowcase() {
     return (
         <div className="relative mt-[clamp(54px,8vw,104px)] min-h-150 max-content:h-108 max-content:min-h-0 max-phone:h-114">
             <PlatformBrowserFrame />
             <PlatformMobileFrame />
+            <PlatformWhatsappFrame />
         </div>
     )
 }
