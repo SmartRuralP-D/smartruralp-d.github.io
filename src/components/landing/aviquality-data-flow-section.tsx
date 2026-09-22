@@ -105,14 +105,15 @@ export function AviQualityDataFlowSection() {
                     </div>
                 </div>
 
-                <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-t border-[#343b42] pt-7 text-xs font-bold text-[#d6e1ea]">
+                <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-xs font-bold text-[#d6e1ea]">
                     {['No aviário', 'No dashboard', 'No histórico da operação'].map((label) => (
                         <span key={label} className="inline-flex items-center gap-2">
                             <Check className="size-3.75 text-[#9bc7ff]" aria-hidden="true" /> {label}
                         </span>
                     ))}
-                    <span className="inline-flex items-center gap-2 text-[#9bc7ff]">
+                    <span className="inline-flex items-center gap-2">
                         <FileChartColumn className="size-3.75" aria-hidden="true" /> informação que pode ser consultada
+                        <Check className="size-3.75 text-[#9bc7ff]" aria-hidden="true" />
                     </span>
                 </div>
             </div>
