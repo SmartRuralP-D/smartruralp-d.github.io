@@ -45,7 +45,7 @@ The home route is intentionally content-oriented rather than API-driven. `src/ro
 
 ## Build and publication flow
 
-`vite.config.ts` delegates to `@lovable.dev/vite-tanstack-config` and points TanStack Start at `src/server.ts`. `npm run build` executes `scripts/clean-pages-root.mjs` first, then writes the production server and public output under `.output/`. `npm run build:pages` imports the built server, fetches the home route at `https://www.smartrural.com.br/`, exports the privacy-policy route both as `privacy-policy.html` and `/privacy-policy/index.html`, and copies the public output to the repository root. `CNAME` remains at the root for the custom domain; `_headers`, `robots.txt`, `favicon.png`, and `assets/` are part of the generated publication surface.
+`vite.config.ts` delegates to `@lovable.dev/vite-tanstack-config` and points TanStack Start at `src/server.ts`. `npm run build` executes `scripts/clean-pages-root.mjs` first, then writes the production server and public output under `.output/`. `npm run build:pages` imports the built server, fetches the home route at `https://www.smartrural.com.br/`, exports the privacy-policy route both as `privacy-policy.html` and `/privacy-policy/index.html`, and copies the public output to the repository root. `CNAME` remains at the root for the custom domain; `_headers`, `robots.txt`, `favicon.png`, `favicon.svg`, and `assets/` are part of the generated publication surface.
 
 The cleanup step is deliberate and destructive to the generated root export. Run `npm run build:pages` when the goal is a refreshed Pages tree; run the ordinary production build in an isolated checkout when validation must leave the tracked root unchanged, as the Dev Container runtime test does.
 

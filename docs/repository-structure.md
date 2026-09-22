@@ -40,7 +40,7 @@ The `@/*` TypeScript alias maps to `src/*` in [tsconfig.json](../tsconfig.json).
 
 ## Non-source areas
 
-`package.json`, `package-lock.json`, `.nvmrc`, and `.devcontainer/tool-versions.sh` define the Node/npm installation contract. `vite.config.ts` delegates shared TanStack/Vite integration to the Lovable configuration package. `CNAME`, `_headers`, `robots.txt`, `favicon.png`, and the root `assets/` directory belong to the GitHub Pages publication surface. There is currently no `.github/workflows/` or `deployment/` directory; do not document those as active subsystems until they exist.
+`package.json`, `package-lock.json`, `.nvmrc`, and `.devcontainer/tool-versions.sh` define the Node/npm installation contract. `vite.config.ts` delegates shared TanStack/Vite integration to the Lovable configuration package. `CNAME`, `_headers`, `robots.txt`, `favicon.png`, `favicon.svg`, and the root `assets/` directory belong to the GitHub Pages publication surface. There is currently no `.github/workflows/` or `deployment/` directory; do not document those as active subsystems until they exist.
 
 ## Validation and sources
 
