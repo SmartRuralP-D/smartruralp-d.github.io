@@ -1,6 +1,6 @@
 import { ArrowDownRight, ArrowUpRight } from 'lucide-react'
 
-import { aviQualityMedia } from '@/content/aviquality'
+import { aviQualityMedia, aviQualitySectionLabels } from '@/content/aviquality'
 
 export function AviQualityDevicesSection() {
     return (
@@ -8,7 +8,7 @@ export function AviQualityDevicesSection() {
             <div className="page-container">
                 <div className="grid items-end gap-8.5 content:grid-cols-[minmax(0,7fr)_minmax(260px,4fr)] content:items-end">
                     <div>
-                        <span className="text-xs font-bold uppercase tracking-[0.16em] text-brand">Produto em campo</span>
+                        <span className="text-xs font-bold uppercase tracking-[0.16em] text-brand">{aviQualitySectionLabels.product}</span>
                         <h2 className="section-heading">
                             Antes de aparecer no dashboard, o AviQuality está <em>no aviário.</em>
                         </h2>

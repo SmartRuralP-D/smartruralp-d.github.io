@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from 'react'
-import { ArrowUpRight, Menu, X } from 'lucide-react'
+import { ArrowLeft, ArrowUpRight, Menu, X } from 'lucide-react'
 
 import { Brand } from '@/components/site/brand'
 import { navigation } from '@/content/landing'
@@ -9,12 +9,16 @@ export function SiteHeader({
     brand = <Brand />,
     navigationItems = navigation,
     contactHref = '#contato',
-    contactLabel = 'Contato'
+    contactLabel = 'Contato',
+    backHref,
+    backLabel = 'SmartRural'
 }: {
     brand?: ReactNode
     navigationItems?: readonly { label: string; href: string }[]
     contactHref?: string
     contactLabel?: string
+    backHref?: string
+    backLabel?: string
 }) {
     const [menuOpen, setMenuOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
@@ -44,6 +48,14 @@ export function SiteHeader({
                         </a>
                     ))}
                 </nav>
+                {backHref && (
+                    <a
+                        className="inline-flex items-center gap-2 rounded-control border border-border px-3.5 py-2 text-[0.8125rem] font-extrabold text-text transition hover:border-brand hover:text-brand max-[900px]:hidden"
+                        href={backHref}
+                    >
+                        <ArrowLeft className="size-3.75 text-brand" aria-hidden="true" /> {backLabel}
+                    </a>
+                )}
                 <a
                     className="inline-flex items-center gap-2 text-[0.8125rem] font-bold text-text transition hover:text-brand max-[900px]:hidden"
                     href={contactHref}
@@ -72,6 +84,11 @@ export function SiteHeader({
                             {label}
                         </a>
                     ))}
+                    {backHref && (
+                        <a href={backHref} onClick={closeMenu} className="flex items-center gap-2">
+                            <ArrowLeft aria-hidden="true" /> {backLabel}
+                        </a>
+                    )}
                     <a href={contactHref} onClick={closeMenu} className="flex items-center gap-2">
                         {contactLabel} <ArrowUpRight aria-hidden="true" />
                     </a>

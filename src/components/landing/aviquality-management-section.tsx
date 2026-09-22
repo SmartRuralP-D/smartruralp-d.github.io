@@ -1,7 +1,7 @@
 import { ArrowDownRight } from 'lucide-react'
 
 import { AviQualitySmartTag } from '@/components/landing/aviquality-smart-tag'
-import { aviQualityMedia, managementSteps } from '@/content/aviquality'
+import { aviQualityMedia, aviQualitySectionLabels, managementSteps } from '@/content/aviquality'
 
 export function AviQualityManagementSection() {
     return (
@@ -9,7 +9,7 @@ export function AviQualityManagementSection() {
             <div className="page-container">
                 <div className="grid items-end gap-8.5 content:grid-cols-[minmax(0,7fr)_minmax(260px,4fr)] content:items-end">
                     <div>
-                        <span className="text-xs font-bold uppercase tracking-[0.16em] text-brand">Virada</span>
+                        <span className="text-xs font-bold uppercase tracking-[0.16em] text-brand">{aviQualitySectionLabels.operation}</span>
                         <h2 className="section-heading">
                             O acompanhamento deixa de depender só da visita. <em>Ele passa a fazer parte do sistema.</em>
                         </h2>

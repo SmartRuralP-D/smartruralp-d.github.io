@@ -18,7 +18,14 @@ export function AviQualityPage() {
                 Ir para o conteúdo
             </a>
 
-            <SiteHeader brand={<AviQualityBrand />} navigationItems={aviQualityNavigation} contactHref="#contato" contactLabel="Contato" />
+            <SiteHeader
+                brand={<AviQualityBrand />}
+                navigationItems={aviQualityNavigation}
+                contactHref="#contato"
+                contactLabel="Contato"
+                backHref="/"
+                backLabel="SmartRural"
+            />
 
             <main id="conteudo">
                 <AviQualityHeroSection />

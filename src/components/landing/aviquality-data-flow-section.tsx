@@ -1,6 +1,6 @@
 import { ArrowRight, Check, FileChartColumn, LineChart, Monitor } from 'lucide-react'
 
-import { aviQualityMedia, dataFlowSteps, informationBenefits } from '@/content/aviquality'
+import { aviQualityMedia, aviQualitySectionLabels, dataFlowSteps, informationBenefits } from '@/content/aviquality'
 
 export function AviQualityDataFlowSection() {
     return (
@@ -8,7 +8,7 @@ export function AviQualityDataFlowSection() {
             <div className="page-container">
                 <div className="grid items-end gap-8.5 content:grid-cols-[minmax(0,7fr)_minmax(260px,4fr)] content:items-end">
                     <div>
-                        <span className="text-xs font-bold uppercase tracking-[0.16em] text-[#9ac7ff]">Evidência</span>
+                        <span className="text-xs font-bold uppercase tracking-[0.16em] text-[#9ac7ff]">{aviQualitySectionLabels.data}</span>
                         <h2 className="section-heading text-white">
                             O que acontece no aviário chega até você como <em className="text-[#8fbcff]">informação.</em>
                         </h2>

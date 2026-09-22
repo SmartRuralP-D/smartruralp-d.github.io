@@ -14,10 +14,17 @@ export const aviQualityMedia = {
 } as const
 
 export const aviQualityNavigation = [
-    { label: 'A rotina', href: '#rotina' },
-    { label: 'A virada', href: '#virada' },
-    { label: 'A evidência', href: '#evidencia' }
+    { label: 'Visão geral', href: '#rotina' },
+    { label: 'Como funciona', href: '#virada' },
+    { label: 'Dados da operação', href: '#evidencia' }
 ] as const
+
+export const aviQualitySectionLabels = {
+    overview: 'Visão geral',
+    operation: 'Como funciona',
+    product: 'Produto em campo',
+    data: 'Dados da operação'
+} as const
 
 export const managementSteps = [
     {
@@ -70,9 +77,9 @@ export const aviQualityFooterColumns = [
     {
         title: 'AviQuality',
         links: [
-            { label: 'A virada', href: '#virada' },
+            { label: 'Como funciona', href: '#virada' },
             { label: 'Produto em campo', href: '#produto' },
-            { label: 'Da coleta aos dados', href: '#evidencia' }
+            { label: 'Dados da operação', href: '#evidencia' }
         ]
     },
     {

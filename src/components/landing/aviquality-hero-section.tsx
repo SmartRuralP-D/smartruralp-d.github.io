@@ -1,6 +1,6 @@
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 
-import { aviQualityMedia } from '@/content/aviquality'
+import { aviQualityMedia, aviQualitySectionLabels } from '@/content/aviquality'
 
 export function AviQualityHeroSection() {
     return (
@@ -8,7 +8,7 @@ export function AviQualityHeroSection() {
             <div className="page-container">
                 <div className="grid items-end gap-9 pb-15.5 min-[901px]:grid-cols-[minmax(0,8fr)_minmax(15rem,3fr)]">
                     <div>
-                        <span className="text-xs font-bold uppercase tracking-[0.16em] text-brand">Rotina</span>
+                        <span className="text-xs font-bold uppercase tracking-[0.16em] text-brand">{aviQualitySectionLabels.overview}</span>
                         <h1 className="mb-7 mt-6 max-w-230 text-[clamp(3.25rem,7.5vw,7.2rem)] font-semibold leading-[.96] tracking-display text-ink">
                             O aviário muda o tempo todo. <em className="text-brand not-italic">Você precisa acompanhar.</em>
                         </h1>
