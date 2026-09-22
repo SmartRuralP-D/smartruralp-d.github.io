@@ -1,6 +1,10 @@
-import { media } from '@/content/landing'
+import { type PortfolioItem, portfolioItems } from '@/content/landing'
 
-export function PortfolioSection() {
+type PortfolioSectionProps = {
+    items?: readonly PortfolioItem[]
+}
+
+export function PortfolioSection({ items = portfolioItems }: PortfolioSectionProps) {
     return (
         <section id="portfolio" className="bg-surface section-padding">
             <div className="page-container">
@@ -16,41 +20,12 @@ export function PortfolioSection() {
                 </div>
 
                 <div className="mt-[clamp(58px,8vw,105px)] grid grid-cols-3 gap-6 max-[640px]:mt-13.75">
-                    <figure>
-                        <img
-                            className="aspect-[1.32] w-full object-cover"
-                            src={media.pondDetail}
-                            alt="Aerador em um viveiro de aquicultura"
-                            width={1280}
-                            height={720}
-                            loading="lazy"
-                        />
-                        <figcaption className="mt-3 flex items-center gap-1.75 text-[0.6875rem] font-bold text-text">Acompanhamento em tempo real</figcaption>
-                    </figure>
-                    <figure>
-                        <img
-                            className="aspect-[1.32] w-full object-cover"
-                            src={media.gathering}
-                            alt="Encontro de apresentação da SmartRural no campo"
-                            width={1280}
-                            height={720}
-                            loading="lazy"
-                        />
-                        <figcaption className="mt-3 flex items-center gap-1.75 text-[0.6875rem] font-bold text-text">Pesquisa aplicada e pessoas</figcaption>
-                    </figure>
-                    <figure>
-                        <img
-                            className="aspect-[1.32] w-full object-cover"
-                            src={media.workshop}
-                            alt="Apresentação sobre aquicultura em Feira Nova"
-                            width={1280}
-                            height={720}
-                            loading="lazy"
-                        />
-                        <figcaption className="mt-3 flex items-center gap-1.75 text-[0.6875rem] font-bold text-text">
-                            Conhecimento que chega à operação
-                        </figcaption>
-                    </figure>
+                    {items.map((item) => (
+                        <figure key={item.image}>
+                            <img className="aspect-[1.32] w-full object-cover" src={item.image} alt={item.imageAlt} width={1280} height={720} loading="lazy" />
+                            <figcaption className="mt-3 flex items-center gap-1.75 text-[0.6875rem] font-bold text-text">{item.caption}</figcaption>
+                        </figure>
+                    ))}
                 </div>
             </div>
         </section>
