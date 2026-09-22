@@ -51,7 +51,7 @@ export function AviQualityManagementSection() {
                         />
                         <figcaption className="absolute bottom-5 left-5 max-w-[19rem] bg-[rgba(16,19,22,.78)] px-3.5 py-3 text-sm leading-[1.5] text-white backdrop-blur-[0.4375rem]">
                             <span className="block text-[0.6875rem] font-bold uppercase tracking-[0.16em] text-[#9ac7ff]">O produto no centro</span>
-                            <span className="mt-1 block text-white/85">AviQuality acompanha informações do ambiente de produção.</span>
+                            <span className="mt-1 block text-white/85">Aviquality acompanha informações do ambiente de produção.</span>
                         </figcaption>
                     </figure>
                 </div>
