@@ -57,3 +57,6 @@ public/dev-config.local.js
 *.sln
 *.sw?
 .empryo
+
+# temporary files
+tmp/
