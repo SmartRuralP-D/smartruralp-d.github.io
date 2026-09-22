@@ -11,18 +11,54 @@ export const media = {
     heroAquaculture: asset('feira-nova-4.jpg'),
     heroAviculture: asset('aviculture-ufrpe.png'),
     pondWide: asset('feira-nova-1.jpg'),
-    pondDetail: asset('feira-nova-2.jpg'),
-    pondPeople: asset('feira-nova-3.jpg'),
-    workshop: asset('feira-nova-5.jpg'),
-    gathering: asset('feira-nova-6.jpg'),
     aquacultureDevice: asset('aquaculture-device.png'),
     aviqualityDevice: asset('aviquality-device.png'),
     sensorInWater: asset('fotos-1.jpg'),
     webDashboard: asset('web-dashboard.png'),
     webChart: asset('web-chart.png'),
     mobileDashboard: asset('mobile-dashboard.jpeg'),
-    aviculture: asset('aviculture-1.jpeg')
+    aviculture: asset('aviculture-1.jpeg'),
+    portfolio1: asset('depaq.jpg'),
+    portfolio2: asset('feira-nova-6.jpg'),
+    portfolio3: asset('feira-nova-5.jpg'),
+    portfolio4: asset('avicultura-carlos.jpeg'),
+    portfolio5: asset('cbsoft.jpg'),
+    portfolio6: asset('jepex.jpg')
 } as const
+
+export type PortfolioItem = {
+    image: string
+    imageAlt: string
+    caption: string
+}
+
+export const portfolioItems = [
+    {
+        image: media.portfolio1,
+        imageAlt: 'Instalação de sensores em viveiro de aquicultura',
+        caption: 'Acompanhamento em tempo real'
+    },
+    {
+        image: media.portfolio2,
+        imageAlt: 'Encontro de apresentação da SmartRural no campo',
+        caption: 'Pesquisa aplicada e pessoas'
+    },
+    {
+        image: media.portfolio5,
+        imageAlt: 'Apresentação da SmartRural no CBSoft 2026',
+        caption: 'Tecnologia e inovação em software'
+    },
+    {
+        image: media.portfolio3,
+        imageAlt: 'Apresentação sobre aquicultura em Feira Nova',
+        caption: 'Conhecimento que chega à operação'
+    },
+    {
+        image: media.portfolio6,
+        imageAlt: 'Apresentação da SmartRural no Jepex 2026',
+        caption: 'Pesquisa aplicada e inovação em tecnologia'
+    }
+] satisfies readonly PortfolioItem[]
 
 export const navigation = [
     { label: 'Soluções', href: '#solucoes' },
@@ -196,7 +232,7 @@ export const footerColumns = [
     {
         title: 'Empresa',
         links: [
-            { label: 'Sobre', href: '#sobre' },
+            { label: 'Sobre', href: '#conteudo' },
             { label: 'Portfólio', href: '#portfolio' },
             { label: 'Contato', href: '#contato' },
             { label: 'Política de privacidade', href: '/privacy-policy' }
