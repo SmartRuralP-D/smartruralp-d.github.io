@@ -32,7 +32,7 @@ export function AviQualityManagementSection() {
                                         <h3 className="m-0 text-[clamp(1.25rem,2.2vw,1.7rem)] font-medium leading-[1.1] tracking-[-0.035em] text-ink">
                                             {step.title}
                                         </h3>
-                                        <p className="m-0 mt-3 max-w-[28rem] text-sm leading-[1.65] text-text">{step.copy}</p>
+                                        <p className="m-0 mt-3 max-w-md text-sm leading-[1.65] text-text">{step.copy}</p>
                                     </div>
                                     <ArrowDownRight className="hidden size-4 text-brand min-[641px]:block" aria-hidden="true" />
                                 </div>
@@ -49,7 +49,7 @@ export function AviQualityManagementSection() {
                             height={1728}
                             loading="lazy"
                         />
-                        <figcaption className="absolute bottom-5 left-5 max-w-[19rem] bg-[rgba(16,19,22,.78)] px-3.5 py-3 text-sm leading-[1.5] text-white backdrop-blur-[0.4375rem]">
+                        <figcaption className="absolute bottom-5 left-5 max-w-76 bg-[rgba(16,19,22,.78)] px-3.5 py-3 text-sm leading-normal text-white backdrop-blur-[0.4375rem]">
                             <span className="block text-[0.6875rem] font-bold uppercase tracking-[0.16em] text-[#9ac7ff]">O produto no centro</span>
                             <span className="mt-1 block text-white/85">Aviquality acompanha informações do ambiente de produção.</span>
                         </figcaption>
@@ -59,10 +59,8 @@ export function AviQualityManagementSection() {
                 <div className="mt-[clamp(70px,10vw,140px)] grid items-center gap-10 bg-inverse px-7 py-10 text-white min-[901px]:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] min-[901px]:gap-16 min-[901px]:px-14 min-[901px]:py-14">
                     <div>
                         <span className="text-xs font-bold uppercase tracking-[0.16em] text-[#9ac7ff]">Apoio no ponto de operação</span>
-                        <h3 className="mt-4 text-[clamp(2rem,4vw,4.2rem)] font-medium leading-[0.98] tracking-[-0.05em]">
-                            Nem toda informação nasce no sensor.
-                        </h3>
-                        <p className="mt-5 max-w-[28rem] text-[0.9375rem] leading-[1.7] text-[#b0bac2]">
+                        <h3 className="mt-4 text-[clamp(2rem,4vw,4.2rem)] font-medium leading-[0.98] tracking-tighter">Nem toda informação nasce no sensor.</h3>
+                        <p className="mt-5 max-w-md text-[0.9375rem] leading-[1.7] text-[#b0bac2]">
                             As Smart Tags aproximam o sistema do lugar onde a atividade acontece. Elas complementam o acompanhamento do ambiente com
                             identificação e acesso no campo.
                         </p>
