@@ -36,6 +36,9 @@ jobs:
             - name: Build static Pages export
               run: npm run build:pages
 
+            - name: Validate static Pages export
+              run: npm run validate:pages
+
             - name: Preserve custom domain
               run: cp CNAME .output/public/CNAME
 

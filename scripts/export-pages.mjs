@@ -1,33 +1,44 @@
-import { cp, mkdir, readdir, rm, writeFile } from 'node:fs/promises'
+import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const publicDirectory = resolve(repositoryRoot, '.output/public')
 const serverEntry = resolve(repositoryRoot, '.output/server/index.mjs')
+const staticRoutes = JSON.parse(await readFile(resolve(repositoryRoot, 'scripts/pages-routes.json'), 'utf8'))
 
 const server = (await import(pathToFileURL(serverEntry))).default
-const response = await server.fetch(new Request('https://www.smartrural.com.br/'), {}, { waitUntil() {} })
-
-if (!response.ok) {
-    throw new Error(`Static export failed with HTTP ${response.status}.`)
-}
-
 await mkdir(publicDirectory, { recursive: true })
-await writeFile(resolve(publicDirectory, 'index.html'), await response.text())
 
-const privacyResponse = await server.fetch(new Request('https://www.smartrural.com.br/privacy-policy'), {}, { waitUntil() {} })
+for (const route of staticRoutes) {
+    const response = await server.fetch(new Request(`https://www.smartrural.com.br${route}`), {}, { waitUntil() {} })
 
-if (!privacyResponse.ok) {
-    throw new Error(`Privacy policy export failed with HTTP ${privacyResponse.status}.`)
+    if (!response.ok) {
+        throw new Error(`Static export failed for ${route} with HTTP ${response.status}.`)
+    }
+
+    const html = await response.text()
+
+    if (route === '/') {
+        await writeFile(resolve(publicDirectory, 'index.html'), html)
+        continue
+    }
+
+    const routeName = route.slice(1)
+    await writeFile(resolve(publicDirectory, `${routeName}.html`), html)
+    await mkdir(resolve(publicDirectory, routeName), { recursive: true })
+    await writeFile(resolve(publicDirectory, routeName, 'index.html'), html)
 }
 
-const privacyPolicyHtml = await privacyResponse.text()
-await writeFile(resolve(publicDirectory, 'privacy-policy.html'), privacyPolicyHtml)
-await mkdir(resolve(publicDirectory, 'privacy-policy'), { recursive: true })
-await writeFile(resolve(publicDirectory, 'privacy-policy/index.html'), privacyPolicyHtml)
-
-for (const entry of ['assets', 'favicon.png', 'favicon.svg', 'robots.txt', '_headers', 'index.html', 'privacy-policy.html', 'privacy-policy']) {
+for (const entry of [
+    'assets',
+    'favicon.png',
+    'favicon.svg',
+    'robots.txt',
+    '_headers',
+    'index.html',
+    ...staticRoutes.filter((route) => route !== '/').flatMap((route) => [`${route.slice(1)}.html`, route.slice(1)])
+]) {
     await rm(resolve(repositoryRoot, entry), { force: true, recursive: true })
 }
 
