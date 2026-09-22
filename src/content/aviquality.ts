@@ -44,12 +44,6 @@ export const managementSteps = [
     }
 ] as const
 
-export const dataFlowSteps = [
-    { number: '01', label: 'Ambiente', copy: 'A operação acontece no aviário.' },
-    { number: '02', label: 'Dispositivo', copy: 'O AviQuality acompanha o que foi definido para a criação.' },
-    { number: '03', label: 'Informação', copy: 'O sistema organiza os dados em dashboard e gráfico.' }
-] as const
-
 export const informationBenefits = [
     {
         number: '01',

@@ -1,6 +1,6 @@
-import { ArrowRight, Check, FileChartColumn, LineChart, Monitor } from 'lucide-react'
+import { Check, FileChartColumn, LineChart, Monitor } from 'lucide-react'
 
-import { aviQualityMedia, aviQualitySectionLabels, dataFlowSteps, informationBenefits } from '@/content/aviquality'
+import { aviQualityMedia, aviQualitySectionLabels, informationBenefits } from '@/content/aviquality'
 
 export function AviQualityDataFlowSection() {
     return (
@@ -17,28 +17,6 @@ export function AviQualityDataFlowSection() {
                         O valor do acompanhamento aparece quando o ambiente, o dispositivo e o sistema contam a mesma história — com dados que podem ser
                         consultados e comparados.
                     </p>
-                </div>
-
-                <div
-                    className="mt-[clamp(54px,8vw,104px)] grid gap-4 border-y border-[#394149] py-6 min-[901px]:grid-cols-[1fr_30px_1fr_30px_1fr] min-[901px]:gap-5 min-[901px]:py-7"
-                    aria-label="Caminho da informação do aviário até a plataforma"
-                >
-                    {dataFlowSteps.map((step, index) => (
-                        <div key={step.number} className="contents">
-                            <div className="flex items-start gap-3 min-[901px]:block">
-                                <span className="grid size-9.5 shrink-0 place-items-center rounded-full border border-[#587b9f] text-[#9ac7ff]">
-                                    <span className="text-xs font-bold">{step.number}</span>
-                                </span>
-                                <div className="min-[901px]:mt-4">
-                                    <small className="text-[0.625rem] font-extrabold uppercase tracking-widest text-[#9ac7ff]">{step.label}</small>
-                                    <strong className="mt-1 block max-w-[13rem] text-[0.8125rem] leading-[1.45] text-[#f4f7fa]">{step.copy}</strong>
-                                </div>
-                            </div>
-                            {index < dataFlowSteps.length - 1 && (
-                                <ArrowRight className="hidden size-4.25 self-center text-[#9ac7ff] min-[901px]:block" aria-hidden="true" />
-                            )}
-                        </div>
-                    ))}
                 </div>
 
                 <div className="mt-[clamp(54px,8vw,104px)] grid gap-6 min-[1001px]:grid-cols-[minmax(0,1.25fr)_minmax(20rem,.75fr)] min-[1001px]:items-start">
