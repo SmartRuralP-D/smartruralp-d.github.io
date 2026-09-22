@@ -205,7 +205,7 @@ export const solutions = {
         copy: 'Uma solução dedicada à produção avícola. Tenha visibilidade sobre o ambiente e os equipamentos que influenciam o bem-estar e o desempenho das aves.',
         capabilities: ['Ambiente do aviário', 'Temperatura, umidade e luminosidade', 'Acompanhamento contínuo'],
         linkLabel: 'Conheça a Aviquality',
-        linkHref: '#contato',
+        linkHref: '/aviquality',
         tone: 'light' as const
     }
 } as const
