@@ -1,11 +1,21 @@
-import { useEffect, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
 
 import { Brand } from '@/components/site/brand'
 import { navigation } from '@/content/landing'
 import { cn } from '@/lib/utils'
 
-export function SiteHeader() {
+export function SiteHeader({
+    brand = <Brand />,
+    navigationItems = navigation,
+    contactHref = '#contato',
+    contactLabel = 'Contato'
+}: {
+    brand?: ReactNode
+    navigationItems?: readonly { label: string; href: string }[]
+    contactHref?: string
+    contactLabel?: string
+}) {
     const [menuOpen, setMenuOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
 
@@ -26,9 +36,9 @@ export function SiteHeader() {
             )}
         >
             <div className="mx-auto flex min-h-21 w-[min(calc(100%-4rem),77.5rem)] items-center justify-between gap-8">
-                <Brand />
+                {brand}
                 <nav className="ml-auto flex items-center gap-[clamp(22px,3vw,42px)] max-[900px]:hidden" aria-label="Navegação principal">
-                    {navigation.map(({ label, href }) => (
+                    {navigationItems.map(({ label, href }) => (
                         <a className="text-[0.8125rem] font-bold text-text transition hover:text-brand" href={href} key={href}>
                             {label}
                         </a>
@@ -36,9 +46,9 @@ export function SiteHeader() {
                 </nav>
                 <a
                     className="inline-flex items-center gap-2 text-[0.8125rem] font-bold text-text transition hover:text-brand max-[900px]:hidden"
-                    href="#contato"
+                    href={contactHref}
                 >
-                    Contato <ArrowUpRight className="size-3.75 text-brand" aria-hidden="true" />
+                    {contactLabel} <ArrowUpRight className="size-3.75 text-brand" aria-hidden="true" />
                 </a>
                 <button
                     className="hidden size-10.5 items-center justify-center rounded-control border border-border bg-transparent text-ink max-[900px]:inline-flex"
@@ -57,13 +67,13 @@ export function SiteHeader() {
                     className="grid gap-5 border-t border-border bg-canvas px-8 py-5.5 pb-7 text-[1.0625rem] font-bold min-[901px]:hidden"
                     aria-label="Navegação móvel"
                 >
-                    {navigation.map(({ label, href }) => (
+                    {navigationItems.map(({ label, href }) => (
                         <a className="flex items-center justify-between" href={href} onClick={closeMenu} key={href}>
                             {label}
                         </a>
                     ))}
-                    <a href="#contato" onClick={closeMenu} className="flex items-center gap-2">
-                        Fale com a SmartRural <ArrowUpRight aria-hidden="true" />
+                    <a href={contactHref} onClick={closeMenu} className="flex items-center gap-2">
+                        {contactLabel} <ArrowUpRight aria-hidden="true" />
                     </a>
                 </nav>
             )}
