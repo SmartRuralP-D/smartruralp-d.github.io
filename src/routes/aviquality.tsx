@@ -8,7 +8,7 @@ export const Route = createFileRoute('/aviquality')({
             { title: 'AviQuality | Monitoramento para Avicultura — SmartRural' },
             {
                 name: 'description',
-                content: 'Monitoramento automático para acompanhar sua produção avícola em tempo real. Conheça o AviQuality e as Smart Tags da SmartRural.'
+                content: 'Monitoramento automático para acompanhar sua produção avícola em tempo real. Conheça o Aviquality e as SmartTags da SmartRural.'
             },
             { property: 'og:title', content: 'AviQuality | Monitoramento para Avicultura — SmartRural' },
             { property: 'og:description', content: 'Monitoramento automático para acompanhar sua produção avícola em tempo real.' },
