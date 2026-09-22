@@ -10,7 +10,7 @@ export function AviQualityDevicesSection() {
                     <div>
                         <span className="text-xs font-bold uppercase tracking-[0.16em] text-brand">{aviQualitySectionLabels.product}</span>
                         <h2 className="section-heading">
-                            Antes de aparecer no dashboard, o AviQuality está <em>no aviário.</em>
+                            Antes de aparecer no dashboard, o Aviquality está <em>no aviário.</em>
                         </h2>
                     </div>
                     <p className="mb-1 max-w-100 text-[0.9375rem] leading-[1.7] text-text">
@@ -53,7 +53,6 @@ export function AviQualityDevicesSection() {
                             />
                         </div>
                         <figcaption className="mt-5 border-t border-border pt-5">
-                            <span className="text-xs text-brand">02</span>
                             <p className="mt-2 max-w-[18rem] text-sm leading-[1.65] text-text">
                                 O acompanhamento ganha sentido quando o produto está próximo da realidade que precisa ser observada.
                             </p>
