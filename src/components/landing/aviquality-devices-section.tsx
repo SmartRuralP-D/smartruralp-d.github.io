@@ -29,8 +29,8 @@ export function AviQualityDevicesSection() {
                                 height={1024}
                                 loading="lazy"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-inverse/75 via-transparent to-transparent" />
-                            <figcaption className="absolute bottom-5 left-5 max-w-[22rem] bg-[rgba(16,19,22,.76)] px-3.5 py-3 text-sm leading-[1.5] text-white backdrop-blur-[0.4375rem]">
+                            <div className="absolute inset-0 bg-linear-to-t from-inverse/75 via-transparent to-transparent" />
+                            <figcaption className="absolute bottom-5 left-5 max-w-88 bg-[rgba(16,19,22,.76)] px-3.5 py-3 text-sm leading-normal text-white backdrop-blur-[0.4375rem]">
                                 <span className="block text-[0.6875rem] font-bold uppercase tracking-[0.16em] text-[#9ac7ff]">Instalação real</span>
                                 <span className="mt-1 block text-white/85">O dispositivo acompanha a operação a partir do próprio ambiente produtivo.</span>
                             </figcaption>
