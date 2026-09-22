@@ -10,14 +10,12 @@ export const media = {
     wordmark: asset('smartrural-nome.png'),
     heroAquaculture: asset('feira-nova-4.jpg'),
     heroAviculture: asset('aviculture-ufrpe.png'),
-    pondWide: asset('feira-nova-1.jpg'),
     aquacultureDevice: asset('aquaculture-device.png'),
     aviqualityDevice: asset('aviquality-device.png'),
     sensorInWater: asset('fotos-1.jpg'),
     webDashboard: asset('web-dashboard.png'),
     webChart: asset('web-chart.png'),
     mobileDashboard: asset('mobile-dashboard.jpeg'),
-    aviculture: asset('aviculture-1.jpeg'),
     portfolio1: asset('depaq.jpg'),
     portfolio2: asset('feira-nova-6.jpg'),
     portfolio3: asset('feira-nova-5.jpg'),
@@ -190,25 +188,25 @@ export const heroMonitoringSlides = [
 ] satisfies readonly MonitoringSlide[]
 
 export const solutions = {
-    aquaculture: {
+    aquatic: {
         number: '01',
-        title: 'Aquicultura',
-        image: media.pondWide,
-        imageAlt: 'Viveiro de aquicultura com aeradores e paisagem rural',
-        imageNote: 'Água em movimento',
-        copy: 'Acompanhe viveiros, condições da água, equipamentos e informações da produção em um só lugar.',
-        linkLabel: 'Conheça a solução',
-        linkHref: '#plataforma'
+        eyebrow: 'Orientação aquática',
+        title: 'Aquatic',
+        copy: 'Monitoramento inteligente para operações aquícolas. Acompanhe a qualidade da água e as condições do viveiro para agir no momento certo.',
+        capabilities: ['Qualidade da água', 'Condições do viveiro', 'Alertas e histórico'],
+        linkLabel: 'Conheça a Aquatic',
+        linkHref: '#plataforma',
+        tone: 'dark' as const
     },
-    aviculture: {
+    aviquality: {
         number: '02',
-        title: 'Avicultura',
-        image: media.aviculture,
-        imageAlt: 'Aviário com aves e equipamentos de produção',
-        imageNote: 'Operação avícola',
-        copy: 'Uma base preparada para acompanhar ambiente, ventilação, temperatura, umidade e equipamentos de aviários.',
-        linkLabel: 'Conversar sobre a operação',
-        linkHref: '#contato'
+        eyebrow: 'Orientação aviária',
+        title: 'Aviquality',
+        copy: 'Uma solução dedicada à produção avícola. Tenha visibilidade sobre o ambiente e os equipamentos que influenciam o bem-estar e o desempenho das aves.',
+        capabilities: ['Ambiente do aviário', 'Temperatura, umidade e luminosidade', 'Acompanhamento contínuo'],
+        linkLabel: 'Conheça a Aviquality',
+        linkHref: '#contato',
+        tone: 'light' as const
     }
 } as const
 
@@ -218,8 +216,8 @@ export const footerColumns = [
     {
         title: 'Soluções',
         links: [
-            { label: 'Aquicultura', href: '#solucoes' },
-            { label: 'Avicultura', href: '#solucoes' }
+            { label: 'Aquatic', href: '#solucoes' },
+            { label: 'Aviquality', href: '#solucoes' }
         ]
     },
     {

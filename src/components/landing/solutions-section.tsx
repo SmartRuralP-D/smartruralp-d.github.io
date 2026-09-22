@@ -1,94 +1,67 @@
-import { Droplets } from 'lucide-react'
+import { ArrowUpRight, Bird, Check, Waves } from 'lucide-react'
 
-import { TextLink } from '@/components/site/text-link'
 import { solutions } from '@/content/landing'
 import { cn } from '@/lib/utils'
 
 type Solution = (typeof solutions)[keyof typeof solutions]
 
+const solutionIcons = {
+    aquatic: Waves,
+    aviquality: Bird
+} as const
+
 type SolutionCardProps = {
+    id: keyof typeof solutionIcons
     solution: Solution
-    articleClassName?: string
-    imageClassName: string
-    detailsClassName: string
-    headingClassName?: string
-    imageWidth: number
-    imageHeight: number
-    showWaterIcon?: boolean
 }
 
-type SolutionImageProps = {
-    solution: Solution
-    className: string
-    imageWidth: number
-    imageHeight: number
-    showWaterIcon?: boolean
-}
+function SolutionCard({ id, solution }: SolutionCardProps) {
+    const Icon = solutionIcons[id]
+    const isDark = solution.tone === 'dark'
 
-type SolutionDetailsProps = {
-    solution: Solution
-    className: string
-    headingClassName?: string | undefined
-}
-
-function SolutionImage({ solution, className, imageWidth, imageHeight, showWaterIcon = false }: SolutionImageProps) {
     return (
-        <div className={cn('relative overflow-hidden bg-inverse', className)}>
-            <img
-                className="h-full w-full object-cover transition-transform duration-650 ease-[cubic-bezier(.2,.75,.25,1)] group-hover:scale-[1.035]"
-                src={solution.image}
-                alt={solution.imageAlt}
-                width={imageWidth}
-                height={imageHeight}
-                loading="lazy"
-            />
-            <span
-                className={cn(
-                    'absolute bottom-4.25 left-4.5 z-2 bg-[rgba(16,19,22,.7)] px-2.5 py-2 text-[0.6875rem] font-bold text-white',
-                    showWaterIcon && 'inline-flex items-center gap-1.75 backdrop-blur-[0.4375rem]'
-                )}
-            >
-                {showWaterIcon ? (
-                    <>
-                        <Droplets className="h-3.25 w-3.25 text-[#9ac7ff]" aria-hidden="true" /> {solution.imageNote}
-                    </>
-                ) : (
-                    solution.imageNote
-                )}
-            </span>
-        </div>
-    )
-}
-
-function SolutionDetails({ solution, className, headingClassName }: SolutionDetailsProps) {
-    return (
-        <div className={cn('border-t border-ink pt-6 max-[640px]:grid max-[640px]:gap-3.25 max-[640px]:pt-4.5', className)}>
+        <article
+            className={cn(
+                'group flex min-h-105 flex-col justify-between border border-border p-6.5 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-card sm:p-8.5 lg:min-h-120 lg:p-10',
+                isDark ? 'bg-inverse text-white' : 'bg-white text-ink'
+            )}
+        >
             <div>
-                <span className="text-xs text-brand">{solution.number}</span>
-                <h3 className={cn('mt-1.75 text-[clamp(1.8rem,3vw,2.6rem)] leading-none', headingClassName)}>{solution.title}</h3>
-            </div>
-            <div className="grid max-[640px]:gap-3.25">
-                <p className="m-0 text-sm leading-[1.65] text-text">{solution.copy}</p>
-                <TextLink href={solution.linkHref}>{solution.linkLabel}</TextLink>
-            </div>
-        </div>
-    )
-}
+                <div className="flex items-start justify-between gap-6">
+                    <div className={cn('grid size-12 place-items-center border', isDark ? 'border-[#46505a] text-[#9bc7ff]' : 'border-brand/25 text-brand')}>
+                        <Icon className="size-5" strokeWidth={1.75} aria-hidden="true" />
+                    </div>
+                    <span className={cn('text-xs font-extrabold tracking-[0.12em]', isDark ? 'text-[#9bc7ff]' : 'text-brand')}>{solution.number}</span>
+                </div>
 
-function SolutionCard({
-    solution,
-    articleClassName,
-    imageClassName,
-    detailsClassName,
-    headingClassName,
-    imageWidth,
-    imageHeight,
-    showWaterIcon = false
-}: SolutionCardProps) {
-    return (
-        <article className={cn('group', articleClassName)}>
-            <SolutionImage solution={solution} className={imageClassName} imageWidth={imageWidth} imageHeight={imageHeight} showWaterIcon={showWaterIcon} />
-            <SolutionDetails solution={solution} className={detailsClassName} headingClassName={headingClassName} />
+                <p className={cn('mt-10 text-xs font-extrabold uppercase tracking-[0.14em]', isDark ? 'text-[#9bc7ff]' : 'text-brand')}>{solution.eyebrow}</p>
+                <h3 className="mt-2 text-[clamp(2.2rem,4vw,3.5rem)] leading-none tracking-[-0.05em]">{solution.title}</h3>
+                <p className={cn('mt-6 max-w-[35rem] text-sm leading-[1.75]', isDark ? 'text-[#c1cad1]' : 'text-text')}>{solution.copy}</p>
+            </div>
+
+            <div className="mt-10">
+                <ul className={cn('grid gap-3 border-t pt-5 text-xs font-bold sm:grid-cols-3', isDark ? 'border-[#46505a]' : 'border-border')}>
+                    {solution.capabilities.map((capability) => (
+                        <li className="flex items-start gap-2" key={capability}>
+                            <Check className={cn('mt-0.5 size-3.5 shrink-0', isDark ? 'text-[#9bc7ff]' : 'text-brand')} aria-hidden="true" />
+                            <span>{capability}</span>
+                        </li>
+                    ))}
+                </ul>
+                <a
+                    className={cn(
+                        'group/link mt-7 inline-flex items-center gap-2.5 text-xs font-extrabold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+                        isDark ? 'text-white hover:text-[#9bc7ff]' : 'text-brand-strong hover:text-brand'
+                    )}
+                    href={solution.linkHref}
+                >
+                    {solution.linkLabel}
+                    <ArrowUpRight
+                        className="size-3.75 transition-transform duration-200 group-hover/link:-translate-y-0.75 group-hover/link:translate-x-0.75"
+                        aria-hidden="true"
+                    />
+                </a>
+            </div>
         </article>
     )
 }
@@ -97,31 +70,22 @@ export function SolutionsSection() {
     return (
         <section id="solucoes" className="bg-surface section-padding">
             <div className="page-container">
-                <div>
-                    <h2 className="section-heading">
-                        Conheça nossas <em>soluções</em>
-                    </h2>
+                <div className="grid gap-8.5 content:grid-cols-[minmax(0,7fr)_minmax(260px,4fr)] content:items-end">
+                    <div>
+                        <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-brand">Duas frentes, uma plataforma</p>
+                        <h2 className="section-heading">
+                            Soluções feitas para o <em>campo.</em>
+                        </h2>
+                    </div>
+                    <p className="max-w-100 text-[0.9375rem] leading-[1.7] text-text content:mb-1 content:ml-auto">
+                        Escolha a orientação que combina com a sua operação. Aquatic e Aviquality organizam os dados essenciais para acompanhar a produção com
+                        mais clareza e segurança.
+                    </p>
                 </div>
 
-                <div className="mt-[clamp(54px,8vw,108px)] grid items-start gap-[clamp(34px,6vw,90px)] min-[901px]:grid-cols-[minmax(0,1.45fr)_minmax(270px,.8fr)]">
-                    <SolutionCard
-                        solution={solutions.aquaculture}
-                        imageClassName="aspect-[1.57]"
-                        detailsClassName="grid gap-6.5 min-[901px]:grid-cols-[1fr_1fr] min-[901px]:items-end"
-                        imageWidth={1280}
-                        imageHeight={720}
-                        showWaterIcon
-                    />
-
-                    <SolutionCard
-                        solution={solutions.aviculture}
-                        articleClassName="pt-[clamp(0px,5vw,80px)] max-[900px]:grid max-[900px]:grid-cols-[minmax(0,1fr)_minmax(240px,.8fr)] max-[900px]:items-end max-[900px]:gap-6.25 max-[640px]:block"
-                        imageClassName="aspect-[.94] max-[640px]:aspect-[1.05]"
-                        detailsClassName="pt-5.5 max-[900px]:border-t-0 max-[900px]:pt-0 max-[640px]:border-t"
-                        headingClassName="mb-3 max-[640px]:mb-0"
-                        imageWidth={261}
-                        imageHeight={193}
-                    />
+                <div className="mt-[clamp(54px,8vw,104px)] grid gap-5.5 lg:grid-cols-2">
+                    <SolutionCard id="aquatic" solution={solutions.aquatic} />
+                    <SolutionCard id="aviquality" solution={solutions.aviquality} />
                 </div>
             </div>
         </section>
