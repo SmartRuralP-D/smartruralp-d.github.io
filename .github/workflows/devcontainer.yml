@@ -16,6 +16,10 @@ permissions:
     contents: read
     packages: read
 
+concurrency:
+    group: devcontainer-${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
 jobs:
     select-runner:
         name: Select runner
@@ -34,4 +38,5 @@ jobs:
         uses: SmartRuralP-D/workflows/.github/workflows/devcontainer-consumer.yml@v1.12.0
         with:
             runs-on: ${{ needs.select-runner.outputs.runs-on }}
+            project-validation-command: bash .devcontainer/scripts/validate.sh runtime
         secrets: inherit
