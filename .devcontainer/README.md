@@ -10,7 +10,7 @@ The normal startup path requires Docker Engine or Docker Desktop, Docker Compose
 
 | Concern | Owner | Consumer behavior |
 | --- | --- | --- |
-| Shared tooling, credentials, shell state, Docker, and lifecycle | Base image metadata | Inherited from `ghcr.io/smartruralp-d/base-devcontainer:v1.7.1`; this repository does not duplicate the Base mounts or Docker feature. |
+| Shared tooling, credentials, shell state, Docker, and lifecycle | Base image metadata | Inherited from `ghcr.io/smartruralp-d/base-devcontainer:v1.7.2`; this repository does not duplicate the Base mounts or Docker feature. |
 | Portable host state | [host-import.compose.yml](host-import.compose.yml) and [contract.json](contract.json) | Staged through the canonical `initializeCommand`; `.env` is optional and must not contain secrets. |
 | Node/npm | [Dockerfile](Dockerfile), [.nvmrc](../.nvmrc), and [tool-versions.sh](tool-versions.sh) | Installed at image build time and activated for Bash, Zsh, and lifecycle commands. |
 | Project dependencies | [devcontainer.json](devcontainer.json) | Stored in the repo-scoped `node_modules` and npm-cache named volumes. |
