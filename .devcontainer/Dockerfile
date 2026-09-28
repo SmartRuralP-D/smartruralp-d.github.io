@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=ghcr.io/smartruralp-d/base-devcontainer:v1.7.1
+ARG BASE_IMAGE=ghcr.io/smartruralp-d/base-devcontainer:v1.7.2
 FROM ${BASE_IMAGE}
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BASE_DEVCONTAINER_IMAGE=ghcr.io/smartruralp-d/base-devcontainer:v1.7.1
+BASE_DEVCONTAINER_IMAGE=ghcr.io/smartruralp-d/base-devcontainer:v1.7.2
 DEVCONTAINER_NVM_VERSION=v0.40.3
 DEVCONTAINER_NPM_VERSION=11.19.1
 DEVCONTAINER_CLI_VERSION=0.88.0

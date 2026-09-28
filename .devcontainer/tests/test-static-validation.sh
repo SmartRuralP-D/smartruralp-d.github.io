@@ -35,6 +35,7 @@ node <<'EOF'
 const fs = require('node:fs')
 const config = JSON.parse(fs.readFileSync('.devcontainer/devcontainer.json', 'utf8'))
 const contract = JSON.parse(fs.readFileSync('.devcontainer/contract.json', 'utf8'))
+if (config.build.args.BASE_IMAGE !== 'ghcr.io/smartruralp-d/base-devcontainer:v1.7.2') throw new Error('Base image must be pinned to v1.7.2')
 const expectedInitializeCommand = [
   'docker', 'compose', '-p', 'smartrural-host-import-${devcontainerId}',
   '--project-directory', '${localWorkspaceFolder}/.devcontainer', '-f',
@@ -42,7 +43,7 @@ const expectedInitializeCommand = [
 ]
 const baseEnvs = ['CODEX_HOME', 'AGY_CLI_DISABLE_AUTO_UPDATE', 'AGY_STATE_DIR', 'DOCKER_CONFIG', 'GH_CONFIG_DIR', 'GIT_CONFIG_GLOBAL', 'LANG', 'LC_ALL', 'LOCAL_WORKSPACE_FOLDER', 'SMART_RURAL_DEVCONTAINER_HOME', 'TZ', 'ZDOTDIR']
 const baseTargets = ['/commandhistory', '/home/vscode/.codex', '/home/vscode/.gemini', '/home/vscode/.config/gh', '/home/vscode/.config/git', '/home/vscode/.docker', '/home/vscode/.ssh', '/mnt/smartrural-import']
-if (JSON.stringify(config.initializeCommand) !== JSON.stringify(expectedInitializeCommand)) throw new Error('initializeCommand must match the Base consumer contract')
+if (JSON.stringify(config.initializeCommand) !== JSON.stringify(expectedInitializeCommand)) throw new Error('initializeCommand must match the Base v1.7.2 consumer contract')
 if (JSON.stringify(contract.initializeCommand) !== JSON.stringify(expectedInitializeCommand)) throw new Error('contract.json initializeCommand drifted')
 if ('remoteUser' in config) throw new Error('remoteUser must be inherited from Base metadata')
 for (const key of baseEnvs) if (key in config.containerEnv) throw new Error(`Base env must not be duplicated: ${key}`)
