@@ -1,0 +1,37 @@
+name: Dev Container
+
+on:
+    pull_request:
+        branches: [main, dev]
+        types: [opened, synchronize, reopened, ready_for_review]
+        paths:
+            - ".devcontainer/**"
+            - ".github/workflows/devcontainer.yml"
+            - ".gitattributes"
+            - "!**/*.md"
+            - "!**/*.mdx"
+    workflow_dispatch:
+
+permissions:
+    contents: read
+    packages: read
+
+jobs:
+    select-runner:
+        name: Select runner
+        if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+        uses: SmartRuralP-D/workflows/.github/workflows/runner-selector.yml@v1.12.0
+        with:
+            availability-policy: prefer-self-hosted
+            app-client-id: ${{ vars.RUNNER_SELECTOR_APP_CLIENT_ID }}
+            required-labels: '["self-hosted", "Linux", "X64"]'
+        secrets:
+            app-private-key: ${{ secrets.RUNNER_SELECTOR_APP_PRIVATE_KEY }}
+
+    validate:
+        name: Validate consumer overlay
+        needs: select-runner
+        uses: SmartRuralP-D/workflows/.github/workflows/devcontainer-consumer.yml@v1.12.0
+        with:
+            runs-on: ${{ needs.select-runner.outputs.runs-on }}
+        secrets: inherit
