@@ -2,7 +2,7 @@
 # .env and platform-specific bind paths before this Linux helper starts.
 services:
     host-import:
-        image: ${SMART_RURAL_HOST_IMPORT_IMAGE:-ghcr.io/smartruralp-d/base-devcontainer:v1.7.1}
+        image: ${SMART_RURAL_HOST_IMPORT_IMAGE:-ghcr.io/smartruralp-d/base-devcontainer:v1.7.2}
         user: root
         network_mode: none
         read_only: true
