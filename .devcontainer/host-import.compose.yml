@@ -2,7 +2,7 @@
 # .env and platform-specific bind paths before this Linux helper starts.
 services:
     host-import:
-        image: ${SMART_RURAL_HOST_IMPORT_IMAGE:-ghcr.io/smartruralp-d/base-devcontainer:v1.7.2}
+        image: ${SMART_RURAL_HOST_IMPORT_IMAGE:-ghcr.io/smartruralp-d/base-devcontainer:v1.7.4}
         user: root
         network_mode: none
         read_only: true
@@ -57,6 +57,16 @@ services:
               target: /host/overrides/ssh
               read_only: true
               bind: {create_host_path: false}
+            # Base metadata binds this same path into the Dev Container so
+            # Codex shares the host's single, rotating credential instead of a
+            # forked copy. A Docker bind fails when its source is missing, so
+            # this read-only mount only guarantees the directory exists; it
+            # must stay ${HOME} or ${USERPROFILE}, matching that metadata.
+            - type: bind
+              source: ${HOME:-${USERPROFILE:-}}/.codex
+              target: /host/codex-link
+              read_only: true
+              bind: {create_host_path: true}
             # Keep this a single optional socket.  /dev/null is a portable
             # non-bus sentinel when the host does not opt into Linux
             # Secret Service forwarding; the helper will reject it as such.

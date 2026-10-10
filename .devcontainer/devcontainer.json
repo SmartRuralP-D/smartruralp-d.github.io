@@ -4,7 +4,7 @@
         "dockerfile": "Dockerfile",
         "context": "..",
         "args": {
-            "BASE_IMAGE": "ghcr.io/smartruralp-d/base-devcontainer:v1.7.2"
+            "BASE_IMAGE": "ghcr.io/smartruralp-d/base-devcontainer:v1.7.4"
         }
     },
     "workspaceFolder": "/workspace",
