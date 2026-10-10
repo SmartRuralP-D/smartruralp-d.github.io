@@ -35,7 +35,7 @@ jobs:
     validate:
         name: Validate consumer overlay
         needs: select-runner
-        uses: SmartRuralP-D/workflows/.github/workflows/devcontainer-consumer.yml@v1.12.0
+        uses: SmartRuralP-D/workflows/.github/workflows/devcontainer-consumer.yml@v1.12.1
         with:
             runs-on: ${{ needs.select-runner.outputs.runs-on }}
             project-validation-command: bash .devcontainer/scripts/validate-project.sh
