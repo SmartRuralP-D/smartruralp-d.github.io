@@ -37,7 +37,7 @@ Start Vite in the container with `npm run dev -- --host 0.0.0.0`, then open forw
 | `bash .devcontainer/scripts/validate.sh static` | Host | Shell and `.nvmrc` syntax, Base consumer assets, `devcontainer.json` contract. Needs `zsh`, `node`, `git`. |
 | `bash .devcontainer/scripts/validate.sh runtime` | Container | [validate-project.sh](scripts/validate-project.sh): `npm ci`, lint, `tsc`, build, `build:pages`, `validate:pages`, then Node, Vite on `5173`, and Docker checks. |
 
-`validate-project.sh` runs `build:pages`, which rewrites the tracked Pages root in the mounted worktree; review that diff afterwards. CI runs [devcontainer.yml](../.github/workflows/devcontainer.yml) on `.devcontainer/` changes through the reusable [devcontainer-consumer.yml](https://github.com/SmartRuralP-D/workflows/blob/main/docs/devcontainer-consumer.md) workflow, pinned in that file.
+`validate-project.sh` runs `build:pages` and `validate:pages`; generated files stay under the gitignored `.output/public/` directory and do not appear in the worktree diff. CI runs [devcontainer.yml](../.github/workflows/devcontainer.yml) on `.devcontainer/` changes through the reusable [devcontainer-consumer.yml](https://github.com/SmartRuralP-D/workflows/blob/main/docs/devcontainer-consumer.md) workflow, pinned in that file.
 
 ## Failure boundaries
 

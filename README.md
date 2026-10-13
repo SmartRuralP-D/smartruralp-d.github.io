@@ -1,6 +1,6 @@
 # SmartRural Landing Page
 
-This repository contains the React/TanStack Start landing page published as `www.smartrural.com.br` through the repository-root GitHub Pages export. The application presents SmartRural's aquaculture and aviculture monitoring proposition as a single responsive page with static content, local assets, and client-side interaction.
+This repository contains the React/TanStack Start landing page published as `www.smartrural.com.br` through a GitHub Pages build artifact. The application presents SmartRural's aquaculture and aviculture monitoring proposition as a single responsive page with static content, local assets, and client-side interaction.
 
 ## Start here
 
@@ -27,14 +27,14 @@ Run these commands from the repository root unless a guide states otherwise.
 | `npm run dev -- --host 0.0.0.0` | Start the Vite development server on the forwarded container or local host interface. |
 | `npm run lint` | Check application and build-script source with ESLint. |
 | `npx tsc --noEmit` | Run the TypeScript compiler without emitting files. |
-| `npm run build` | Produce the production `.output` build; its prebuild hook clears the tracked Pages-root export first. |
-| `npm run build:pages` | Build, server-render the home route, and refresh the tracked GitHub Pages root. |
+| `npm run build` | Produce the production build under `.output/`. |
+| `npm run build:pages` | Build and generate the static GitHub Pages site under `.output/public/`. |
 
 Dev Container setup, lifecycle, and validation are documented in [.devcontainer/README.md](.devcontainer/README.md). Use the [architecture guide](docs/architecture.md) for the distinction between the application build and the Pages export.
 
 ## GitHub Pages deployment
 
-GitHub Pages serves the generated root files, including `index.html`, `assets/`, `_headers`, and the public metadata files. `CNAME` keeps the custom domain configured; run `npm run build:pages` when source or public assets change and review the generated root diff before publishing.
+The Pages workflow validates and uploads `.output/public/` as its deployment artifact, including `index.html`, route exports, assets, headers, and public metadata. It copies the tracked `CNAME` into that artifact before upload. Run `npm run build:pages` when source or public assets change; generated output stays in the gitignored `.output/` directory.
 
 ## Documentation ownership
 

@@ -19,7 +19,7 @@ Operational instructions remain with the subsystem that owns them:
 - [Route conventions](../src/routes/README.md)
 - [Repository entrypoint and common commands](../README.md)
 
-This repository has no checked-in `.github/workflows/` or `deployment/` directory. GitHub Pages publication consumes the generated repository-root files; the build and export ownership is described in [Application architecture](architecture.md).
+GitHub Actions builds and deploys GitHub Pages from `.output/public/`; the workflow and export ownership are described in [Application architecture](architecture.md) and [the workflow guide](../.github/workflows/README.md).
 
 ## Documentation ownership
 
