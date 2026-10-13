@@ -15,7 +15,7 @@ This repository contains the React/TanStack Start landing page published as `www
 
 ## Prerequisites
 
-Use Node.js `24.20.0` from [.nvmrc](.nvmrc). The Dev Container pins npm `11.19.1` through [.devcontainer/tool-versions.sh](.devcontainer/tool-versions.sh); for a clean local checkout, install dependencies with `npm ci` using a compatible npm release.
+Use Node.js `24.20.0` from [.nvmrc](.nvmrc). The Dev Container toolchain is described in [.devcontainer/README.md](.devcontainer/README.md); for a clean local checkout, install dependencies with `npm ci` using a compatible npm release.
 
 ## Common commands
 
@@ -29,9 +29,8 @@ Run these commands from the repository root unless a guide states otherwise.
 | `npx tsc --noEmit` | Run the TypeScript compiler without emitting files. |
 | `npm run build` | Produce the production `.output` build; its prebuild hook clears the tracked Pages-root export first. |
 | `npm run build:pages` | Build, server-render the home route, and refresh the tracked GitHub Pages root. |
-| `bash .devcontainer/scripts/validate.sh static` | Validate the Dev Container contract without starting a container. |
 
-The full container-backed validation command is documented in [.devcontainer/README.md](.devcontainer/README.md). Use the [architecture guide](docs/architecture.md) for the distinction between the application build and the Pages export.
+Dev Container setup, lifecycle, and validation are documented in [.devcontainer/README.md](.devcontainer/README.md). Use the [architecture guide](docs/architecture.md) for the distinction between the application build and the Pages export.
 
 ## GitHub Pages deployment
 
