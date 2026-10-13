@@ -1,4 +1,4 @@
-import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
@@ -30,23 +30,4 @@ for (const route of staticRoutes) {
     await writeFile(resolve(publicDirectory, routeName, 'index.html'), html)
 }
 
-for (const entry of [
-    'assets',
-    'favicon.png',
-    'favicon.svg',
-    'robots.txt',
-    '_headers',
-    'index.html',
-    ...staticRoutes.filter((route) => route !== '/').flatMap((route) => [`${route.slice(1)}.html`, route.slice(1)])
-]) {
-    await rm(resolve(repositoryRoot, entry), { force: true, recursive: true })
-}
-
-for (const entry of await readdir(publicDirectory)) {
-    await cp(resolve(publicDirectory, entry), resolve(repositoryRoot, entry), {
-        recursive: true,
-        force: true
-    })
-}
-
-console.log('Exported the SmartRural landing page to the GitHub Pages root.')
+console.log('Exported the SmartRural landing page to .output/public.')
