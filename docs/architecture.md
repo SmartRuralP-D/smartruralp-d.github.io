@@ -39,23 +39,23 @@ generated route tree (`src/routeTree.gen.ts`)
 | `src/hooks` | Small reusable browser hooks, currently including responsive viewport behavior. | [Hooks](../src/hooks) |
 | `src/lib` | Error handling, Lovable reporting, error-page rendering, and class-name utilities. | [Library helpers](../src/lib) |
 | `src/assets` | Reserved source-asset directory; landing-page media is served from `public/assets`. | [Source assets](../src/assets) |
-| `public` and root export | Browser-served static files and generated GitHub Pages output. | [Export script](../scripts/export-pages.mjs) |
+| `public` and Pages artifact | Browser-served static files and generated GitHub Pages output under `.output/public/`. | [Export script](../scripts/export-pages.mjs) |
 
 The home route is intentionally content-oriented rather than API-driven. `src/routes/index.tsx` owns route metadata and delegates page composition to `HomePage`. The privacy-policy route owns its document metadata and delegates its policy layout to `PrivacyPolicyPage`; its policy wording remains in the page component so it can be reviewed as one document. The landing sections own their markup and local behavior, while repeated content and media paths live in `src/content/landing.ts`. Local UI state controls the mobile menu, header scroll treatment, and testimonial carousel; this repository does not define authentication, backend requests, or persistent application state.
 
 ## Build and publication flow
 
-`vite.config.ts` delegates to `@lovable.dev/vite-tanstack-config` and points TanStack Start at `src/server.ts`. `npm run build` executes `scripts/clean-pages-root.mjs` first, then writes the production server and public output under `.output/`. `npm run build:pages` imports the built server, fetches the home route at `https://www.smartrural.com.br/`, exports the privacy-policy route both as `privacy-policy.html` and `/privacy-policy/index.html`, and copies the public output to the repository root. `CNAME` remains at the root for the custom domain; `_headers`, `robots.txt`, `favicon.png`, `favicon.svg`, and `assets/` are part of the generated publication surface.
+`vite.config.ts` delegates to `@lovable.dev/vite-tanstack-config` and points TanStack Start at `src/server.ts`. `npm run build` writes the production server and public output under `.output/`. `npm run build:pages` imports the built server, fetches each route at `https://www.smartrural.com.br/`, and writes the home and route HTML into `.output/public/`, including both `privacy-policy.html` and `/privacy-policy/index.html`. The Pages workflow copies the tracked `CNAME` into `.output/public/` and uploads that directory as its deployment artifact; `_headers`, `robots.txt`, favicons, and bundled assets are included from the public build output.
 
-The cleanup step is deliberate and destructive to the generated root export. Run `npm run build:pages` when the goal is a refreshed Pages tree; run the ordinary production build in an isolated checkout when validation must leave the tracked root unchanged, as the Dev Container runtime test does.
+The `.output/` directory is gitignored, so both ordinary build output and the Pages artifact stay out of the source diff. Run `npm run build:pages` and `npm run validate:pages` to refresh and check the deployable artifact.
 
 ## Validation boundaries
 
-`npm run lint` checks `src/` and `scripts/`; `npx tsc --noEmit` checks the TypeScript project; and the production build verifies Vite, TanStack Start, SSR, and Nitro integration. `npm run build:pages` additionally verifies the server-rendered static export and generated root files, including the legacy-compatible `privacy-policy.html` file and `/privacy-policy/` directory export. Dev Container contract and runtime checks live under `.devcontainer/tests`; there are no application test files or workflow test suites in this repository at present.
+`npm run lint` checks `src/` and `scripts/`; `npx tsc --noEmit` checks the TypeScript project; and the production build verifies Vite, TanStack Start, SSR, and Nitro integration. `npm run build:pages` generates the server-rendered static artifact, while `npm run validate:pages` checks its expected route files, including the legacy-compatible `privacy-policy.html` file and `/privacy-policy/` directory export. Dev Container contract and runtime checks live under `.devcontainer/tests`; there are no application test files or workflow test suites in this repository at present.
 
 ## Sources
 
 - [Vite/TanStack configuration](../vite.config.ts), [router factory](../src/router.tsx), and [generated route tree](../src/routeTree.gen.ts)
 - [Start middleware](../src/start.ts), [server entry](../src/server.ts), and [root route](../src/routes/__root.tsx)
-- [Home route](../src/routes/index.tsx), [production cleanup](../scripts/clean-pages-root.mjs), and [Pages export](../scripts/export-pages.mjs)
+- [Home route](../src/routes/index.tsx), [Pages export](../scripts/export-pages.mjs), and [Pages workflow](../.github/workflows/pages.yml)
 - [Dev Container validation](../.devcontainer/README.md)
