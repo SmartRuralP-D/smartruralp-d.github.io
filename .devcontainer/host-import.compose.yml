@@ -2,7 +2,7 @@
 # .env and platform-specific bind paths before this Linux helper starts.
 services:
     host-import:
-        image: ${SMART_RURAL_HOST_IMPORT_IMAGE:-ghcr.io/smartruralp-d/base-devcontainer:v1.7.4}
+        image: ${SMART_RURAL_HOST_IMPORT_IMAGE:-ghcr.io/smartruralp-d/base-devcontainer:v1.9.3}
         user: root
         network_mode: none
         read_only: true
@@ -65,6 +65,13 @@ services:
             - type: bind
               source: ${HOME:-${USERPROFILE:-}}/.codex
               target: /host/codex-link
+              read_only: true
+              bind: {create_host_path: true}
+            # Base metadata binds ~/.claude the same way for Claude Code's live
+            # credential link, so the same guarantee applies to it.
+            - type: bind
+              source: ${HOME:-${USERPROFILE:-}}/.claude
+              target: /host/claude-link
               read_only: true
               bind: {create_host_path: true}
             # Keep this a single optional socket.  /dev/null is a portable
