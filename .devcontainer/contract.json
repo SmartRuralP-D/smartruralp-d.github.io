@@ -1,5 +1,5 @@
 {
-  "contractVersion": "2026-10-09.1",
+  "contractVersion": "2026-10-29.1",
   "stagingContractVersion": "2026-10-09.1",
   "composeAsset": "host-import.compose.yml",
   "envExample": ".env.example",
