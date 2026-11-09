@@ -24,7 +24,7 @@ jobs:
     select-runner:
         name: Select runner
         if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
-        uses: SmartRuralP-D/workflows/.github/workflows/runner-selector.yml@v1.12.0
+        uses: SmartRuralP-D/workflows/.github/workflows/runner-selector.yml@v1.13.1
         with:
             availability-policy: prefer-self-hosted
             app-client-id: ${{ vars.RUNNER_SELECTOR_APP_CLIENT_ID }}
@@ -35,7 +35,7 @@ jobs:
     validate:
         name: Validate consumer overlay
         needs: select-runner
-        uses: SmartRuralP-D/workflows/.github/workflows/devcontainer-consumer.yml@v1.12.1
+        uses: SmartRuralP-D/workflows/.github/workflows/devcontainer-consumer.yml@v1.13.1
         with:
             runs-on: ${{ needs.select-runner.outputs.runs-on }}
             project-validation-command: bash .devcontainer/scripts/validate-project.sh
